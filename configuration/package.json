@@ -1,0 +1,13 @@
+{
+  "name": "configuration",
+  "module": "bun_run_default.ts",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^25.3.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "private": true,
+  "type": "module"
+}
