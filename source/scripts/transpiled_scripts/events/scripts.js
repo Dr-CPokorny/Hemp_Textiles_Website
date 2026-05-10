@@ -1,7 +1,7 @@
 import * as SM from "../style_manager.js";
 import * as SD from "../style_definitions.js";
-export let ROYAL_STYLE = new SM.Style(SD.STYLE_STARK_ROYAL);
+let HEAVENLY_EARTH = new SM.Style(SD.STYLE_HEAVENLY_EARTH);
 //
 document.addEventListener("DOMContentLoaded", () => {
-    ROYAL_STYLE.apply();
+    HEAVENLY_EARTH.apply();
 });
