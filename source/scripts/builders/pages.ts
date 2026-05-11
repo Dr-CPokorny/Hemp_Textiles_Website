@@ -7,37 +7,40 @@ import * as SD from "../style_definitions.js";
 let HEAVENLY_EARTH = new SM.Style(SD.STYLE_HEAVENLY_EARTH);
 const SS = HEAVENLY_EARTH.stripped_selectors;
 
-// PAGE TYPES
 // Types of HTML pages that can be built.  The more features you want to test, the more that must be added
 // to the testing type.  Also, all of these pages share the same head.  This is to ensure that only the head
 // builder needs to be manipulated when adding new stylesheets, links, or scripts.
-const PAGE_TYPE_BLANK:   string = "page_blank";
-const PAGE_TYPE_TESTING: string = "page_for_testing";
+const PAGES = {
+    HOME: "HOME",
+    LEARN: "LEARN",
+    RESULTS: "RESULTS",
+    ABOUT: "ABOUT",
+} as const;
 
-// PAGE BUILDERS FOR TESTING
+// PAGE BUILDERS
 // When this file is executed these builds will generate all the types of pages.
-// We do this so that regenerating pages during development/testing is simple.
-build_page("Page Blank",   PAGE_TYPE_BLANK);
-build_page("Page Testing", PAGE_TYPE_TESTING);
+// Doing this so that regenerating pages during development/testing is simple.
+build_page(PAGES.HOME, PAGES.HOME);
+build_page(PAGES.LEARN, PAGES.LEARN);
+build_page(PAGES.RESULTS, PAGES.RESULTS);
+build_page(PAGES.ABOUT, PAGES.ABOUT);
 
-// PAGE BUILDER
 // Builds an HTML file that will be thrown into the pages directory.
-export function build_page(title: string, page_type: string) {
+export function build_page(file_name: string, page_type: string) {
 
-    const name_of_file = title.toLowerCase().replace(/\s+/g, "_") + ".html";
+    const name_of_file = file_name.toUpperCase().replace(/\s+/g, "_") + ".html";
     const output_path  = PATH.resolve("../../pages", name_of_file);
-    const html_content = build_html(title, page_type);
+    const html_content = build_html(file_name, page_type);
 
     FS.writeFileSync(output_path, html_content, "utf-8");
 }
 
-// HTML BUILDER
 // Builds and returns HTML data containing a head and body defaulted with proper links and an h1 tag inside its
 // body that holds the passed title in its contents.
 function build_html(title: string, page_type: string): string {
 
     const head = build_head(title);
-    const body = body_director(title, page_type);
+    const body = body_director(page_type);
 
     return [
         ``,
@@ -55,7 +58,6 @@ function build_html(title: string, page_type: string): string {
     ].join("\n");
 }
 
-// HEAD BUILDER
 // Builds and returns a heading tag that will hold all the necessary linked files in it.
 function build_head(title: string): string {
 
@@ -83,20 +85,27 @@ function build_head(title: string): string {
     ].join("\n");
 }
 
-// BODY DIRECTOR
 // Determines which type of body needs to be built.
-function body_director(title: string, page_type: string): string {
+function body_director(page_type: string): string {
 
-    let the_full_body: string = "";
+    let the_body: string = "";
 
     switch (page_type) {
 
-        case PAGE_TYPE_BLANK:
-            the_full_body = build_body_blank();
+        case PAGES.HOME:
+            the_body = build_body_for_home();
             break;
 
-        case PAGE_TYPE_TESTING:
-            the_full_body = build_body_testing(title);
+        case PAGES.LEARN:
+            the_body = build_body_for_learn();
+            break;
+
+        case PAGES.RESULTS:
+            the_body = build_body_for_results();
+            break;
+
+        case PAGES.ABOUT:
+            the_body = build_body_for_about();
             break;
 
         default:
@@ -105,51 +114,130 @@ function body_director(title: string, page_type: string): string {
             break;
     }
 
-    return the_full_body;
+    return the_body;
 }
 
-// BODY BUILDER TYPE: BLANK
-// Builds an empty body tag.
-function build_body_blank(): string {
+
+function build_body_for_home(): string {
     return [
         `   <body class="${SS.form_static_column_center}">`,
+        ``,
+        `${build_navigation()}`,
+        ``,
+        `       <div class="">`,
+        `           <h2 class="${SS.heading_upper} ${SS.margin_bottom_5} ${SS.margin_top_4}">HOME PAGE CONTENTS</h2>`,
+        `           <p class="${SS.text_general} ${SS.margin_bottom_4}"><span class="${SS.icon_general}">inventory_2</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `           <p class="${SS.text_general} ${SS.margin_bottom_4}"><span class="${SS.icon_general}">search</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `           <p class="${SS.text_general} ${SS.margin_bottom_2}"><span class="${SS.icon_general}">nest_cam_wired_stand</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        ``,
+        `       <div class="">`,
+        `           <h2 class="${SS.heading_upper} ${SS.margin_bottom_5} ${SS.margin_top_4}">HOME PAGE CONTENTS</h2>`,
+        `           <p class="${SS.text_general} ${SS.margin_bottom_4}"><span class="${SS.icon_general}">inventory_2</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `           <p class="${SS.text_general} ${SS.margin_bottom_4}"><span class="${SS.icon_general}">search</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `           <p class="${SS.text_general} ${SS.margin_bottom_2}"><span class="${SS.icon_general}">nest_cam_wired_stand</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        ``,
+        `       <div class="">`,
+        `           <h2 class="${SS.heading_upper} ${SS.margin_bottom_5} ${SS.margin_top_4}">HOME PAGE CONTENTS</h2>`,
+        `           <p class="${SS.text_general} ${SS.margin_bottom_4}"><span class="${SS.icon_general}">inventory_2</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `           <p class="${SS.text_general} ${SS.margin_bottom_4}"><span class="${SS.icon_general}">search</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `           <p class="${SS.text_general} ${SS.margin_bottom_2}"><span class="${SS.icon_general}">nest_cam_wired_stand</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        ``,
+        `${build_footer()}`,
         ``,
         `   </body>`,
     ].join("\n");
 }
 
-// BODY BUILDER TYPE: TESTING
-// Builds a body tag with all types of content needed for testing.
-function build_body_testing(title: string): string {
+function build_body_for_learn(): string {
     return [
         `   <body class="${SS.form_static_column_center}">`,
         ``,
-        `       <!-- Title Test -->`,
-        `       <h1 class="${SS.heading_title} ${SS.margin_bottom_1}">${title}</h1>`,
+        `${build_navigation()}`,
         ``,
-        `       <!-- Block Test -->`,
-        `       <div class="">`,
-        `           <h2 class="${SS.heading_upper} ${SS.margin_bottom_5} ${SS.margin_top_4}"><i class="${SS.icon_general}">home</i>Block Test : Part 1</h2>`,
-        `           <p class="${SS.text_general} ${SS.margin_bottom_4}"><span class="${SS.icon_general}">inventory_2</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
-        `           <p class="${SS.text_general} ${SS.margin_bottom_4}"><span class="${SS.icon_general}">search</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
-        `           <p class="${SS.text_general} ${SS.margin_bottom_2}"><span class="${SS.icon_general}">nest_cam_wired_stand</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
         ``,
-        `           <div class="">`,
-        `               <h3 class="${SS.heading_middle} ${SS.margin_bottom_5} ${SS.margin_top_4}">Block Test : Part 2</h3>`,
-        `               <p class="${SS.text_general} ${SS.margin_bottom_4}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
-        `               <p class="${SS.text_general} ${SS.margin_bottom_4}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
-        `               <p class="${SS.text_general} ${SS.margin_bottom_2}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
         ``,
-        `               <div class="">`,
-        `                   <h4 class="${SS.heading_lower} ${SS.margin_bottom_5} ${SS.margin_top_4}">Block Test : Part 3</h4>`,
-        `                   <p class="${SS.text_general} ${SS.margin_bottom_4}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
-        `                   <p class="${SS.text_general} ${SS.margin_bottom_4}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
-        `                   <p class="${SS.text_general} ${SS.margin_bottom_2}">Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
-        `               </div>`,
-        `           </div>`,
-        `       </div>`,
+        `${build_footer()}`,
         ``,
         `   </body>`,
+    ].join("\n");
+}
+
+function build_body_for_results(): string {
+    return [
+        `   <body class="${SS.form_static_column_center}">`,
+        ``,
+        `${build_navigation()}`,
+        ``,
+        ``,
+        ``,
+        `${build_footer()}`,
+        ``,
+        `   </body>`,
+    ].join("\n");
+}
+
+
+function build_body_for_about(): string {
+    return [
+        `   <body class="${SS.form_static_column_center}">`,
+        ``,
+        `${build_navigation()}`,
+        ``,
+        ``,
+        ``,
+        `${build_footer()}`,
+        ``,
+        `   </body>`,
+    ].join("\n");
+}
+
+
+function build_navigation(): string {
+
+    return [
+        `       <!-- Navigation -->`,
+        `       <nav id="${SS.navigation_panel}">`,
+        ``,
+        `           <div id="${SS.navigation_title_panel}">`,
+        `               <img id="${SS.navigation_logo}" src="../../assets/images/logo_for_navigation.png" alt="logo">`,
+        `               <div>`,
+        `                   <p id="${SS.navigation_title}">HEMP & QUILTING</p>`,
+        `                   <p id="${SS.navigation_subtitle}">Community Project</p>`,
+        `               </div>`,
+        `           </div>`,
+
+        `           <div id="${SS.navigation_link_panel}">`,
+        `               <a class="${SS.navigation_link}" href=${PAGES.HOME}.html>${PAGES.HOME}</a>`,
+        `               <a class="${SS.navigation_link}" href=${PAGES.LEARN}.html>${PAGES.LEARN}</a>`,
+        `               <a class="${SS.navigation_link}" href=${PAGES.RESULTS}.html>${PAGES.RESULTS}</a>`,
+        `               <a class="${SS.navigation_link}" href=${PAGES.ABOUT}.html>${PAGES.ABOUT}</a>`,
+        `           </div>`,
+        ``,
+        `       </nav>`,
+    ].join("\n");
+}
+
+
+function build_footer(): string {
+
+    return [
+        `       <div id="${SS.footer_panel}">`,
+        ``,
+        `           <div id="${SS.footer_title_panel}">`,
+        `               <img id="${SS.footer_logo}" src="../../assets/images/logo_for_footer.png" alt="logo">`,
+        `               <span id="${SS.footer_title}">Together, we can weave a more sustainable future.</span>`,
+        `           </div>`,
+        ``,
+        `           <div id="${SS.footer_social_panel}">`,
+        `               <a class="${SS.footer_link}" href="">Sources</a>`,
+        `               <span class="${SS.footer_icon_panel}" href="">`,
+        `                    <a class="${SS.footer_social_icon}" href="">`,
+        `                       <i class="${SS.icon_general}">mail</i>`,
+        `                    </a>`,
+        `               </span>`,
+        `           </div>`,
+        ``,
+        `       </div>`,
     ].join("\n");
 }
 
