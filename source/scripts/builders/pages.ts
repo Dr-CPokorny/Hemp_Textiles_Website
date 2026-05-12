@@ -129,18 +129,21 @@ function build_body_for_home(): string {
         `           <p class="${SS.text_general} ${SS.margin_bottom_4}"><span class="${SS.icon_general}">inventory_2</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
         `           <p class="${SS.text_general} ${SS.margin_bottom_4}"><span class="${SS.icon_general}">search</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
         `           <p class="${SS.text_general} ${SS.margin_bottom_2}"><span class="${SS.icon_general}">nest_cam_wired_stand</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `       </div>`,
         ``,
         `       <div class="">`,
         `           <h2 class="${SS.heading_upper} ${SS.margin_bottom_5} ${SS.margin_top_4}">HOME PAGE CONTENTS</h2>`,
         `           <p class="${SS.text_general} ${SS.margin_bottom_4}"><span class="${SS.icon_general}">inventory_2</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
         `           <p class="${SS.text_general} ${SS.margin_bottom_4}"><span class="${SS.icon_general}">search</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
         `           <p class="${SS.text_general} ${SS.margin_bottom_2}"><span class="${SS.icon_general}">nest_cam_wired_stand</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `       </div>`,
         ``,
         `       <div class="">`,
         `           <h2 class="${SS.heading_upper} ${SS.margin_bottom_5} ${SS.margin_top_4}">HOME PAGE CONTENTS</h2>`,
         `           <p class="${SS.text_general} ${SS.margin_bottom_4}"><span class="${SS.icon_general}">inventory_2</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
         `           <p class="${SS.text_general} ${SS.margin_bottom_4}"><span class="${SS.icon_general}">search</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
         `           <p class="${SS.text_general} ${SS.margin_bottom_2}"><span class="${SS.icon_general}">nest_cam_wired_stand</span>Lorem ipsum dolor sit amet, eiusmod laborum consectetur et sed in ea duis laboris culpa do culpa dolor laborum exercitation aute et ipsum velit culpa aute sunt nisi eu eu dolore occaecat reprehenderit voluptate elit ut dolore nulla do adipiscing amet labore eu non reprehenderit dolor commodo qui amet mollit culpa nisi incididunt laboris aliqua</p>`,
+        `       </div>`,
         ``,
         `${build_footer()}`,
         ``,
@@ -183,7 +186,28 @@ function build_body_for_about(): string {
         ``,
         `${build_navigation()}`,
         ``,
+        `       <div id="${SS.about_description_outer_panel}">`,
         ``,
+        `           <p id="${SS.about_description_title}">About the Project</p>`,
+        `           <p id="${SS.about_description_subtitle}">Building a more sustainable future for quilting.</p>`,
+        ``,
+        `           <div id="${SS.about_description_inner_panel}">`,
+        `               <p id="${SS.about_description_inner_text}">Text</p>`,
+        `           </div>`,
+        ``,
+        `       </div>`,
+        ``,
+        `${build_person_for_about()}`,
+        ``,
+        `${build_person_for_about()}`,
+        ``,
+        `${build_person_for_about()}`,
+        ``,
+        `${build_person_for_about()}`,
+        ``,
+        `${build_person_for_about()}`,
+        ``,
+        `${build_person_for_about()}`,
         ``,
         `${build_footer()}`,
         ``,
@@ -193,7 +217,6 @@ function build_body_for_about(): string {
 
 
 function build_navigation(): string {
-
     return [
         `       <!-- Navigation -->`,
         `       <nav id="${SS.navigation_panel}">`,
@@ -219,7 +242,6 @@ function build_navigation(): string {
 
 
 function build_footer(): string {
-
     return [
         `       <div id="${SS.footer_panel}">`,
         ``,
@@ -235,6 +257,21 @@ function build_footer(): string {
         `                       <i class="${SS.icon_general}">mail</i>`,
         `                    </a>`,
         `               </span>`,
+        `           </div>`,
+        ``,
+        `       </div>`,
+    ].join("\n");
+}
+
+function build_person_for_about(): string {
+    return [
+        `       <div id="${SS.about_description_outer_panel}">`,
+        ``,
+        `           <p id="${SS.about_description_title}">About the Project</p>`,
+        `           <p id="${SS.about_description_subtitle}">Building a more sustainable future for quilting.</p>`,
+        ``,
+        `           <div id="${SS.about_description_inner_panel}">`,
+        `               <p id="${SS.about_description_inner_text}">Lorem ipsum dolor sit amet, sunt ut eu labore ad sunt proident nostrud nisi commodo id consectetur et quis sunt amet amet fugiat ea elit eiusmod deserunt esse cupidatat et elit nostrud duis adipiscing magna ullamco sit irure mollit sunt quis esse culpa qui sunt enim laborum aliquip nostrud lorem elit occaecat ullamco enim excepteur velit ipsum ad dolore nostrud est sed reprehenderit est laborum pariatur sunt cupidatat labore eu fugiat ad ex anim occaecat adipiscing excepteur nulla adipiscing ex cillum proident est pariatur eiusmod adipiscing in amet tempor laboris exercitation consequat voluptate tempor officia dolor aliqua commodo aliquip est magna enim irure magna sint</p>`,
         `           </div>`,
         ``,
         `       </div>`,
