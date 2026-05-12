@@ -1117,6 +1117,68 @@ export const STYLE_HEAVENLY_EARTH = {
         },
     },
 
+    oHOME: {
+
+    },
+
+    oLEARN: {
+
+    },
+
+    o
+
+    oABOUT: {
+
+        oDESCRIPTION: {
+
+            iOUTER_PANEL: {
+
+            },
+
+            iTITLE: {
+
+            },
+
+            iSUBTITLE: {
+
+            },
+
+            oINNER: {
+
+                iPANEL: {
+
+                },
+
+                iTEXT: {
+
+                }
+            }
+        },
+
+        iPEOPLE_TITLE: {
+
+        },
+
+        oPERSON: {
+
+            cIMAGE: {
+
+            },
+
+            cNAME: {
+
+            },
+
+            cTITLE: {
+
+            },
+
+            cDESCRIPTION: {
+
+            }
+        },
+    },
+
     oFOOTER: {
 
         iPANEL: {
