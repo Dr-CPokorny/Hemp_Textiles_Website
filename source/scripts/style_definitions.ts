@@ -9,9 +9,13 @@
 // The lower the number, the more it's used.  The higher the number, the less it's used.
 const PALETTE = {
     1: "#FAF7F2",
+    1.5: "#FCF7F2",
     2: "#F1EBE1",
     3: "#426135",
     4: "#2C4422",
+    5: "#E9E7DC",
+    6: "#EFECE8",
+    7: "#79B200",
 } as const;
 
 // Used to create new mins and maxes for sizing properties when the viewport size changes.
@@ -1051,7 +1055,7 @@ export const STYLE_HEAVENLY_EARTH = {
         fontSize: SIZES.horizontal_70,
         lineHeight: "1",
         color: "#fff7cc",
-        backgroundColor: "#000000",
+        backgroundColor: PALETTE[1.5],
         fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM, sans-serif",
         minHeight: "100vh",
     },
@@ -1067,6 +1071,9 @@ export const STYLE_HEAVENLY_EARTH = {
             alignItems: "center",
             justifyContent: "space-between",
             backgroundColor: PALETTE[1],
+            borderBottomStyle: "solid",
+            borderBottomColor: PALETTE[6],
+            borderBottomWidth: SIZES.horizontal_25,
             padding: SIZES.horizontal_50,
             zIndex: "1000",
         },
@@ -1134,50 +1141,126 @@ export const STYLE_HEAVENLY_EARTH = {
         oDESCRIPTION: {
 
             iOUTER_PANEL: {
-
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                padding: SIZES.horizontal_64,
             },
 
             iTITLE: {
-
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_CINZEL_BOLD",
+                fontSize: SIZES.horizontal_78,
+                textAlign: "center",
+                marginBottom: SIZES.horizontal_46,
             },
 
             iSUBTITLE: {
-
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                fontSize: SIZES.horizontal_62,
+                textAlign: "center",
+                marginBottom: SIZES.horizontal_60,
             },
 
             oINNER: {
 
                 iPANEL: {
-
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    backgroundColor: PALETTE[5],
+                    borderRadius: SIZES.horizontal_40,
+                    paddingTop: SIZES.horizontal_64,
+                    paddingLeft: SIZES.horizontal_64,
+                    paddingRight: SIZES.horizontal_64,
+                    marginBottom: SIZES.horizontal_80,
+                    marginLeft: SIZES.horizontal_50,
+                    marginRight: SIZES.horizontal_50,
                 },
 
-                iTEXT: {
+                cTITLE: {
+                    color: PALETTE[4],
+                    fontFamily: "FONT_TEXT_CINZEL_REGULAR",
+                    fontSize: SIZES.horizontal_63,
+                    textAlign: "center",
+                    borderBottomStyle: "solid",
+                    borderBottomColor: PALETTE[7],
+                    borderBottomWidth: SIZES.horizontal_25,
+                    paddingBottom: SIZES.horizontal_45,
+                    marginBottom: SIZES.horizontal_50,
+                },
 
-                }
-            }
+                cTEXT: {
+                    color: PALETTE[4],
+                    fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                    fontSize: SIZES.horizontal_60,
+                    lineHeight: "2",
+                    textAlign: "center",
+                    marginBottom: SIZES.horizontal_70,
+                },
+            },
         },
 
         iPEOPLE_TITLE: {
-
+            color: PALETTE[4],
+            fontFamily: "FONT_TEXT_CINZEL_BOLD",
+            fontSize: SIZES.horizontal_74,
+            textAlign: "center",
+            borderBottomStyle: "solid",
+            borderBottomColor: PALETTE[7],
+            borderBottomWidth: SIZES.horizontal_25,
+            paddingBottom: SIZES.horizontal_45,
+            marginTop: SIZES.horizontal_68,
+            marginBottom: SIZES.horizontal_50,
         },
 
         oPERSON: {
 
-            cIMAGE: {
+            cPANEL: {
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                backgroundColor: PALETTE[1.5],
+                borderStyle: "solid",
+                borderColor: PALETTE[6],
+                borderWidth: SIZES.horizontal_25,
+                borderRadius: SIZES.horizontal_36,
+                padding: SIZES.horizontal_76,
+                marginBottom: SIZES.horizontal_80,
+                marginLeft: SIZES.horizontal_88,
+                marginRight: SIZES.horizontal_88,
+            },
 
+            cIMAGE: {
+                borderRadius: SIZES.horizontal_40,
+                backgroundColor: PALETTE[3],
+                marginBottom: SIZES.horizontal_52,
+                width: SIZES.horizontal_96,
+                height: SIZES.horizontal_96,
             },
 
             cNAME: {
-
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_CINZEL_BOLD",
+                fontSize: SIZES.horizontal_65,
+                textAlign: "center",
+                marginBottom: SIZES.horizontal_36,
             },
 
             cTITLE: {
-
+                color: PALETTE[3],
+                fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                fontSize: SIZES.horizontal_60,
+                textAlign: "center",
+                marginBottom: SIZES.horizontal_52,
             },
 
             cDESCRIPTION: {
-
-            }
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                fontSize: SIZES.horizontal_60,
+            },
         },
     },
 
