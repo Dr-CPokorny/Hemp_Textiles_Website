@@ -29,7 +29,7 @@ build_page(PAGES.ABOUT, PAGES.ABOUT);
 export function build_page(file_name: string, page_type: string) {
 
     const name_of_file = file_name.toUpperCase().replace(/\s+/g, "_") + ".html";
-    const output_path  = PATH.resolve("../../pages", name_of_file);
+    const output_path  = PATH.resolve("../../../docs", name_of_file);
     const html_content = build_html(file_name, page_type);
 
     FS.writeFileSync(output_path, html_content, "utf-8");
@@ -63,12 +63,12 @@ function build_head(title: string): string {
 
     const stylesheet_links = [
         `       <!-- Stylesheet Links -->`,
-        `       <link rel="stylesheet" href="../stylesheets/fonts.css">`,
+        `       <link rel="stylesheet" href="../source/stylesheets/fonts.css">`,
     ].join("\n");
 
     const scripted_event_links = [
         `       <!-- Scripted Event Links -->`,
-        `       <script type="module" src="../scripts/transpiled_scripts/events/scripts.js"></script>`,
+        `       <script type="module" src="../source/scripts/transpiled_scripts/events/scripts.js"></script>`,
     ].join("\n");
 
     return [
