@@ -60,7 +60,7 @@
     "inlineSources": false,
 
     // Specifies where the transpiled files go to.
-    "outDir": "../source/scripts/transpiled_scripts",
+    "outDir": "../docs/source/scripts/transpiled_scripts"
 
     // Straight up, this is a weird one to understand as its name is not descriptive of its function.
     // rootDir does NOT mean the rootDir of the project.  What it actually means is the directory of how far back
@@ -75,5 +75,9 @@
 
   // Tells TypeScript which files to transpile into JavaScript.
   // * for files.  ** for directories and files.
-  "include": ["../source/scripts/*", "../source/scripts/events/*", "../source/scripts/styling/*", "../source/scripts/builders/*"],
+  "include": ["../docs/source/scripts/*",
+    "../docs/source/scripts/events/*",
+    "../docs/source/scripts/styling/*",
+    "../docs/source/scripts/builders/*"
+  ]
 }

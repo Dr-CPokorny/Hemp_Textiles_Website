@@ -29,7 +29,7 @@ build_page(PAGES.ABOUT, PAGES.ABOUT);
 export function build_page(file_name: string, page_type: string) {
 
     const name_of_file = file_name.toUpperCase().replace(/\s+/g, "_") + ".html";
-    const output_path  = PATH.resolve("../../../docs", name_of_file);
+    const output_path  = PATH.resolve("../../../", name_of_file);
     const html_content = build_html(file_name, page_type);
 
     FS.writeFileSync(output_path, html_content, "utf-8");
@@ -63,12 +63,12 @@ function build_head(title: string): string {
 
     const stylesheet_links = [
         `       <!-- Stylesheet Links -->`,
-        `       <link rel="stylesheet" href="../source/stylesheets/fonts.css">`,
+        `       <link rel="stylesheet" href="source/stylesheets/fonts.css">`,
     ].join("\n");
 
     const scripted_event_links = [
         `       <!-- Scripted Event Links -->`,
-        `       <script type="module" src="../source/scripts/transpiled_scripts/events/scripts.js"></script>`,
+        `       <script type="module" src="source/scripts/transpiled_scripts/events/scripts.js"></script>`,
     ].join("\n");
 
     return [
@@ -205,17 +205,17 @@ function build_body_for_about(): string {
         ``,
         `       </div>`,
         ``,
-        `${build_person_for_about("../../assets/images/person_pokorny.png", "Dr. Pokorny", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
+        `${build_person_for_about("assets/images/person_pokorny.png", "Dr. Pokorny", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
         ``,
-        `${build_person_for_about("../../assets/images/person_aurora.png", "Aurora O'Neill", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
+        `${build_person_for_about("assets/images/person_aurora.png", "Aurora O'Neill", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
         ``,
-        `${build_person_for_about("../../assets/images/person_james.png", "James Bryant", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
+        `${build_person_for_about("assets/images/images/person_james.png", "James Bryant", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
         ``,
-        `${build_person_for_about("../../assets/images/person_kira.png", "Kira Ash Stephenson", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
+        `${build_person_for_about("assets/images/images/person_kira.png", "Kira Ash Stephenson", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
         ``,
-        `${build_person_for_about("../../assets/images/person_rudy.png", "Rudy David Torrijos IV", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
+        `${build_person_for_about("assets/images/images/person_rudy.png", "Rudy David Torrijos IV", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
         ``,
-        `${build_person_for_about("../../assets/images/person_vance.png", "Vance Hernandez", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
+        `${build_person_for_about("assets/images/images/person_vance.png", "Vance Hernandez", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
         ``,
         `${build_footer()}`,
         ``,
@@ -230,7 +230,7 @@ function build_navigation(): string {
         `       <nav id="${SS.navigation_panel}">`,
         ``,
         `           <div id="${SS.navigation_title_panel}">`,
-        `               <img id="${SS.navigation_logo}" src="../../assets/images/logo_for_navigation.png" alt="logo">`,
+        `               <img id="${SS.navigation_logo}" src="assets/images/logo_for_navigation.png" alt="logo">`,
         `               <div>`,
         `                   <p id="${SS.navigation_title}">HEMP & QUILTING</p>`,
         `                   <p id="${SS.navigation_subtitle}">Community Project</p>`,
@@ -254,7 +254,7 @@ function build_footer(): string {
         `       <div id="${SS.footer_panel}">`,
         ``,
         `           <div id="${SS.footer_title_panel}">`,
-        `               <img id="${SS.footer_logo}" src="../../assets/images/logo_for_footer.png" alt="logo">`,
+        `               <img id="${SS.footer_logo}" src="assets/images/logo_for_footer.png" alt="logo">`,
         `               <span id="${SS.footer_title}">Together, we can weave a more sustainable future.</span>`,
         `           </div>`,
         ``,
