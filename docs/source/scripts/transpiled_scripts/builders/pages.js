@@ -23,7 +23,7 @@ build_page(PAGES.ABOUT, PAGES.ABOUT);
 // Builds an HTML file that will be thrown into the pages directory.
 export function build_page(file_name, page_type) {
     const name_of_file = file_name.toUpperCase().replace(/\s+/g, "_") + ".html";
-    const output_path = PATH.resolve("../../pages", name_of_file);
+    const output_path = PATH.resolve("../../../", name_of_file);
     const html_content = build_html(file_name, page_type);
     FS.writeFileSync(output_path, html_content, "utf-8");
 }
@@ -51,11 +51,11 @@ function build_html(title, page_type) {
 function build_head(title) {
     const stylesheet_links = [
         `       <!-- Stylesheet Links -->`,
-        `       <link rel="stylesheet" href="../stylesheets/fonts.css">`,
+        `       <link rel="stylesheet" href="source/stylesheets/fonts.css">`,
     ].join("\n");
     const scripted_event_links = [
         `       <!-- Scripted Event Links -->`,
-        `       <script type="module" src="../scripts/transpiled_scripts/events/scripts.js"></script>`,
+        `       <script type="module" src="source/scripts/transpiled_scripts/events/scripts.js"></script>`,
     ].join("\n");
     return [
         `   <head>`,
@@ -176,17 +176,17 @@ function build_body_for_about() {
         ``,
         `       </div>`,
         ``,
-        `${build_person_for_about("../../assets/images/person_pokorny.png", "Dr. Pokorny", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
+        `${build_person_for_about("assets/images/person_pokorny.svg", "Dr. Colleen Gelhaus Pokorny", "Project Lead", "Dr. Pokorny is an Assistant Professor of Apparel Design at Oregon State University and a lifelong quilter. She is a member of the Textile & Apparel Innovation Research Consortia with the Global Hemp Innovation Center. Her creative scholarship uses quiltmaking to explore material‑driven sustainability and how hands‑on engagement with hemp textiles can shift design practices and perceptions. Dr. Pokorny’s work has received international recognition, including the Sandra Hutton Award for Excellence in Fiber Arts at the 2025 ITAA Design Exhibition. Her work has been shown at the National Quilt Museum, QuiltCon, and the American Quilt Study Group’s traveling exhibition, Quiltmakers and Designers: 1945–1979.")}`,
         ``,
-        `${build_person_for_about("../../assets/images/person_aurora.png", "Aurora O'Neill", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
+        `${build_person_for_about("assets/images/person_aurora.png", "Aurora O'Neill", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
         ``,
-        `${build_person_for_about("../../assets/images/person_james.png", "James Bryant", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
+        `${build_person_for_about("assets/images/images/person_james.png", "James Bryant", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
         ``,
-        `${build_person_for_about("../../assets/images/person_kira.png", "Kira Ash Stephenson", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
+        `${build_person_for_about("assets/images/images/person_kira.png", "Kira Ash Stephenson", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
         ``,
-        `${build_person_for_about("../../assets/images/person_rudy.png", "Rudy David Torrijos IV", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
+        `${build_person_for_about("assets/images/images/person_rudy.png", "Rudy David Torrijos IV", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
         ``,
-        `${build_person_for_about("../../assets/images/person_vance.png", "Vance Hernandez", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
+        `${build_person_for_about("assets/images/images/person_vance.png", "Vance Hernandez", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
         ``,
         `${build_footer()}`,
         ``,
@@ -199,7 +199,7 @@ function build_navigation() {
         `       <nav id="${SS.navigation_panel}">`,
         ``,
         `           <div id="${SS.navigation_title_panel}">`,
-        `               <img id="${SS.navigation_logo}" src="../../assets/images/logo_for_navigation.png" alt="logo">`,
+        `               <img id="${SS.navigation_logo}" src="assets/images/logo_for_navigation.png" alt="logo">`,
         `               <div>`,
         `                   <p id="${SS.navigation_title}">HEMP & QUILTING</p>`,
         `                   <p id="${SS.navigation_subtitle}">Community Project</p>`,
@@ -220,7 +220,7 @@ function build_footer() {
         `       <div id="${SS.footer_panel}">`,
         ``,
         `           <div id="${SS.footer_title_panel}">`,
-        `               <img id="${SS.footer_logo}" src="../../assets/images/logo_for_footer.png" alt="logo">`,
+        `               <img id="${SS.footer_logo}" src="assets/images/logo_for_footer.png" alt="logo">`,
         `               <span id="${SS.footer_title}">Together, we can weave a more sustainable future.</span>`,
         `           </div>`,
         ``,

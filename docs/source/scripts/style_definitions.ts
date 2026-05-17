@@ -799,8 +799,6 @@ export const STYLE_HEAVENLY_EARTH = {
                 borderRadius: SIZES.horizontal_40,
                 backgroundColor: PALETTE[3],
                 marginBottom: SIZES.horizontal_52,
-                width: SIZES.horizontal_96,
-                height: SIZES.horizontal_96,
             },
 
             cNAME: {
@@ -821,6 +819,7 @@ export const STYLE_HEAVENLY_EARTH = {
 
             cDESCRIPTION: {
                 color: PALETTE[4],
+                lineHeight: "1.5",
                 fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
                 fontSize: SIZES.horizontal_60,
             },
