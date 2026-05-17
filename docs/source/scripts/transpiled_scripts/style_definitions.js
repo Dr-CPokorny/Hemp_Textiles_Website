@@ -482,13 +482,9 @@ export const STYLE_HEAVENLY_EARTH = {
         boxSizing: "border-box",
     },
     tBODY: {
-        textAlign: "justify",
+        textAlign: "left",
         overflowWrap: "break-word",
         textWrap: "pretty",
-        hyphens: "auto",
-        fontKerning: "normal",
-        wordSpacing: "-0.05em",
-        letterSpacing: "-0.01em",
         fontStyle: "normal",
         fontSize: SIZES.horizontal_70,
         lineHeight: "1",
@@ -595,7 +591,7 @@ export const STYLE_HEAVENLY_EARTH = {
                 cTITLE: {
                     color: PALETTE[4],
                     fontFamily: "FONT_TEXT_CINZEL_REGULAR",
-                    fontSize: SIZES.horizontal_63,
+                    fontSize: SIZES.horizontal_70,
                     textAlign: "center",
                     borderBottomStyle: "solid",
                     borderBottomColor: PALETTE[7],
@@ -606,7 +602,7 @@ export const STYLE_HEAVENLY_EARTH = {
                 cTEXT: {
                     color: PALETTE[4],
                     fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
-                    fontSize: SIZES.horizontal_60,
+                    fontSize: SIZES.horizontal_62,
                     lineHeight: "2",
                     textAlign: "center",
                     marginBottom: SIZES.horizontal_70,
@@ -643,7 +639,9 @@ export const STYLE_HEAVENLY_EARTH = {
             cIMAGE: {
                 borderRadius: SIZES.horizontal_40,
                 backgroundColor: PALETTE[3],
-                marginBottom: SIZES.horizontal_52,
+                marginBottom: SIZES.horizontal_60,
+                width: "90%",
+                height: "60%",
             },
             cNAME: {
                 color: PALETTE[4],
