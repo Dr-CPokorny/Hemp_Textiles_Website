@@ -709,7 +709,7 @@ export const STYLE_HEAVENLY_EARTH = {
             iTITLE: {
                 color: PALETTE[4],
                 fontFamily: "FONT_TEXT_CINZEL_BOLD",
-                fontSize: SIZES.horizontal_78,
+                fontSize: SIZES.horizontal_82,
                 textAlign: "center",
                 marginBottom: SIZES.horizontal_46,
             },
@@ -717,7 +717,7 @@ export const STYLE_HEAVENLY_EARTH = {
             iSUBTITLE: {
                 color: PALETTE[4],
                 fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
-                fontSize: SIZES.horizontal_62,
+                fontSize: SIZES.horizontal_70,
                 textAlign: "center",
                 marginBottom: SIZES.horizontal_60,
             },
@@ -741,7 +741,7 @@ export const STYLE_HEAVENLY_EARTH = {
                 cTITLE: {
                     color: PALETTE[4],
                     fontFamily: "FONT_TEXT_CINZEL_REGULAR",
-                    fontSize: SIZES.horizontal_70,
+                    fontSize: SIZES.horizontal_65,
                     textAlign: "center",
                     borderBottomStyle: "solid",
                     borderBottomColor: PALETTE[7],
@@ -753,7 +753,7 @@ export const STYLE_HEAVENLY_EARTH = {
                 cTEXT: {
                     color: PALETTE[4],
                     fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
-                    fontSize: SIZES.horizontal_62,
+                    fontSize: SIZES.horizontal_60,
                     lineHeight: "2",
                     textAlign: "center",
                     marginBottom: SIZES.horizontal_70,
@@ -764,7 +764,7 @@ export const STYLE_HEAVENLY_EARTH = {
         iPEOPLE_TITLE: {
             color: PALETTE[4],
             fontFamily: "FONT_TEXT_CINZEL_BOLD",
-            fontSize: SIZES.horizontal_74,
+            fontSize: SIZES.horizontal_82,
             textAlign: "center",
             borderBottomStyle: "solid",
             borderBottomColor: PALETTE[7],
@@ -802,7 +802,7 @@ export const STYLE_HEAVENLY_EARTH = {
             cNAME: {
                 color: PALETTE[4],
                 fontFamily: "FONT_TEXT_CINZEL_BOLD",
-                fontSize: SIZES.horizontal_65,
+                fontSize: SIZES.horizontal_70,
                 textAlign: "center",
                 marginBottom: SIZES.horizontal_36,
             },
@@ -810,7 +810,7 @@ export const STYLE_HEAVENLY_EARTH = {
             cTITLE: {
                 color: PALETTE[3],
                 fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
-                fontSize: SIZES.horizontal_60,
+                fontSize: SIZES.horizontal_65,
                 textAlign: "center",
                 marginBottom: SIZES.horizontal_52,
             },
