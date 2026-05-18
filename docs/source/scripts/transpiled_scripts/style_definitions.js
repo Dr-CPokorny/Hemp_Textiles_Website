@@ -660,6 +660,7 @@ export const STYLE_HEAVENLY_EARTH = {
             cDESCRIPTION: {
                 color: PALETTE[4],
                 lineHeight: "1.5",
+                textAlign: "center",
                 fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
                 fontSize: SIZES.horizontal_60,
             },
