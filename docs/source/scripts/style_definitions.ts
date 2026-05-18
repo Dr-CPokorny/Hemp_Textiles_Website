@@ -709,7 +709,7 @@ export const STYLE_HEAVENLY_EARTH = {
             iTITLE: {
                 color: PALETTE[4],
                 fontFamily: "FONT_TEXT_CINZEL_BOLD",
-                fontSize: SIZES.horizontal_76,
+                fontSize: SIZES.horizontal_74,
                 textAlign: "center",
                 marginBottom: SIZES.horizontal_46,
             },
@@ -717,7 +717,7 @@ export const STYLE_HEAVENLY_EARTH = {
             iSUBTITLE: {
                 color: PALETTE[4],
                 fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
-                fontSize: SIZES.horizontal_68,
+                fontSize: SIZES.horizontal_60,
                 textAlign: "center",
                 marginBottom: SIZES.horizontal_60,
             },
@@ -741,7 +741,7 @@ export const STYLE_HEAVENLY_EARTH = {
                 cTITLE: {
                     color: PALETTE[4],
                     fontFamily: "FONT_TEXT_CINZEL_REGULAR",
-                    fontSize: SIZES.horizontal_68,
+                    fontSize: SIZES.horizontal_66,
                     textAlign: "center",
                     borderBottomStyle: "solid",
                     borderBottomColor: PALETTE[7],
@@ -764,14 +764,14 @@ export const STYLE_HEAVENLY_EARTH = {
         iPEOPLE_TITLE: {
             color: PALETTE[4],
             fontFamily: "FONT_TEXT_CINZEL_BOLD",
-            fontSize: SIZES.horizontal_76,
+            fontSize: SIZES.horizontal_74,
             textAlign: "center",
             borderBottomStyle: "solid",
             borderBottomColor: PALETTE[7],
             borderBottomWidth: SIZES.horizontal_25,
             paddingBottom: SIZES.horizontal_35,
             marginTop: SIZES.horizontal_68,
-            marginBottom: SIZES.horizontal_50,
+            marginBottom: SIZES.horizontal_30,
         },
 
         oPERSON: {
@@ -785,18 +785,18 @@ export const STYLE_HEAVENLY_EARTH = {
                 borderColor: PALETTE[6],
                 borderWidth: SIZES.horizontal_25,
                 borderRadius: SIZES.horizontal_36,
-                padding: SIZES.horizontal_76,
-                marginBottom: SIZES.horizontal_80,
-                marginLeft: SIZES.horizontal_80,
-                marginRight: SIZES.horizontal_80,
+                padding: SIZES.horizontal_64,
+                marginBottom: SIZES.horizontal_70,
+                marginLeft: SIZES.horizontal_70,
+                marginRight: SIZES.horizontal_70,
             },
 
             cIMAGE: {
                 borderRadius: SIZES.horizontal_40,
                 backgroundColor: PALETTE[3],
                 marginBottom: SIZES.horizontal_60,
-                width: "70%",
-                height: "60%",
+                width: "100%",
+                height: "auto",
             },
 
             cNAME: {
