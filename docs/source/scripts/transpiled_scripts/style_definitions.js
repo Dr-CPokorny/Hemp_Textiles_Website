@@ -643,8 +643,8 @@ export const STYLE_HEAVENLY_EARTH = {
                 borderRadius: SIZES.horizontal_40,
                 backgroundColor: PALETTE[3],
                 marginBottom: SIZES.horizontal_60,
-                width: "100%",
-                height: "auto",
+                width: "50%",
+                height: "50%",
             },
             cNAME: {
                 color: PALETTE[4],
@@ -667,6 +667,19 @@ export const STYLE_HEAVENLY_EARTH = {
                 fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
                 fontSize: SIZES.horizontal_60,
             },
+            cLINK: {
+                color: PALETTE[1],
+                backgroundColor: PALETTE[4],
+                borderRadius: SIZES.horizontal_40,
+                fontFamily: "FONT_TEXT_SPECTRAL_BOLD",
+                fontSize: SIZES.horizontal_56,
+                textAlign: "center",
+                padding: SIZES.horizontal_50,
+                textDecoration: "none",
+                marginTop: SIZES.horizontal_50,
+                marginLeft: SIZES.horizontal_30,
+                marginRight: SIZES.horizontal_30,
+            }
         },
     },
     oFOOTER: {

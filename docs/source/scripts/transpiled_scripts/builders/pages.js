@@ -10,7 +10,7 @@ const SS = HEAVENLY_EARTH.stripped_selectors;
 const PAGES = {
     HOME: "HOME",
     LEARN: "LEARN",
-    RESULTS: "RESULTS",
+    SOURCES: "SOURCES",
     ABOUT: "ABOUT",
 };
 // PAGE BUILDERS
@@ -18,7 +18,7 @@ const PAGES = {
 // Doing this so that regenerating pages during development/testing is simple.
 build_page(PAGES.HOME, PAGES.HOME);
 build_page(PAGES.LEARN, PAGES.LEARN);
-build_page(PAGES.RESULTS, PAGES.RESULTS);
+build_page(PAGES.SOURCES, PAGES.SOURCES);
 build_page(PAGES.ABOUT, PAGES.ABOUT);
 // Builds an HTML file that will be thrown into the pages directory.
 export function build_page(file_name, page_type) {
@@ -71,7 +71,7 @@ function build_head(title) {
         `   </head>`,
     ].join("\n");
 }
-// Determines which type of body needs to be built.
+// Determines which type of body gets built.
 function body_director(page_type) {
     let the_body = "";
     switch (page_type) {
@@ -81,8 +81,8 @@ function body_director(page_type) {
         case PAGES.LEARN:
             the_body = build_body_for_learn();
             break;
-        case PAGES.RESULTS:
-            the_body = build_body_for_results();
+        case PAGES.SOURCES:
+            the_body = build_body_for_sources();
             break;
         case PAGES.ABOUT:
             the_body = build_body_for_about();
@@ -94,6 +94,7 @@ function body_director(page_type) {
     }
     return the_body;
 }
+// Builds the body for the HOME page.
 function build_body_for_home() {
     return [
         `   <body class="${SS.form_static_column_center}">`,
@@ -126,6 +127,7 @@ function build_body_for_home() {
         `   </body>`,
     ].join("\n");
 }
+// Builds the body for the LEARN page.
 function build_body_for_learn() {
     return [
         `   <body class="${SS.form_static_column_center}">`,
@@ -139,7 +141,8 @@ function build_body_for_learn() {
         `   </body>`,
     ].join("\n");
 }
-function build_body_for_results() {
+// Builds the body for the SOURCES page.
+function build_body_for_sources() {
     return [
         `   <body class="${SS.form_static_column_center}">`,
         ``,
@@ -152,6 +155,7 @@ function build_body_for_results() {
         `   </body>`,
     ].join("\n");
 }
+// Builds the body for the ABOUT page.
 function build_body_for_about() {
     return [
         `   <body class="${SS.form_static_column_center}">`,
@@ -177,17 +181,17 @@ function build_body_for_about() {
         ``,
         `       </div>`,
         ``,
-        `${build_person_for_about("assets/images/person_pokorny.svg", "Dr. Colleen Gelhaus Pokorny", "Project Lead", "Dr. Pokorny is an Assistant Professor of Apparel Design at Oregon State University and a lifelong quilter. She is a member of the Textile & Apparel Innovation Research Consortia with the Global Hemp Innovation Center. Her creative scholarship uses quiltmaking to explore material‑driven sustainability and how hands‑on engagement with hemp textiles can shift design practices and perceptions. Dr. Pokorny’s work has received international recognition, including the Sandra Hutton Award for Excellence in Fiber Arts at the 2025 ITAA Design Exhibition. Her work has been shown at the National Quilt Museum, QuiltCon, and the American Quilt Study Group’s traveling exhibition, Quiltmakers and Designers: 1945–1979.")}`,
+        `${build_person_for_about("assets/images/person_pokorny.svg", "Dr. Colleen Gelhaus Pokorny", "Project Lead", "Dr. Pokorny is an Assistant Professor of Apparel Design at Oregon State University and a lifelong quilter. She is a member of the Textile & Apparel Innovation Research Consortia with the Global Hemp Innovation Center. Her creative scholarship uses quiltmaking to explore material‑driven sustainability and how hands‑on engagement with hemp textiles can shift design practices and perceptions. Dr. Pokorny’s work has received international recognition, including the Sandra Hutton Award for Excellence in Fiber Arts at the 2025 ITAA Design Exhibition. Her work has been shown at the National Quilt Museum, QuiltCon, and the American Quilt Study Group’s traveling exhibition, Quiltmakers and Designers: 1945–1979.", "mailto:colleen.pokorny@oregonstate.edu", "EMAIL", "https://business.oregonstate.edu/faculty-and-research/faculty-directory/colleen-gelhaus-pokorny", "BUSINESS BIOGRAPHY", "https://www.linkedin.com/in/colleenpokorny/", "LINKEDIN")}`,
         ``,
         `${build_person_for_about("assets/images/person_aurora.png", "Aurora O'Neill", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
         ``,
         `${build_person_for_about("assets/images/person_james.png", "James Bryant", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
         ``,
-        `${build_person_for_about("assets/images/person_kira.svg", "Kira Ash Stephenson", "Website Developer", "Once a student of Polk State College (FL), St. Petersburg College (FL), and Lane Community College (OR) in an endeavor to learn more about programming in order to fulfill his dreams of developing video games.  Now, Kira is a student at Oregon State University where they are learning more about software engineering.  He is the engineer/developer of this site - it's really weird to talk in third person for this - and the tools used to construct the pages before you were TypeScript, GitHub Pages, WebStorm, and a custom tool that Kira made for ease of styling.")}`,
+        `${build_person_for_about("assets/images/person_kira.svg", "Kira Ash Stephenson", "Website Developer", "Once a student of Polk State College (FL), St. Petersburg College (FL), and Lane Community College (OR) in an endeavor to learn more about programming in order to fulfill his dreams of developing video games.  Now, Kira is a student at Oregon State University where they are learning more about software engineering; on the side they are developing larger projects inside a Business GitHub account called \"Mirth Development\".  He is the engineer/developer of this site - it's really weird to talk in third person for this - and the tools used to construct the pages before you were TypeScript, GitHub Pages, WebStorm, and a custom tool that Kira made for ease of styling.", "https://github.com/Tenlion?tab=repositories", "GITHUB", "https://github.com/orgs/Mirth-Development/repositories", "MIRTH DEVELOPMENT", "https://www.linkedin.com/in/kira-stephenson-9210b820b", "LINKEDIN")}`,
         ``,
         `${build_person_for_about("assets/images/person_rudy.png", "Rudy David Torrijos IV", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
         ``,
-        `${build_person_for_about("assets/images/person_vance.png", "Vance Hernandez", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
+        `${build_person_for_about("assets/images/person_vance.svg", "Vance Hernandez", "Student", "Vance Hernandez is a Mechanical Engineering student at Oregon State University and a 10-year U.S. Navy veteran. His background includes experience in engineering, technical problem solving, and hands-on project work, with interests in sustainability and practical design applications.")}`,
         ``,
         `${build_footer()}`,
         ``,
@@ -209,7 +213,7 @@ function build_navigation() {
         `           <div id="${SS.navigation_link_panel}">`,
         `               <a class="${SS.navigation_link}" href=${PAGES.HOME}.html>${PAGES.HOME}</a>`,
         `               <a class="${SS.navigation_link}" href=${PAGES.LEARN}.html>${PAGES.LEARN}</a>`,
-        `               <a class="${SS.navigation_link}" href=${PAGES.RESULTS}.html>${PAGES.RESULTS}</a>`,
+        `               <a class="${SS.navigation_link}" href=${PAGES.SOURCES}.html>${PAGES.SOURCES}</a>`,
         `               <a class="${SS.navigation_link}" href=${PAGES.ABOUT}.html>${PAGES.ABOUT}</a>`,
         `           </div>`,
         ``,
@@ -237,14 +241,32 @@ function build_footer() {
         `       </div>`,
     ].join("\n");
 }
-function build_person_for_about(image_path, full_name, title, description) {
-    return [
+function build_person_for_about(image_path, full_name, title, description, link1, link1_display, link2, link2_display, link3, link3_display) {
+    let constructed_person = [
         `       <div class="${SS.about_person_panel}">`,
         `           <img class="${SS.about_person_image}" src="${image_path}" alt="Image of ${full_name}"/>`,
         `           <h3 class="${SS.about_person_name}">${full_name}</h3>`,
         `           <h4 class="${SS.about_person_title}">${title}</h4>`,
         `           <p class="${SS.about_person_description}">${description}</p>`,
-        `       </div>`,
     ].join("\n");
+    // Checking if links exist.
+    // If so, add a row for the link tags and proceed with adding each link individually if they exist.
+    // If not, do nothing.
+    if (link1 !== undefined || link2 !== undefined || link3 !== undefined) {
+        constructed_person += `\n           <div class="${SS.form_static_row_center}">`;
+        if (link1 !== undefined) {
+            constructed_person += `\n               <a class="${SS.about_person_link}" href="${link1}">${link1_display}</a>`;
+        }
+        if (link2 !== undefined) {
+            constructed_person += `\n               <a class="${SS.about_person_link}" href="${link2}">${link2_display}</a>`;
+        }
+        if (link3 !== undefined) {
+            constructed_person += `\n               <a class="${SS.about_person_link}" href="${link3}">${link3_display}</a>`;
+        }
+        constructed_person += `\n           </div>`;
+    }
+    // Tacking on the ending div statement now that links (assuming they exist) have been added.
+    constructed_person += `\n       </div>`;
+    return constructed_person;
 }
 export * from "./pages.js";
