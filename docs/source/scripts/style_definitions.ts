@@ -607,7 +607,7 @@ export const STYLE_HEAVENLY_EARTH = {
     },
 
     tBODY: {
-        textAlign: "left",
+        textAlign: "center",
         overflowWrap: "break-word",
         textWrap: "pretty",
         fontStyle: "normal",
@@ -688,6 +688,176 @@ export const STYLE_HEAVENLY_EARTH = {
 
     oHOME: {
 
+        oTOP: {
+
+            iPANEL: {
+                backgroundImage: `linear-gradient(to top, ${PALETTE[1.5]} 20%, transparent 90%), url("assets/images/person_james.png")`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                padding: SIZES.horizontal_76,
+                width: "100%",
+            },
+
+            iHEADING: {
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_CINZEL_BOLD",
+                fontSize: SIZES.horizontal_80,
+                marginBottom: SIZES.horizontal_56,
+            },
+
+            iTEXT: {
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                lineHeight: "1.5",
+                fontSize: SIZES.horizontal_60,
+                marginBottom: SIZES.horizontal_66,
+            },
+
+            iBUTTON_SURVEY: {
+                color: PALETTE[1],
+                textDecoration: "none",
+                backgroundColor: PALETTE[4],
+                fontFamily: "FONT_TEXT_SPECTRAL_BOLD",
+                fontSize: SIZES.horizontal_52,
+                borderStyle: "solid",
+                borderColor: PALETTE[4],
+                borderWidth: SIZES.horizontal_25,
+                borderRadius: SIZES.horizontal_35,
+                paddingTop: SIZES.horizontal_46,
+                paddingBottom: SIZES.horizontal_46,
+                paddingLeft: SIZES.horizontal_60,
+                paddingRight: SIZES.horizontal_60,
+                marginRight: SIZES.horizontal_50,
+            },
+
+            iBUTTON_LEARN: {
+                color: PALETTE[4],
+                textDecoration: "none",
+                backgroundColor: "transparent",
+                fontFamily: "FONT_TEXT_SPECTRAL_BOLD",
+                fontSize: SIZES.horizontal_52,
+                borderStyle: "solid",
+                borderColor: PALETTE[4],
+                borderWidth: SIZES.horizontal_25,
+                borderRadius: SIZES.horizontal_35,
+                paddingTop: SIZES.horizontal_46,
+                paddingBottom: SIZES.horizontal_46,
+                paddingLeft: SIZES.horizontal_60,
+                paddingRight: SIZES.horizontal_60,
+            },
+        },
+
+        oNOTICE: {
+
+            iPANEL: {
+                backgroundColor: PALETTE[5],
+                borderRadius: SIZES.horizontal_40,
+                marginLeft: SIZES.horizontal_60,
+                marginRight: SIZES.horizontal_60,
+            },
+
+            oINNER: {
+
+                cPANEL: {
+                    margin: SIZES.horizontal_60,
+                },
+
+                cICON: {
+                    color: PALETTE[3],
+                    fontFamily: "FONT_ICON_MATERIAL",
+                    fontSize: SIZES.horizontal_76,
+                    marginBottom: SIZES.horizontal_40,
+                },
+
+                cTITLE: {
+                    color: PALETTE[4],
+                    fontFamily: "FONT_TEXT_CINZEL_BOLD",
+                    fontSize: SIZES.horizontal_56,
+                    marginBottom: SIZES.horizontal_36,
+                },
+
+                cTEXT: {
+                    color: PALETTE[4],
+                    fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                    fontSize: SIZES.horizontal_53,
+                },
+            },
+        },
+
+        oWHY: {
+
+            iPANEL: {
+                width: "100%",
+                marginTop: SIZES.horizontal_70,
+                marginBottom: SIZES.horizontal_70,
+                paddingLeft: SIZES.horizontal_50,
+                paddingRight: SIZES.horizontal_50,
+                backgroundColor: PALETTE[1.5],
+            },
+
+            iHEADING: {
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_CINZEL_BOLD",
+                fontSize: SIZES.horizontal_70,
+                textAlign: "center",
+                marginBottom: SIZES.horizontal_46,
+            },
+
+            iTEXT: {
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                fontSize: SIZES.horizontal_58,
+                lineHeight: "1.5",
+                marginBottom: SIZES.horizontal_50,
+            },
+
+            iDIVIDER_ROW: {
+                width: "50%",
+                marginBottom: SIZES.horizontal_50,
+            },
+
+            cDIVIDER_LINE: {
+                flex: "1",
+                height: SIZES.horizontal_25,
+                backgroundColor: PALETTE[6],
+            },
+
+            iDIVIDER_ICON: {
+                color: PALETTE[3],
+                fontFamily: "FONT_ICON_MATERIAL",
+                fontSize: SIZES.horizontal_60,
+                marginLeft: SIZES.horizontal_46,
+                marginRight: SIZES.horizontal_46,
+            },
+
+            oCARD: {
+
+                cPANEL: {
+                    padding: SIZES.horizontal_50,
+                },
+
+                cIMAGE: {
+                    width: "90%",
+                    borderRadius: SIZES.horizontal_35,
+                    marginBottom: SIZES.horizontal_50,
+                },
+
+                cTITLE: {
+                    color: PALETTE[4],
+                    fontFamily: "FONT_TEXT_CINZEL_BOLD",
+                    fontSize: SIZES.horizontal_60,
+                    marginBottom: SIZES.horizontal_40,
+                },
+
+                cTEXT: {
+                    color: PALETTE[4],
+                    fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                    fontSize: SIZES.horizontal_53,
+                    lineHeight: "1.5",
+                },
+            }
+        },
     },
 
     oLEARN: {
@@ -798,8 +968,8 @@ export const STYLE_HEAVENLY_EARTH = {
                 borderRadius: SIZES.horizontal_40,
                 backgroundColor: PALETTE[3],
                 marginBottom: SIZES.horizontal_60,
-                width: "50%",
-                height: "50%",
+                width: SIZES.horizontal_95,
+                height: "auto",
             },
 
             cNAME: {
@@ -831,9 +1001,9 @@ export const STYLE_HEAVENLY_EARTH = {
                 backgroundColor: PALETTE[4],
                 borderRadius: SIZES.horizontal_40,
                 fontFamily: "FONT_TEXT_SPECTRAL_BOLD",
-                fontSize: SIZES.horizontal_56,
+                fontSize: SIZES.horizontal_52,
                 textAlign: "center",
-                padding: SIZES.horizontal_50,
+                padding: SIZES.horizontal_40,
                 textDecoration: "none",
                 marginTop: SIZES.horizontal_50,
                 marginLeft: SIZES.horizontal_30,
