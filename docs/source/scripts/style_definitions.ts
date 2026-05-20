@@ -938,13 +938,28 @@ export const STYLE_HEAVENLY_EARTH = {
             color: PALETTE[4],
             fontFamily: "FONT_TEXT_CINZEL_BOLD",
             fontSize: SIZES.horizontal_74,
-            textAlign: "center",
-            borderBottomStyle: "solid",
-            borderBottomColor: PALETTE[7],
-            borderBottomWidth: SIZES.horizontal_25,
             paddingBottom: SIZES.horizontal_35,
             marginTop: SIZES.horizontal_68,
             marginBottom: SIZES.horizontal_30,
+        },
+
+        iDIVIDER_ROW: {
+            width: "15%",
+            marginBottom: SIZES.horizontal_50,
+        },
+
+        cDIVIDER_LINE: {
+            flex: "1",
+            height: SIZES.horizontal_25,
+            backgroundColor: PALETTE[7],
+        },
+
+        iDIVIDER_ICON: {
+            color: PALETTE[3],
+            fontFamily: "FONT_ICON_MATERIAL",
+            fontSize: SIZES.horizontal_60,
+            marginLeft: SIZES.horizontal_46,
+            marginRight: SIZES.horizontal_46,
         },
 
         oPERSON: {
