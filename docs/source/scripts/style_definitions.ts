@@ -944,7 +944,7 @@ export const STYLE_HEAVENLY_EARTH = {
         },
 
         iDIVIDER_ROW: {
-            width: "15%",
+            width: "25%",
             marginBottom: SIZES.horizontal_50,
         },
 
