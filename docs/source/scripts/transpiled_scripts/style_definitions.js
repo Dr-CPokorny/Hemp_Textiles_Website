@@ -785,9 +785,6 @@ export const STYLE_HEAVENLY_EARTH = {
         },
         oPERSON: {
             cPANEL: {
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
                 backgroundColor: PALETTE[1.5],
                 borderStyle: "solid",
                 borderColor: PALETTE[6],
@@ -809,20 +806,17 @@ export const STYLE_HEAVENLY_EARTH = {
                 color: PALETTE[4],
                 fontFamily: "FONT_TEXT_CINZEL_BOLD",
                 fontSize: SIZES.horizontal_65,
-                textAlign: "center",
                 marginBottom: SIZES.horizontal_36,
             },
             cTITLE: {
                 color: PALETTE[3],
                 fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
                 fontSize: SIZES.horizontal_62,
-                textAlign: "center",
                 marginBottom: SIZES.horizontal_52,
             },
             cDESCRIPTION: {
                 color: PALETTE[4],
                 lineHeight: "1.5",
-                textAlign: "center",
                 fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
                 fontSize: SIZES.horizontal_59,
             },
@@ -832,7 +826,6 @@ export const STYLE_HEAVENLY_EARTH = {
                 borderRadius: SIZES.horizontal_40,
                 fontFamily: "FONT_TEXT_SPECTRAL_BOLD",
                 fontSize: SIZES.horizontal_52,
-                textAlign: "center",
                 padding: SIZES.horizontal_40,
                 textDecoration: "none",
                 marginTop: SIZES.horizontal_50,

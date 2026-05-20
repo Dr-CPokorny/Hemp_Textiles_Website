@@ -389,7 +389,7 @@ function build_person_for_about(
 ): string {
 
     let constructed_person = [
-        `       <div class="${SS.about_person_panel}">`,
+        `       <div class="${SS.about_person_panel} ${SS.form_static_column_center}">`,
         `           <img class="${SS.about_person_image}" src="${image_path}" alt="Image of ${full_name}"/>`,
         `           <h3 class="${SS.about_person_name}">${full_name}</h3>`,
         `           <h4 class="${SS.about_person_title}">${title}</h4>`,

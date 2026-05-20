@@ -304,7 +304,7 @@ function build_footer() {
 }
 function build_person_for_about(image_path, full_name, title, description, link1, link1_display, link2, link2_display, link3, link3_display) {
     let constructed_person = [
-        `       <div class="${SS.about_person_panel}">`,
+        `       <div class="${SS.about_person_panel} ${SS.form_static_column_center}">`,
         `           <img class="${SS.about_person_image}" src="${image_path}" alt="Image of ${full_name}"/>`,
         `           <h3 class="${SS.about_person_name}">${full_name}</h3>`,
         `           <h4 class="${SS.about_person_title}">${title}</h4>`,
