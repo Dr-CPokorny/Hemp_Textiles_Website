@@ -972,15 +972,16 @@ export const STYLE_HEAVENLY_EARTH = {
                 borderRadius: SIZES.horizontal_36,
                 padding: SIZES.horizontal_64,
                 marginBottom: SIZES.horizontal_70,
-                marginLeft: SIZES.horizontal_70,
-                marginRight: SIZES.horizontal_70,
+                marginLeft: SIZES.horizontal_80,
+                marginRight: SIZES.horizontal_80,
             },
 
             cIMAGE: {
                 borderRadius: SIZES.horizontal_40,
                 backgroundColor: PALETTE[3],
                 marginBottom: SIZES.horizontal_60,
-                width: SIZES.horizontal_94,
+                width: "60%",
+                maxWidth: SIZES.horizontal_95,
                 height: "auto",
             },
 
