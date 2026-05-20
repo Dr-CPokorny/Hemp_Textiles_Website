@@ -974,6 +974,7 @@ export const STYLE_HEAVENLY_EARTH = {
                 marginBottom: SIZES.horizontal_70,
                 marginLeft: SIZES.horizontal_80,
                 marginRight: SIZES.horizontal_80,
+                alignSelf: "stretch",
             },
 
             cIMAGE: {
