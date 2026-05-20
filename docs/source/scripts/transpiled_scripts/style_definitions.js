@@ -701,7 +701,7 @@ export const STYLE_HEAVENLY_EARTH = {
         },
     },
     oLEARN: {},
-    oRESULTS: {},
+    oSOURCES: {},
     oABOUT: {
         oDESCRIPTION: {
             iOUTER_PANEL: {
@@ -802,20 +802,20 @@ export const STYLE_HEAVENLY_EARTH = {
                 borderRadius: SIZES.horizontal_40,
                 backgroundColor: PALETTE[3],
                 marginBottom: SIZES.horizontal_60,
-                width: SIZES.horizontal_95,
+                width: SIZES.horizontal_94,
                 height: "auto",
             },
             cNAME: {
                 color: PALETTE[4],
                 fontFamily: "FONT_TEXT_CINZEL_BOLD",
-                fontSize: SIZES.horizontal_66,
+                fontSize: SIZES.horizontal_65,
                 textAlign: "center",
                 marginBottom: SIZES.horizontal_36,
             },
             cTITLE: {
                 color: PALETTE[3],
                 fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
-                fontSize: SIZES.horizontal_63,
+                fontSize: SIZES.horizontal_62,
                 textAlign: "center",
                 marginBottom: SIZES.horizontal_52,
             },
@@ -824,7 +824,7 @@ export const STYLE_HEAVENLY_EARTH = {
                 lineHeight: "1.5",
                 textAlign: "center",
                 fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
-                fontSize: SIZES.horizontal_60,
+                fontSize: SIZES.horizontal_59,
             },
             cLINK: {
                 color: PALETTE[1],
