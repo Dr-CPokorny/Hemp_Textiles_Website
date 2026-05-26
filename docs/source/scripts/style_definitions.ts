@@ -691,7 +691,8 @@ export const STYLE_HEAVENLY_EARTH = {
         oTOP: {
 
             iPANEL: {
-                backgroundImage: `linear-gradient(to top, ${PALETTE[1.5]} 20%, transparent 90%), url("assets/images/person_james.png")`,
+                backgroundImage: `linear-gradient(to top, ${PALETTE[1.5]} 10%, transparent 90%)`,
+                backgroundColor: PALETTE[2],
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -761,6 +762,7 @@ export const STYLE_HEAVENLY_EARTH = {
 
                 cPANEL: {
                     margin: SIZES.horizontal_60,
+                    flex: "1",
                 },
 
                 cICON: {
@@ -835,10 +837,13 @@ export const STYLE_HEAVENLY_EARTH = {
 
                 cPANEL: {
                     padding: SIZES.horizontal_50,
+                    flex: "1",
                 },
 
                 cIMAGE: {
-                    width: "90%",
+                    width: "100%",
+                    aspectRatio: "1",
+                    objectFit: "cover",
                     borderRadius: SIZES.horizontal_35,
                     marginBottom: SIZES.horizontal_50,
                 },
