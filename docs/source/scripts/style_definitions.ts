@@ -867,6 +867,226 @@ export const STYLE_HEAVENLY_EARTH = {
 
     oLEARN: {
 
+        iTITLE: {
+            color: PALETTE[4],
+            fontFamily: "FONT_TEXT_CINZEL_BOLD",
+            fontSize: SIZES.horizontal_80,
+            margin: SIZES.horizontal_50,
+        },
+
+        cTEXT: {
+            width: "85%",
+            color: PALETTE[4],
+            fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+            fontSize: SIZES.horizontal_58,
+            lineHeight: "1.5",
+            marginBottom: SIZES.horizontal_50,
+        },
+
+        oCOMPARE: {
+
+            iPANEL: {
+                backgroundColor: PALETTE[5],
+                borderRadius: SIZES.horizontal_40,
+                marginLeft: SIZES.horizontal_50,
+                marginRight: SIZES.horizontal_50,
+                marginBottom: SIZES.horizontal_50,
+                overflow: "hidden",
+            },
+
+            iLEAF_PANEL: {
+                backgroundColor: PALETTE[2],
+                paddingTop: SIZES.horizontal_56,
+                paddingBottom: SIZES.horizontal_56,
+                paddingLeft: SIZES.horizontal_40,
+                paddingRight: SIZES.horizontal_40,
+                flexShrink: "0",
+            },
+
+            iLEAF_IMAGE: {
+                width: SIZES.horizontal_90,
+                height: SIZES.horizontal_90,
+            },
+
+            oCOLUMN: {
+
+                cPANEL_LEFT: {
+                    flex: "1",
+                    minWidth: "0",
+                    paddingTop: SIZES.horizontal_56,
+                    paddingBottom: SIZES.horizontal_56,
+                    paddingLeft: SIZES.horizontal_60,
+                    paddingRight: SIZES.horizontal_60,
+                },
+
+                cPANEL_RIGHT: {
+                    flex: "1",
+                    minWidth: "0",
+                    paddingTop: SIZES.horizontal_56,
+                    paddingBottom: SIZES.horizontal_56,
+                    paddingLeft: SIZES.horizontal_60,
+                    paddingRight: SIZES.horizontal_60,
+                },
+
+                cHEADING_LEFT: {
+                    color: PALETTE[4],
+                    fontFamily: "FONT_TEXT_CINZEL_BOLD",
+                    fontSize: SIZES.horizontal_60,
+                    textAlign: "left",
+                    marginBottom: SIZES.horizontal_46,
+                    whiteSpace: "nowrap",
+                },
+
+                cHEADING_RIGHT: {
+                    color: PALETTE[4],
+                    fontFamily: "FONT_TEXT_CINZEL_BOLD",
+                    fontSize: SIZES.horizontal_60,
+                    textAlign: "right",
+                    marginBottom: SIZES.horizontal_46,
+                    whiteSpace: "nowrap",
+                },
+
+                cROW_LEFT: {
+                    marginBottom: SIZES.horizontal_40,
+                    textAlign: "left",
+                },
+
+                cROW_RIGHT: {
+                    marginBottom: SIZES.horizontal_40,
+                    textAlign: "right",
+                },
+
+                cROW_ICON: {
+                    color: PALETTE[3],
+                    fontFamily: "FONT_ICON_MATERIAL",
+                    fontSize: SIZES.horizontal_55,
+                    marginRight: SIZES.horizontal_40,
+                },
+
+                cROW_ICON_RIGHT: {
+                    color: PALETTE[3],
+                    fontFamily: "FONT_ICON_MATERIAL",
+                    fontSize: SIZES.horizontal_55,
+                    marginLeft: SIZES.horizontal_40,
+                },
+
+                cROW_TEXT: {
+                    color: PALETTE[4],
+                    fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                    fontSize: SIZES.horizontal_53,
+                    lineHeight: "1.5",
+                    overflowWrap: "break-word",
+                    minWidth: "0",
+                },
+            },
+        },
+
+        oWHY: {
+
+            iPANEL: {
+                width: "85%",
+                backgroundColor: PALETTE[2],
+                borderRadius: SIZES.horizontal_40,
+                paddingTop: SIZES.horizontal_70,
+                paddingBottom: SIZES.horizontal_70,
+                paddingLeft: SIZES.horizontal_64,
+                paddingRight: SIZES.horizontal_64,
+                marginBottom: SIZES.horizontal_50,
+            },
+
+            iHEADING: {
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_CINZEL_BOLD",
+                fontSize: SIZES.horizontal_70,
+                marginBottom: SIZES.horizontal_50,
+            },
+
+            iTEXT: {
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                fontSize: SIZES.horizontal_58,
+                lineHeight: "1.5",
+                marginBottom: SIZES.horizontal_60,
+            },
+
+            oCARD: {
+
+                cPANEL: {
+                    width: "100%",
+                    backgroundColor: PALETTE[1],
+                    borderRadius: SIZES.horizontal_36,
+                    paddingTop: SIZES.horizontal_56,
+                    paddingBottom: SIZES.horizontal_56,
+                    paddingLeft: SIZES.horizontal_50,
+                    paddingRight: SIZES.horizontal_50,
+                    marginBottom: SIZES.horizontal_46,
+                },
+
+                cIMAGE: {
+                    width: SIZES.horizontal_90,
+                    height: SIZES.horizontal_90,
+                    marginBottom: SIZES.horizontal_40,
+                },
+
+                cTITLE: {
+                    color: PALETTE[4],
+                    fontFamily: "FONT_TEXT_CINZEL_BOLD",
+                    fontSize: SIZES.horizontal_60,
+                    marginBottom: SIZES.horizontal_36,
+                },
+
+                cTEXT: {
+                    color: PALETTE[4],
+                    fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                    fontSize: SIZES.horizontal_53,
+                    lineHeight: "1.5",
+                },
+            },
+        },
+
+        oMISCONCEPTION: {
+
+            iPANEL: {
+                width: "85%",
+                backgroundColor: PALETTE[2],
+                borderRadius: SIZES.horizontal_40,
+                padding: SIZES.horizontal_70,
+                marginBottom: SIZES.horizontal_50,
+            },
+
+            iHEADING: {
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_CINZEL_BOLD",
+                fontSize: SIZES.horizontal_70,
+                marginBottom: SIZES.horizontal_56,
+            },
+
+            oCARD: {
+
+                cPANEL: {
+                    width: "100%",
+                    backgroundColor: PALETTE[1],
+                    borderRadius: SIZES.horizontal_36,
+                    padding: SIZES.horizontal_50,
+                    marginBottom: SIZES.horizontal_46,
+                },
+
+                cMYTH: {
+                    color: PALETTE[4],
+                    fontFamily: "FONT_TEXT_SPECTRAL_BOLD",
+                    fontStyle: "italic",
+                    fontSize: SIZES.horizontal_56,
+                    marginBottom: SIZES.horizontal_36,
+                },
+
+                cTRUTH: {
+                    color: PALETTE[4],
+                    fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                    fontSize: SIZES.horizontal_53,
+                    lineHeight: "1.5",
+                },
+            },
+        },
     },
 
     oSOURCES: {

@@ -3,7 +3,7 @@
   "module": "bun_run_default.ts",
   "devDependencies": {
     "@types/bun": "latest",
-    "@types/node": "^25.3.0"
+    "@types/node": "^25.9.1"
   },
   "peerDependencies": {
     "typescript": "^5"

@@ -1,12 +1,9 @@
-
-import * as FS   from "fs";
+import * as FS from "fs";
 import * as PATH from "path";
-import * as SM from "../style_manager.js";
-import * as SD from "../style_definitions.js";
-
+import * as SM from "./style_manager.js";
+import * as SD from "./style_definitions.js";
 let HEAVENLY_EARTH = new SM.Style(SD.STYLE_HEAVENLY_EARTH);
 const SS = HEAVENLY_EARTH.stripped_selectors;
-
 // Types of HTML pages that can be built.  All of these pages share the same head.  This is to ensure that only the head
 // builder needs to be manipulated when adding new stylesheets, links, or scripts.
 const PAGES = {
@@ -14,8 +11,7 @@ const PAGES = {
     LEARN: "LEARN",
     SOURCES: "SOURCES",
     ABOUT: "ABOUT",
-} as const;
-
+};
 // PAGE BUILDERS
 // When this file is executed these builds will generate all the types of pages.
 // Doing this so that regenerating pages during development/testing is simple.
@@ -23,24 +19,18 @@ build_page(PAGES.HOME, PAGES.HOME);
 build_page(PAGES.LEARN, PAGES.LEARN);
 build_page(PAGES.SOURCES, PAGES.SOURCES);
 build_page(PAGES.ABOUT, PAGES.ABOUT);
-
 // Builds an HTML file that will be thrown into the docs directory.
-export function build_page(file_name: string, page_type: string) {
-
+export function build_page(file_name, page_type) {
     const name_of_file = file_name.toUpperCase().replace(/\s+/g, "_") + ".html";
-    const output_path  = PATH.resolve("../../../", name_of_file);
+    const output_path = PATH.resolve("../../", name_of_file);
     const html_content = build_html(file_name, page_type);
-
     FS.writeFileSync(output_path, html_content, "utf-8");
 }
-
 // Builds and returns HTML data containing a head and body defaulted with proper links and an h1 tag inside its
 // body that holds the passed title in its contents.
-function build_html(title: string, page_type: string): string {
-
+function build_html(title, page_type) {
     const head = build_head(title);
     const body = body_director(page_type);
-
     return [
         ``,
         `<!DOCTYPE html>`,
@@ -56,20 +46,16 @@ function build_html(title: string, page_type: string): string {
         ``,
     ].join("\n");
 }
-
 // Builds and returns a heading tag that will hold all the necessary linked files in it.
-function build_head(title: string): string {
-
+function build_head(title) {
     const stylesheet_links = [
         `       <!-- Stylesheet Links -->`,
         `       <link rel="stylesheet" href="source/stylesheets/fonts.css">`,
     ].join("\n");
-
     const scripted_event_links = [
         `       <!-- Scripted Event Links -->`,
-        `       <script type="module" src="source/scripts/transpiled_scripts/events/scripts.js"></script>`,
+        `       <script type="module" src="source/scripts/transpiled_scripts/events.js"></script>`,
     ].join("\n");
-
     return [
         `   <head>`,
         ``,
@@ -84,41 +70,31 @@ function build_head(title: string): string {
         `   </head>`,
     ].join("\n");
 }
-
 // Determines which type of body gets built.
-function body_director(page_type: string): string {
-
-    let the_body: string = "";
-
+function body_director(page_type) {
+    let the_body = "";
     switch (page_type) {
-
         case PAGES.HOME:
             the_body = build_body_for_home();
             break;
-
         case PAGES.LEARN:
             the_body = build_body_for_learn();
             break;
-
         case PAGES.SOURCES:
             the_body = build_body_for_sources();
             break;
-
         case PAGES.ABOUT:
             the_body = build_body_for_about();
             break;
-
         default:
             console.log("Your input for page_type was NOT accepted.  Ensure your input is correct" +
                 "and see if you have created a case for the page_type you are trying to make.");
             break;
     }
-
     return the_body;
 }
-
 // Builds the body for the HOME page.
-function build_body_for_home(): string {
+function build_body_for_home() {
     return [
         `   <body class="${SS.form_static_column_center}">`,
         ``,
@@ -206,24 +182,127 @@ function build_body_for_home(): string {
         `   </body>`,
     ].join("\n");
 }
-
 // Builds the body for the LEARN page.
-function build_body_for_learn(): string {
+function build_body_for_learn() {
     return [
         `   <body class="${SS.form_static_column_center}">`,
         ``,
         `${build_navigation()}`,
         ``,
         ``,
+        `           <!-- Title and Subtitle -->`,
+        `           <h1 id="${SS.learn_title}">What is Hemp, Really?</h1>`,
+        `           <p class="${SS.learn_text}">Hemp is a natural fiber that comes from the Cannabis sativa plant, but unlike marijuana, hemp contains extremely low levels of THC (the psychoactive compound associated with getting “high”). Hemp used for textiles is non-psychoactive, legally grown in many parts of the world, and has been used historically for products like rope, paper, clothing, and fabric.</p>`,
+        `           <p class="${SS.learn_text}">Today, hemp is gaining attention as a more sustainable textile alternative because it requires less water, fewer pesticides, and produces durable, breathable fibers that soften over time with use. Despite these benefits, hemp fabrics are still often misunderstood due to long-standing associations with marijuana and limited exposure within mainstream textile markets.</p>`,
+        ``,
+        `           <!-- Hemp vs Marijuana Comparison -->`,
+        `           <div id="${SS.learn_compare_panel}" class="${SS.form_static_row_center}">`,
+        ``,
+        `               <div class="${SS.learn_compare_column_panel_left} ${SS.form_static_column_start}">`,
+        `                   <h2 class="${SS.learn_compare_column_heading_left}">HEMP</h2>`,
+        `                   <div class="${SS.learn_compare_column_divider}"></div>`,
+        `                   <div class="${SS.learn_compare_column_row_left} ${SS.form_static_row_center}">`,
+        `                       <span class="${SS.learn_compare_column_row_icon}">check_circle</span>`,
+        `                       <p class="${SS.learn_compare_column_row_text}">Low THC (&lt;0.3%)</p>`,
+        `                   </div>`,
+        `                   <div class="${SS.learn_compare_column_row_left} ${SS.form_static_row_center}">`,
+        `                       <span class="${SS.learn_compare_column_row_icon}">check_circle</span>`,
+        `                       <p class="${SS.learn_compare_column_row_text}">Used for textiles or food</p>`,
+        `                   </div>`,
+        `                   <div class="${SS.learn_compare_column_row_left} ${SS.form_static_row_center}">`,
+        `                       <span class="${SS.learn_compare_column_row_icon}">check_circle</span>`,
+        `                       <p class="${SS.learn_compare_column_row_text}">Non-psychoactive</p>`,
+        `                   </div>`,
+        `               </div>`,
+        ``,
+        `               <div id="${SS.learn_compare_leaf_panel}" class="${SS.form_static_column_center}">`,
+        `                   <img id="${SS.learn_compare_leaf_image}" src="assets/images/learn_0.svg" alt="Hemp leaf">`,
+        `               </div>`,
+        ``,
+        `               <div class="${SS.learn_compare_column_panel_right} ${SS.form_static_column_end}">`,
+        `                   <h2 class="${SS.learn_compare_column_heading_right}">MARIJUANA</h2>`,
+        `                   <div class="${SS.learn_compare_column_divider}"></div>`,
+        `                   <div class="${SS.learn_compare_column_row_right} ${SS.form_static_row_center}">`,
+        `                       <p class="${SS.learn_compare_column_row_text}">High THC (5–30%+)</p>`,
+        `                       <span class="${SS.learn_compare_column_row_icon_right}">cancel</span>`,
+        `                   </div>`,
+        `                   <div class="${SS.learn_compare_column_row_right} ${SS.form_static_row_center}">`,
+        `                       <p class="${SS.learn_compare_column_row_text}">Used recreationally or medically</p>`,
+        `                       <span class="${SS.learn_compare_column_row_icon_right}">cancel</span>`,
+        `                   </div>`,
+        `                   <div class="${SS.learn_compare_column_row_right} ${SS.form_static_row_center}">`,
+        `                       <p class="${SS.learn_compare_column_row_text}">Psychoactive</p>`,
+        `                       <span class="${SS.learn_compare_column_row_icon_right}">cancel</span>`,
+        `                   </div>`,
+        `               </div>`,
+        ``,
+        `           </div>`,
+        ``,
+        `           <!-- Why Hemp for Quilting -->`,
+        `           <div id="${SS.learn_why_panel}" class="${SS.form_static_column_center}">`,
+        ``,
+        `               <h2 id="${SS.learn_why_heading}">Why Hemp for Quilting?</h2>`,
+        `               <p id="${SS.learn_why_text}">Quilting is a deeply tactile craft where makers interact directly with materials through cutting, sewing, layering, and touch. This hands-on experience creates a unique opportunity to evaluate hemp textiles based on real performance rather than assumptions.</p>`,
+        ``,
+        `               <div class="${SS.form_static_column_center}">`,
+        ``,
+        `                   <div class="${SS.learn_why_card_panel} ${SS.form_static_column_center}">`,
+        `                       <img class="${SS.learn_why_card_image}" src="assets/images/learn_1.svg" alt="Text">`,
+        `                       <h3 class="${SS.learn_why_card_title}">Durable and Long-Lasting</h3>`,
+        `                       <p class="${SS.learn_why_card_text}">Hemp fibers are known for their strength and long-lasting quality.</p>`,
+        `                   </div>`,
+        ``,
+        `                   <div class="${SS.learn_why_card_panel} ${SS.form_static_column_center}">`,
+        `                       <img class="${SS.learn_why_card_image}" src="assets/images/learn_2.svg" alt="Text">`,
+        `                       <h3 class="${SS.learn_why_card_title}">Breathable and Lightweight</h3>`,
+        `                       <p class="${SS.learn_why_card_text}">Hemp fabric is breathable and gets softer with every wash and use; there is a limit to how soft it can get.</p>`,
+        `                   </div>`,
+        ``,
+        `                   <div class="${SS.learn_why_card_panel} ${SS.form_static_column_center}">`,
+        `                       <img class="${SS.learn_why_card_image}" src="assets/images/learn_3.svg" alt="Text">`,
+        `                       <h3 class="${SS.learn_why_card_title}">Naturally Textured and Tactile</h3>`,
+        `                       <p class="${SS.learn_why_card_text}">Its natural texture adds depth and character to quilts and textile work.</p>`,
+        `                   </div>`,
+        ``,
+        `                   <div class="${SS.learn_why_card_panel} ${SS.form_static_column_center}">`,
+        `                       <img class="${SS.learn_why_card_image}" src="assets/images/learn_4.svg" alt="Text">`,
+        `                       <h3 class="${SS.learn_why_card_title}">Biodegradable and Lower-Impact</h3>`,
+        `                       <p class="${SS.learn_why_card_text}">Hemp requires less water and fewer pesticides than cotton.</p>`,
+        `                   </div>`,
+        ``,
+        `               </div>`,
+        ``,
+        `           </div>`,
+        ``,
+        `           <!-- Common Misconceptions -->`,
+        `           <div id="${SS.learn_misconception_panel}" class="${SS.form_static_column_center}">`,
+        ``,
+        `               <h2 id="${SS.learn_misconception_heading}">Common Misconceptions</h2>`,
+        ``,
+        `               <div class="${SS.learn_misconception_card_panel} ${SS.form_static_column_center}">`,
+        `                   <p class="${SS.learn_misconception_card_myth}">"Hemp is the same as marijuana."</p>`,
+        `                   <p class="${SS.learn_misconception_card_truth}">While hemp and marijuana come from the same plant species, they are grown and used very differently. Textile hemp contains very low THC levels and is used for industrial applications like fabric, rope, and paper.</p>`,
+        `               </div>`,
+        ``,
+        `               <div class="${SS.learn_misconception_card_panel} ${SS.form_static_column_center}">`,
+        `                   <p class="${SS.learn_misconception_card_myth}">"Hemp fabric is rough."</p>`,
+        `                   <p class="${SS.learn_misconception_card_truth}">Modern hemp textiles can range from structured and textured to soft and breathable depending on the weave and blend. Many hemp fabrics become softer over time with washing and regular use.</p>`,
+        `               </div>`,
+        ``,
+        `               <div class="${SS.learn_misconception_card_panel} ${SS.form_static_column_center}">`,
+        `                   <p class="${SS.learn_misconception_card_myth}">"Hemp isn't practical for quilting."</p>`,
+        `                   <p class="${SS.learn_misconception_card_truth}">Part of this project explores exactly that question. By gathering feedback from quilters and testing material experiences, the project aims to better understand hemp's usability, comfort, and creative potential within quiltmaking.</p>`,
+        `               </div>`,
+        ``,
+        `           </div>`,
         ``,
         `${build_footer()}`,
         ``,
         `   </body>`,
     ].join("\n");
 }
-
 // Builds the body for the SOURCES page.
-function build_body_for_sources(): string {
+function build_body_for_sources() {
     return [
         `   <body class="${SS.form_static_column_center}">`,
         ``,
@@ -236,9 +315,8 @@ function build_body_for_sources(): string {
         `   </body>`,
     ].join("\n");
 }
-
 // Builds the body for the ABOUT page.
-function build_body_for_about(): string {
+function build_body_for_about() {
     return [
         `   <body class="${SS.form_static_column_center}">`,
         ``,
@@ -267,69 +345,24 @@ function build_body_for_about(): string {
         ``,
         `       </div>`,
         ``,
-        `${build_person_for_about(
-            "assets/images/person_pokorny.svg", 
-            "Dr. Colleen Gelhaus Pokorny", 
-            "Project Lead", 
-            "Dr. Pokorny is an Assistant Professor of Apparel Design at Oregon State University and a lifelong quilter. She is a member of the Textile & Apparel Innovation Research Consortia with the Global Hemp Innovation Center. Her creative scholarship uses quiltmaking to explore material‑driven sustainability and how hands‑on engagement with hemp textiles can shift design practices and perceptions. Dr. Pokorny’s work has received international recognition, including the Sandra Hutton Award for Excellence in Fiber Arts at the 2025 ITAA Design Exhibition. Her work has been shown at the National Quilt Museum, QuiltCon, and the American Quilt Study Group’s traveling exhibition, Quiltmakers and Designers: 1945–1979.",
-            "mailto:colleen.pokorny@oregonstate.edu",
-            "EMAIL",
-            "https://business.oregonstate.edu/faculty-and-research/faculty-directory/colleen-gelhaus-pokorny",
-            "BUSINESS BIOGRAPHY",
-            "https://www.linkedin.com/in/colleenpokorny/",
-            "LINKEDIN"
-        )}`,
+        `${build_person_for_about("assets/images/person_pokorny.svg", "Dr. Colleen Gelhaus Pokorny", "Project Lead", "Dr. Pokorny is an Assistant Professor of Apparel Design at Oregon State University and a lifelong quilter. She is a member of the Textile & Apparel Innovation Research Consortia with the Global Hemp Innovation Center. Her creative scholarship uses quiltmaking to explore material‑driven sustainability and how hands‑on engagement with hemp textiles can shift design practices and perceptions. Dr. Pokorny’s work has received international recognition, including the Sandra Hutton Award for Excellence in Fiber Arts at the 2025 ITAA Design Exhibition. Her work has been shown at the National Quilt Museum, QuiltCon, and the American Quilt Study Group’s traveling exhibition, Quiltmakers and Designers: 1945–1979.", "mailto:colleen.pokorny@oregonstate.edu", "EMAIL", "https://business.oregonstate.edu/faculty-and-research/faculty-directory/colleen-gelhaus-pokorny", "BUSINESS BIOGRAPHY", "https://www.linkedin.com/in/colleenpokorny/", "LINKEDIN")}`,
         ``,
-        `${build_person_for_about(
-            "assets/images/person_aurora.svg", 
-            "Aurora O'Neill", 
-            "Insert Title Here", 
-            "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident",
-        )}`,
+        `${build_person_for_about("assets/images/person_aurora.svg", "Aurora O'Neill", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
         ``,
-        `${build_person_for_about(
-            "assets/images/person_james.svg", 
-            "James Bryant", 
-            "Insert Title Here", 
-            "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident",
-        )}`,
+        `${build_person_for_about("assets/images/person_james.svg", "James Bryant", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident")}`,
         ``,
-        `${build_person_for_about(
-            "assets/images/person_kira.svg", 
-            "Kira Ash Stephenson", 
-            "Website Developer", 
-            "Once a student of Polk State College (FL), St. Petersburg College (FL), and Lane Community College (OR) in an endeavor to learn more about programming in order to fulfill his dreams of developing video games.  Now, Kira is a student at Oregon State University where they are learning more about software engineering; on the side they are developing larger projects inside a Business GitHub account called \"Mirth Development\".  He is the engineer/developer of this site - it's really weird to talk in third person for this - and the tools used to construct the pages before you were TypeScript, GitHub Pages, WebStorm, and a custom tool that Kira made for ease of styling.",
-            "https://github.com/Tenlion?tab=repositories",
-            "GITHUB",
-            "https://github.com/orgs/Mirth-Development/repositories",
-            "MIRTH DEVELOPMENT",
-            "https://www.linkedin.com/in/kira-stephenson-9210b820b",
-            "LINKEDIN"
-        )}`,
+        `${build_person_for_about("assets/images/person_kira.svg", "Kira Ash Stephenson", "Website Developer", "Once a student of Polk State College (FL), St. Petersburg College (FL), and Lane Community College (OR) in an endeavor to learn more about programming in order to fulfill his dreams of developing video games.  Now, Kira is a student at Oregon State University where they are learning more about software engineering; on the side they are developing larger projects inside a Business GitHub account called \"Mirth Development\".  He is the engineer/developer of this site - it's really weird to talk in third person for this - and the tools used to construct the pages before you were TypeScript, GitHub Pages, WebStorm, and a custom tool that Kira made for ease of styling.", "https://github.com/Tenlion?tab=repositories", "GITHUB", "https://github.com/orgs/Mirth-Development/repositories", "MIRTH DEVELOPMENT", "https://www.linkedin.com/in/kira-stephenson-9210b820b", "LINKEDIN")}`,
         ``,
-        `${build_person_for_about(
-            "assets/images/person_rudy.svg", 
-            "Rudy David Torrijos IV", 
-            "Automotive Technology | Mechanical Engineering", 
-            "Driven mechanical engineering student with a strong background in automotive technology and hands-on problem solving. Experienced in teamwork, manufacturing, and vehicle systems through academic projects, shop work, and real-world automotive experience. Passionate about engineering, fabrication, and applying practical skills to innovative projects and industries.",
-            "https://www.instagram.com/802volvo/",
-            "INSTAGRAM",
-        )}`,
+        `${build_person_for_about("assets/images/person_rudy.svg", "Rudy David Torrijos IV", "Automotive Technology | Mechanical Engineering", "Driven mechanical engineering student with a strong background in automotive technology and hands-on problem solving. Experienced in teamwork, manufacturing, and vehicle systems through academic projects, shop work, and real-world automotive experience. Passionate about engineering, fabrication, and applying practical skills to innovative projects and industries.", "https://www.instagram.com/802volvo/", "INSTAGRAM")}`,
         ``,
-        `${build_person_for_about(
-            "assets/images/person_vance.svg", 
-            "Vance Hernandez", 
-            "Student", 
-            "Vance Hernandez is a Mechanical Engineering student at Oregon State University and a 10-year U.S. Navy veteran. His background includes experience in engineering, technical problem solving, and hands-on project work, with interests in sustainability and practical design applications.",
-        )}`,
+        `${build_person_for_about("assets/images/person_vance.svg", "Vance Hernandez", "Student", "Vance Hernandez is a Mechanical Engineering student at Oregon State University and a 10-year U.S. Navy veteran. His background includes experience in engineering, technical problem solving, and hands-on project work, with interests in sustainability and practical design applications.")}`,
         ``,
         `${build_footer()}`,
         ``,
         `   </body>`,
     ].join("\n");
 }
-
-function build_navigation(): string {
+function build_navigation() {
     return [
         `       <!-- Navigation -->`,
         `       <nav id="${SS.navigation_panel}">`,
@@ -341,7 +374,6 @@ function build_navigation(): string {
         `                   <p id="${SS.navigation_subtitle}">Community Project</p>`,
         `               </div>`,
         `           </div>`,
-
         `           <div id="${SS.navigation_link_panel}">`,
         `               <a class="${SS.navigation_link}" href=${PAGES.HOME}.html>${PAGES.HOME}</a>`,
         `               <a class="${SS.navigation_link}" href=${PAGES.LEARN}.html>${PAGES.LEARN}</a>`,
@@ -352,8 +384,7 @@ function build_navigation(): string {
         `       </nav>`,
     ].join("\n");
 }
-
-function build_footer(): string {
+function build_footer() {
     return [
         `       <div id="${SS.footer_panel}">`,
         ``,
@@ -375,20 +406,7 @@ function build_footer(): string {
         `       </div>`,
     ].join("\n");
 }
-
-function build_person_for_about(
-    image_path: string,
-    full_name: string,
-    title: string,
-    description: string,
-    link1?: string,
-    link1_display?: string,
-    link2?: string,
-    link2_display?: string,
-    link3?: string,
-    link3_display?: string,
-): string {
-
+function build_person_for_about(image_path, full_name, title, description, link1, link1_display, link2, link2_display, link3, link3_display) {
     let constructed_person = [
         `       <div class="${SS.about_person_panel} ${SS.form_static_column_center}">`,
         `           <img class="${SS.about_person_image}" src="${image_path}" alt="Image of ${full_name}"/>`,
@@ -396,32 +414,23 @@ function build_person_for_about(
         `           <h4 class="${SS.about_person_title}">${title}</h4>`,
         `           <p class="${SS.about_person_description}">${description}</p>`,
     ].join("\n");
-
     // Checking if links exist.
     // If so, add a row for the link tags and proceed with adding each link individually if they exist.
     // If not, do nothing.
     if (link1 !== undefined || link2 !== undefined || link3 !== undefined) {
-
         constructed_person += `\n           <div class="${SS.form_static_row_center}">`;
-
         if (link1 !== undefined) {
             constructed_person += `\n               <a class="${SS.about_person_link}" href="${link1}">${link1_display}</a>`;
         }
-
         if (link2 !== undefined) {
             constructed_person += `\n               <a class="${SS.about_person_link}" href="${link2}">${link2_display}</a>`;
         }
-
         if (link3 !== undefined) {
             constructed_person += `\n               <a class="${SS.about_person_link}" href="${link3}">${link3_display}</a>`;
         }
         constructed_person += `\n           </div>`;
     }
-
     // Tacking on the ending div statement now that links (assuming they exist) have been added.
     constructed_person += `\n       </div>`;
-
     return constructed_person;
 }
-
-export * from "./pages.js";

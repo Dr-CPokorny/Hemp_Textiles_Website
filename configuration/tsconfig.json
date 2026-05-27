@@ -5,6 +5,8 @@
     // Where I got 99% of the info for these comments: https://www.typescriptlang.org/tsconfig/
     // The remaining 1% comes from reddit, forum posts, stackoverflow, university docs, etcetera...
 
+    "types": ["node"],
+
     // Dictates what JavaScript version the TypeScript file will be transpiled to.
     // ESNext is the one that is always the most up to date (but it's also unstable).
     "target": "ESNext",
@@ -60,7 +62,7 @@
     "inlineSources": false,
 
     // Specifies where the transpiled files go to.
-    "outDir": "../docs/source/scripts/transpiled_scripts"
+    "outDir": "../docs/source/scripts/transpiled_scripts",
 
     // Straight up, this is a weird one to understand as its name is not descriptive of its function.
     // rootDir does NOT mean the rootDir of the project.  What it actually means is the directory of how far back
@@ -68,16 +70,12 @@
     // So, using relative marks such as ".." inside the rootDir rule would mean to copy all the files/directories
     // that are relative one directory back and the current directory from the typescript files you're including.
     // All of these files get pasted at the outDir location.
-    // For now, I have the value for rootDir commented.  I'll uncomment and place a proper value if I end up having
-    // a ton of script files.
-    //"rootDir": ".."
+    "rootDir": "../docs/source/scripts"
   },
 
   // Tells TypeScript which files to transpile into JavaScript.
   // * for files.  ** for directories and files.
-  "include": ["../docs/source/scripts/*",
-    "../docs/source/scripts/events/*",
-    "../docs/source/scripts/styling/*",
-    "../docs/source/scripts/builders/*"
+  "include": [
+    "../docs/source/scripts/*",
   ]
 }
