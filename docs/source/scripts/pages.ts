@@ -118,7 +118,7 @@ function body_director(page_type: string): string {
 // Builds the body for the HOME page.
 function build_body_for_home(): string {
 
-    // Notice Blurb Variables
+    // Notice Blurb Information
     const blurb_for_research = build_notice_blurb_for_home_page(
         "\t\t\t",
         "eco",
@@ -138,7 +138,7 @@ function build_body_for_home(): string {
         "Your responses are completely anonymous."
     );
 
-    // Why Card Variables
+    // Why Card Information
     const card_sustainable = build_card_for_home_page(
         "\t\t\t\t",
         "assets/images/home_4.svg",
@@ -212,6 +212,83 @@ function build_body_for_home(): string {
 
 // Builds the body for the LEARN page.
 function build_body_for_learn(): string {
+
+    // Hemp and Marijuana Comparison Information
+    const hemp_thc = build_left_row_for_comparison_chart_for_learn_page(
+        "\t\t\t\t\t",
+        "check_circle",
+        "Low THC (<0.3%)"
+    );
+    const hemp_use = build_left_row_for_comparison_chart_for_learn_page(
+        "\t\t\t\t\t",
+        "check_circle",
+        "Used for textiles or food"
+    );
+    const hemp_psycho = build_left_row_for_comparison_chart_for_learn_page(
+        "\t\t\t\t\t",
+        "check_circle",
+        "Non-psychoactive"
+    );
+    const marijuana_thc = build_right_row_for_comparison_chart_for_learn_page(
+        "\t\t\t\t\t",
+        "cancel",
+        "High THC (5–30%+)"
+    );
+    const marijuana_use = build_right_row_for_comparison_chart_for_learn_page(
+        "\t\t\t\t\t",
+        "cancel",
+        "Used recreationally or medically"
+    );
+    const marijuana_psycho = build_right_row_for_comparison_chart_for_learn_page(
+        "\t\t\t\t\t",
+        "cancel",
+        "Psychoactive"
+    );
+
+    // Why Card Information
+    const why_card_durable = build_why_card_for_learn_page(
+        "\t\t\t\t\t",
+        "assets/images/learn_1.svg",
+        "Text",
+        "Durable and Long-Lasting",
+        "Hemp fibers are known for their strength and long-lasting quality."
+    );
+    const why_card_breathable = build_why_card_for_learn_page(
+        "\t\t\t\t\t",
+        "assets/images/learn_2.svg",
+        "Text", "Breathable and Lightweight",
+        "Hemp fabric is breathable and gets softer with every wash and use; there is a limit to how soft it can get."
+    );
+    const why_card_textured = build_why_card_for_learn_page(
+        "\t\t\t\t\t", "assets/images/learn_3.svg",
+        "Text", "Naturally Textured and Tactile",
+        "Its natural texture adds depth and character to quilts and textile work."
+    );
+    const why_card_biodegradable = build_why_card_for_learn_page(
+        "\t\t\t\t\t",
+        "assets/images/learn_4.svg",
+        "Text",
+        "Biodegradable and Lower-Impact",
+        "Hemp requires less water and fewer pesticides than cotton."
+    );
+
+    // Misconception Card Information
+    const misconception_card_comparison = build_misconception_card_for_learn_page(
+        "\t\t\t\t",
+        '"Hemp is the same as marijuana."',
+        "While hemp and marijuana come from the same plant species, they are grown and used very differently. Textile hemp contains very low THC levels and is used for industrial applications like fabric, rope, and paper."
+    );
+    const misconception_card_rough = build_misconception_card_for_learn_page(
+        "\t\t\t\t",
+        '"Hemp fabric is rough."',
+        "Modern hemp textiles can range from structured and textured to soft and breathable depending on the weave and blend. Many hemp fabrics become softer over time with washing and regular use."
+    );
+    const misconception_card_quilting = build_misconception_card_for_learn_page(
+        "\t\t\t\t",
+        '"Hemp isn\'t practical for quilting."',
+        "Part of this project explores exactly that question. By gathering feedback from quilters and testing material experiences, the project aims to better understand hemp's usability, comfort, and creative potential within quiltmaking."
+    );
+
     return [
         `   <body class="${SS.form_static_column_center}">`,
         ``,
@@ -224,103 +301,41 @@ function build_body_for_learn(): string {
         ``,
         `           <!-- Hemp vs Marijuana Comparison -->`,
         `           <div id="${SS.learn_compare_panel}" class="${SS.form_static_row_center}">`,
-        ``,
         `               <div class="${SS.learn_compare_column_panel_left} ${SS.form_static_column_start}">`,
         `                   <h2 class="${SS.learn_compare_column_heading_left}">HEMP</h2>`,
-        `                   <div class="${SS.learn_compare_column_divider}"></div>`,
-        `                   <div class="${SS.learn_compare_column_row_left} ${SS.form_static_row_center}">`,
-        `                       <span class="${SS.learn_compare_column_row_icon}">check_circle</span>`,
-        `                       <p class="${SS.learn_compare_column_row_text}">Low THC (&lt;0.3%)</p>`,
-        `                   </div>`,
-        `                   <div class="${SS.learn_compare_column_row_left} ${SS.form_static_row_center}">`,
-        `                       <span class="${SS.learn_compare_column_row_icon}">check_circle</span>`,
-        `                       <p class="${SS.learn_compare_column_row_text}">Used for textiles or food</p>`,
-        `                   </div>`,
-        `                   <div class="${SS.learn_compare_column_row_left} ${SS.form_static_row_center}">`,
-        `                       <span class="${SS.learn_compare_column_row_icon}">check_circle</span>`,
-        `                       <p class="${SS.learn_compare_column_row_text}">Non-psychoactive</p>`,
-        `                   </div>`,
+        `                   ${hemp_thc}`,
+        `                   ${hemp_use}`,
+        `                   ${hemp_psycho}`,
         `               </div>`,
-        ``,
         `               <div id="${SS.learn_compare_leaf_panel}" class="${SS.form_static_column_center}">`,
         `                   <img id="${SS.learn_compare_leaf_image}" src="assets/images/learn_0.svg" alt="Hemp leaf">`,
         `               </div>`,
-        ``,
         `               <div class="${SS.learn_compare_column_panel_right} ${SS.form_static_column_end}">`,
         `                   <h2 class="${SS.learn_compare_column_heading_right}">MARIJUANA</h2>`,
-        `                   <div class="${SS.learn_compare_column_divider}"></div>`,
-        `                   <div class="${SS.learn_compare_column_row_right} ${SS.form_static_row_center}">`,
-        `                       <p class="${SS.learn_compare_column_row_text}">High THC (5–30%+)</p>`,
-        `                       <span class="${SS.learn_compare_column_row_icon_right}">cancel</span>`,
-        `                   </div>`,
-        `                   <div class="${SS.learn_compare_column_row_right} ${SS.form_static_row_center}">`,
-        `                       <p class="${SS.learn_compare_column_row_text}">Used recreationally or medically</p>`,
-        `                       <span class="${SS.learn_compare_column_row_icon_right}">cancel</span>`,
-        `                   </div>`,
-        `                   <div class="${SS.learn_compare_column_row_right} ${SS.form_static_row_center}">`,
-        `                       <p class="${SS.learn_compare_column_row_text}">Psychoactive</p>`,
-        `                       <span class="${SS.learn_compare_column_row_icon_right}">cancel</span>`,
-        `                   </div>`,
+        `                   ${marijuana_thc}`,
+        `                   ${marijuana_use}`,
+        `                   ${marijuana_psycho}`,
         `               </div>`,
-        ``,
         `           </div>`,
         ``,
         `           <!-- Why Hemp for Quilting -->`,
         `           <div id="${SS.learn_why_panel}" class="${SS.form_static_column_center}">`,
-        ``,
         `               <h2 id="${SS.learn_why_heading}">Why Hemp for Quilting?</h2>`,
         `               <p id="${SS.learn_why_text}">Quilting is a deeply tactile craft where makers interact directly with materials through cutting, sewing, layering, and touch. This hands-on experience creates a unique opportunity to evaluate hemp textiles based on real performance rather than assumptions.</p>`,
-        ``,
         `               <div class="${SS.form_static_column_center}">`,
-        ``,
-        `                   <div class="${SS.learn_why_card_panel} ${SS.form_static_column_center}">`,
-        `                       <img class="${SS.learn_why_card_image}" src="assets/images/learn_1.svg" alt="Text">`,
-        `                       <h3 class="${SS.learn_why_card_title}">Durable and Long-Lasting</h3>`,
-        `                       <p class="${SS.learn_why_card_text}">Hemp fibers are known for their strength and long-lasting quality.</p>`,
-        `                   </div>`,
-        ``,
-        `                   <div class="${SS.learn_why_card_panel} ${SS.form_static_column_center}">`,
-        `                       <img class="${SS.learn_why_card_image}" src="assets/images/learn_2.svg" alt="Text">`,
-        `                       <h3 class="${SS.learn_why_card_title}">Breathable and Lightweight</h3>`,
-        `                       <p class="${SS.learn_why_card_text}">Hemp fabric is breathable and gets softer with every wash and use; there is a limit to how soft it can get.</p>`,
-        `                   </div>`,
-        ``,
-        `                   <div class="${SS.learn_why_card_panel} ${SS.form_static_column_center}">`,
-        `                       <img class="${SS.learn_why_card_image}" src="assets/images/learn_3.svg" alt="Text">`,
-        `                       <h3 class="${SS.learn_why_card_title}">Naturally Textured and Tactile</h3>`,
-        `                       <p class="${SS.learn_why_card_text}">Its natural texture adds depth and character to quilts and textile work.</p>`,
-        `                   </div>`,
-        ``,
-        `                   <div class="${SS.learn_why_card_panel} ${SS.form_static_column_center}">`,
-        `                       <img class="${SS.learn_why_card_image}" src="assets/images/learn_4.svg" alt="Text">`,
-        `                       <h3 class="${SS.learn_why_card_title}">Biodegradable and Lower-Impact</h3>`,
-        `                       <p class="${SS.learn_why_card_text}">Hemp requires less water and fewer pesticides than cotton.</p>`,
-        `                   </div>`,
-        ``,
+        `                   ${why_card_durable}`,
+        `                   ${why_card_breathable}`,
+        `                   ${why_card_textured}`,
+        `                   ${why_card_biodegradable}`,
         `               </div>`,
-        ``,
         `           </div>`,
         ``,
         `           <!-- Common Misconceptions -->`,
         `           <div id="${SS.learn_misconception_panel}" class="${SS.form_static_column_center}">`,
-        ``,
         `               <h2 id="${SS.learn_misconception_heading}">Common Misconceptions</h2>`,
-        ``,
-        `               <div class="${SS.learn_misconception_card_panel} ${SS.form_static_column_center}">`,
-        `                   <p class="${SS.learn_misconception_card_myth}">"Hemp is the same as marijuana."</p>`,
-        `                   <p class="${SS.learn_misconception_card_truth}">While hemp and marijuana come from the same plant species, they are grown and used very differently. Textile hemp contains very low THC levels and is used for industrial applications like fabric, rope, and paper.</p>`,
-        `               </div>`,
-        ``,
-        `               <div class="${SS.learn_misconception_card_panel} ${SS.form_static_column_center}">`,
-        `                   <p class="${SS.learn_misconception_card_myth}">"Hemp fabric is rough."</p>`,
-        `                   <p class="${SS.learn_misconception_card_truth}">Modern hemp textiles can range from structured and textured to soft and breathable depending on the weave and blend. Many hemp fabrics become softer over time with washing and regular use.</p>`,
-        `               </div>`,
-        ``,
-        `               <div class="${SS.learn_misconception_card_panel} ${SS.form_static_column_center}">`,
-        `                   <p class="${SS.learn_misconception_card_myth}">"Hemp isn't practical for quilting."</p>`,
-        `                   <p class="${SS.learn_misconception_card_truth}">Part of this project explores exactly that question. By gathering feedback from quilters and testing material experiences, the project aims to better understand hemp's usability, comfort, and creative potential within quiltmaking.</p>`,
-        `               </div>`,
-        ``,
+        `               ${misconception_card_comparison}`,
+        `               ${misconception_card_rough}`,
+        `               ${misconception_card_quilting}`,
         `           </div>`,
         ``,
         `       ${build_footer("\t\t")}`,
@@ -588,6 +603,65 @@ function build_card_for_home_page(
         `${indent}\t<img class="${SS.home_why_card_image}" src="${image_path}" alt="${image_alt}">`,
         `${indent}\t<h3 class="${SS.home_why_card_title}">${title}</h3>`,
         `${indent}\t<p class="${SS.home_why_card_text}">${text}</p>`,
+        `${indent}</div>`,
+    ].join("\n");
+}
+
+function build_why_card_for_learn_page(
+    indent: string,
+    image_path: string,
+    image_alt: string,
+    title: string,
+    text: string
+): string {
+    return [
+        `<!-- ${title} Card -->`,
+        `${indent}<div class="${SS.learn_why_card_panel} ${SS.form_static_column_center}">`,
+        `${indent}\t<img class="${SS.learn_why_card_image}" src="${image_path}" alt="${image_alt}">`,
+        `${indent}\t<h3 class="${SS.learn_why_card_title}">${title}</h3>`,
+        `${indent}\t<p class="${SS.learn_why_card_text}">${text}</p>`,
+        `${indent}</div>`,
+    ].join("\n");
+}
+
+function build_misconception_card_for_learn_page(
+    indent: string,
+    misconception: string,
+    truth: string
+): string {
+    return [
+        `<!-- Card for "${misconception}"-->`,
+        `${indent}<div class="${SS.learn_misconception_card_panel} ${SS.form_static_column_center}">`,
+        `${indent}\t<p class="${SS.learn_misconception_card_myth}">${misconception}</p>`,
+        `${indent}\t<p class="${SS.learn_misconception_card_truth}">${truth}</p>`,
+        `${indent}</div>`,
+    ].join("\n");
+}
+
+function build_left_row_for_comparison_chart_for_learn_page(
+    indent: string,
+    icon: string,
+    text: string
+): string {
+    return [
+        `<!-- Hemp Note: "${text}"-->`,
+        `${indent}<div class="${SS.learn_compare_column_row_left} ${SS.form_static_row_center}">`,
+        `${indent}\t<span class="${SS.learn_compare_column_row_icon}">${icon}</span>`,
+        `${indent}\t<p class="${SS.learn_compare_column_row_text}">${text}</p>`,
+        `${indent}</div>`,
+    ].join("\n");
+}
+
+function build_right_row_for_comparison_chart_for_learn_page(
+    indent: string,
+    icon: string,
+    text: string
+): string {
+    return [
+        `<!-- Marijuana Note: "${text}"-->`,
+        `${indent}<div class="${SS.learn_compare_column_row_right} ${SS.form_static_row_center}">`,
+        `${indent}\t<p class="${SS.learn_compare_column_row_text}">${text}</p>`,
+        `${indent}\t<span class="${SS.learn_compare_column_row_icon_right}">${icon}</span>`,
         `${indent}</div>`,
     ].join("\n");
 }
