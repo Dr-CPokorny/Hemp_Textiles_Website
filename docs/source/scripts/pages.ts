@@ -499,9 +499,9 @@ function build_navigation(indent: string): string {
         `${indent}\t</div>`,
         `${indent}\t<div id="${SS.navigation_link_panel}">`,
         `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.HOME}.html>HOME</a>`,
-        `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.LEARN}.html>${PAGES.LEARN}</a>`,
-        `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.SOURCES}.html>${PAGES.SOURCES}</a>`,
-        `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.ABOUT}.html>${PAGES.ABOUT}</a>`,
+        `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.LEARN}.html>LEARN</a>`,
+        `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.SOURCES}.html>SOURCES</a>`,
+        `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.ABOUT}.html>ABOUT</a>`,
         `${indent}\t</div>`,
         `${indent}</nav>`,
     ].join("\n");
