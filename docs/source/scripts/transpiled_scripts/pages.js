@@ -9,10 +9,10 @@ const SS = HEAVENLY_EARTH.stripped_selectors;
 //
 // Each page must have its own body_builder function if errors are to be avoided.
 const PAGES = {
-    HOME: "index",
-    LEARN: "learn",
-    SOURCES: "sources",
-    ABOUT: "about",
+    HOME: "INDEX",
+    LEARN: "LEARN",
+    SOURCES: "SOURCES",
+    ABOUT: "ABOUT",
 };
 // BUILDING PAGES
 // When this file is executed these builds will generate all the fields inside PAGES as html files.
@@ -299,7 +299,7 @@ function build_navigation(indent) {
         `${indent}\t\t</div>`,
         `${indent}\t</div>`,
         `${indent}\t<div id="${SS.navigation_link_panel}">`,
-        `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.HOME}.html>home</a>`,
+        `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.HOME}.html>HOME</a>`,
         `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.LEARN}.html>${PAGES.LEARN}</a>`,
         `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.SOURCES}.html>${PAGES.SOURCES}</a>`,
         `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.ABOUT}.html>${PAGES.ABOUT}</a>`,
