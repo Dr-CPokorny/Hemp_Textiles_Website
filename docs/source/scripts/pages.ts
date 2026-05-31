@@ -10,12 +10,13 @@ const SS = HEAVENLY_EARTH.stripped_selectors;
 // List of HTML pages that is to be built.  All of these pages share the same head.  This is to ensure that only the head
 // builder needs to be manipulated when adding new stylesheets, links, or scripts.
 //
-// Each page must have its own body_builder function if errors are to be avoided.
+// Each page must have its own body_builder function if errors are to be avoided.  Each value for every page must be
+// lowercase for GitHub Pages to recognize the files.
 const PAGES = {
-    HOME: "INDEX",
-    LEARN: "LEARN",
-    SOURCES: "SOURCES",
-    ABOUT: "ABOUT",
+    HOME: "index",
+    LEARN: "learn",
+    SOURCES: "sources",
+    ABOUT: "about",
 } as const;
 
 // BUILDING PAGES
