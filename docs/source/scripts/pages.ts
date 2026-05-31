@@ -12,10 +12,10 @@ const SS = HEAVENLY_EARTH.stripped_selectors;
 //
 // Each page must have its own body_builder function if errors are to be avoided.
 const PAGES = {
-    HOME: "INDEX",
-    LEARN: "LEARN",
-    SOURCES: "SOURCES",
-    ABOUT: "ABOUT",
+    HOME: "index",
+    LEARN: "learn",
+    SOURCES: "sources",
+    ABOUT: "about",
 } as const;
 
 // BUILDING PAGES
@@ -28,7 +28,7 @@ for (const page of Object.values(PAGES)) {
 // Builds an HTML file that will be thrown into the docs directory.
 function build_page(file_name: string, page_name: string) {
 
-    const name_of_file = file_name.toUpperCase().replace(/\s+/g, "_") + ".html";
+    const name_of_file = file_name.toLowerCase().replace(/\s+/g, "_") + ".html";
     const output_path  = PATH.resolve("../../", name_of_file);
     const html_content = build_html(file_name, page_name);
 
@@ -179,7 +179,7 @@ function build_body_for_home(): string {
         `       <!-- Survey and Learn Buttons -->`,
         `       <div id="${SS.home_button_panel}" class="${SS.form_static_row_center}">`,
         `           <a id="${SS.home_button_survey}" href="">TAKE THE SURVEY</a>`,
-        `           <a id="${SS.home_button_learn}" href="LEARN.html">LEARN ABOUT HEMP</a>`,
+        `           <a id="${SS.home_button_learn}" href="learn.html">LEARN ABOUT HEMP</a>`,
         `       </div>`,
         ``,
         `       <!-- Notice Blurbs -->`,
@@ -497,7 +497,7 @@ function build_navigation(indent: string): string {
         `${indent}\t\t</div>`,
         `${indent}\t</div>`,
         `${indent}\t<div id="${SS.navigation_link_panel}">`,
-        `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.HOME}.html>HOME</a>`,
+        `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.HOME}.html>home</a>`,
         `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.LEARN}.html>${PAGES.LEARN}</a>`,
         `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.SOURCES}.html>${PAGES.SOURCES}</a>`,
         `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.ABOUT}.html>${PAGES.ABOUT}</a>`,
