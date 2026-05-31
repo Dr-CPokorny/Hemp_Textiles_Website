@@ -7,7 +7,7 @@ const SS = HEAVENLY_EARTH.stripped_selectors;
 // Types of HTML pages that can be built.  All of these pages share the same head.  This is to ensure that only the head
 // builder needs to be manipulated when adding new stylesheets, links, or scripts.
 const PAGES = {
-    HOME: "HOME",
+    HOME: "INDEX",
     LEARN: "LEARN",
     SOURCES: "SOURCES",
     ABOUT: "ABOUT",
@@ -93,34 +93,34 @@ function body_director(page_type) {
 }
 // Builds the body for the HOME page.
 function build_body_for_home() {
-    // Notice Blurb Variables
-    const blurb_for_research = build_notice_blurb_for_home_page("\t\t\t", "eco", "Data Driven", "This project is grounded in real data and research.");
-    const blurb_for_survey = build_notice_blurb_for_home_page("\t\t\t", "schedule", "Short Survey", "Quick, easy, and your responses are valued.");
-    const blurb_for_anonymous = build_notice_blurb_for_home_page("\t\t\t", "lock", "Anonymous", "Your responses are completely anonymous.");
-    // Why Card Variables
-    const card_sustainable = build_card_for_home_page("\t\t\t\t", "assets/images/home_4.svg", "Finished patterned quilt made with hemp fabric.", "Sustainable", "Hemp is a low-impact crop that supports a healthier planet.");
-    const card_durable = build_card_for_home_page("\t\t\t\t", "assets/images/home_3.svg", "Finished white quilt made with hemp fabric.", "Durable & Beautiful", "Strong fibers, soft textures, made to last in every stitch.");
-    const card_makers = build_card_for_home_page("\t\t\t\t", "assets/images/home_2.svg", "Finished blue quilt made with hemp fabric.", "Made for Makers", "Quilters like you are leading the way to a greener future.");
+    // Top Information
+    const TOP_INFO = build_top("\t\t", "Help Shape the Future of Hemp in Quilting", "Share your experience or curiosity about hemp fabrics.<br>Your input informs sustainable textile innovation.");
+    // Notice Blurb Information
+    const BLURB_RESEARCH = build_notice_blurb_for_home_page("\t\t\t", "eco", "Data Driven", "This project is grounded in real data and research.");
+    const BLURB_SURVEY = build_notice_blurb_for_home_page("\t\t\t", "schedule", "Short Survey", "Quick, easy, and your responses are valued.");
+    const BLURB_ANONYMOUS = build_notice_blurb_for_home_page("\t\t\t", "lock", "Anonymous", "Your responses are completely anonymous.");
+    // Why Card Information
+    const CARD_SUSTAINABLE = build_card_for_home_page("\t\t\t\t", "assets/images/home_4.svg", "Finished patterned quilt made with hemp fabric.", "Sustainable", "Hemp is a low-impact crop that supports a healthier planet.");
+    const CARD_DURABLE = build_card_for_home_page("\t\t\t\t", "assets/images/home_3.svg", "Finished white quilt made with hemp fabric.", "Durable & Beautiful", "Strong fibers, soft textures, made to last in every stitch.");
+    const CARD_MAKERS = build_card_for_home_page("\t\t\t\t", "assets/images/home_2.svg", "Finished blue quilt made with hemp fabric.", "Made for Makers", "Quilters like you are leading the way to a greener future.");
     return [
         `   <body class="${SS.form_static_column_center}">`,
         ``,
         `       ${build_navigation("\t\t")}`,
         ``,
-        `       <!-- Top Section -->`,
-        `       <div id="${SS.home_top_panel}" class="${SS.form_static_column_center}">`,
-        `           <h1 id="${SS.home_top_heading}">Help Shape the Future of Hemp in Quilting</h1>`,
-        `           <p id="${SS.home_top_text}">Share your experience or curiosity about hemp fabrics.<br>Your input informs sustainable textile innovation.</p>`,
-        `           <div class="${SS.form_static_row_center}">`,
-        `               <a id="${SS.home_top_button_survey}" href="">TAKE THE SURVEY</a>`,
-        `               <a id="${SS.home_top_button_learn}" href="LEARN.html">LEARN ABOUT HEMP</a>`,
-        `           </div>`,
-        `      </div>`,
+        `       ${TOP_INFO}`,
+        ``,
+        `       <!-- Survey and Learn Buttons -->`,
+        `       <div id="${SS.home_button_panel}" class="${SS.form_static_row_center}">`,
+        `           <a id="${SS.home_button_survey}" href="">TAKE THE SURVEY</a>`,
+        `           <a id="${SS.home_button_learn}" href="LEARN.html">LEARN ABOUT HEMP</a>`,
+        `       </div>`,
         ``,
         `       <!-- Notice Blurbs -->`,
         `       <div id="${SS.home_notice_panel}" class="${SS.form_static_row_center}">`,
-        `           ${blurb_for_research}`,
-        `           ${blurb_for_survey}`,
-        `           ${blurb_for_anonymous}`,
+        `           ${BLURB_RESEARCH}`,
+        `           ${BLURB_SURVEY}`,
+        `           ${BLURB_ANONYMOUS}`,
         `       </div>`,
         ``,
         `       <!-- Why Your Voice Matters -->`,
@@ -137,9 +137,9 @@ function build_body_for_home() {
         ``,
         `           <!-- Why Cards -->`,
         `           <div class="${SS.form_static_row_start}">`,
-        `               ${card_sustainable}`,
-        `               ${card_durable}`,
-        `               ${card_makers}`,
+        `               ${CARD_SUSTAINABLE}`,
+        `               ${CARD_DURABLE}`,
+        `               ${CARD_MAKERS}`,
         `           </div>`,
         ``,
         `       </div>`,
@@ -151,116 +151,69 @@ function build_body_for_home() {
 }
 // Builds the body for the LEARN page.
 function build_body_for_learn() {
+    // Top Information
+    const TOP_INFO = build_top("\t\t", "What is Hemp, Really?", "Hemp is a natural fiber that comes from the Cannabis sativa plant, but unlike marijuana, hemp contains extremely low levels of THC (the psychoactive compound associated with getting “high”). Hemp used for textiles is non-psychoactive, legally grown in many parts of the world, and has been used historically for products like rope, paper, clothing, and fabric.", "Today, hemp is gaining attention as a more sustainable textile alternative because it requires less water, fewer pesticides, and produces durable, breathable fibers that soften over time with use. Despite these benefits, hemp fabrics are still often misunderstood due to long-standing associations with marijuana and limited exposure within mainstream textile markets.");
+    // Hemp and Marijuana Comparison Information
+    const HEMP_THC = build_left_row_for_comparison_chart_for_learn_page("\t\t\t\t", "check_circle", "Low THC (<0.3%)");
+    const HEMP_USE = build_left_row_for_comparison_chart_for_learn_page("\t\t\t\t", "check_circle", "Used for textiles or food");
+    const HEMP_PSYCHO = build_left_row_for_comparison_chart_for_learn_page("\t\t\t\t", "check_circle", "Non-psychoactive");
+    const MARIJUANA_THC = build_right_row_for_comparison_chart_for_learn_page("\t\t\t\t", "cancel", "High THC (5–30%+)");
+    const MARIJUANA_USE = build_right_row_for_comparison_chart_for_learn_page("\t\t\t\t", "cancel", "Used recreationally or medically");
+    const MARIJUANA_PSYCHO = build_right_row_for_comparison_chart_for_learn_page("\t\t\t\t", "cancel", "Psychoactive");
+    // Why Card Information
+    const WHY_CARD_DURABLE = build_why_card_for_learn_page("\t\t\t\t", "assets/images/learn_1.svg", "Text", "Durable and Long-Lasting", "Hemp fibers are known for their strength and long-lasting quality.");
+    const WHY_CARD_BREATHABLE = build_why_card_for_learn_page("\t\t\t\t", "assets/images/learn_2.svg", "Text", "Breathable and Lightweight", "Hemp fabric is breathable and gets softer with every wash and use; there is a limit to how soft it can get.");
+    const WHY_CARD_TEXTURED = build_why_card_for_learn_page("\t\t\t\t", "assets/images/learn_3.svg", "Text", "Naturally Textured and Tactile", "Its natural texture adds depth and character to quilts and textile work.");
+    const WHY_CARD_BIODEGRADABLE = build_why_card_for_learn_page("\t\t\t\t", "assets/images/learn_4.svg", "Text", "Biodegradable and Lower-Impact", "Hemp requires less water and fewer pesticides than cotton.");
+    // Misconception Card Information
+    const MISCONCEPTION_CARD_COMPARISON = build_misconception_card_for_learn_page("\t\t\t", '"Hemp is the same as marijuana."', "While hemp and marijuana come from the same plant species, they are grown and used very differently. Textile hemp contains very low THC levels and is used for industrial applications like fabric, rope, and paper.");
+    const MISCONCEPTION_CARD_ROUGH = build_misconception_card_for_learn_page("\t\t\t", '"Hemp fabric is rough."', "Modern hemp textiles can range from structured and textured to soft and breathable depending on the weave and blend. Many hemp fabrics become softer over time with washing and regular use.");
+    const MISCONCEPTION_CARD_QUILTING = build_misconception_card_for_learn_page("\t\t\t", '"Hemp isn\'t practical for quilting."', "Part of this project explores exactly that question. By gathering feedback from quilters and testing material experiences, the project aims to better understand hemp's usability, comfort, and creative potential within quiltmaking.");
     return [
         `   <body class="${SS.form_static_column_center}">`,
         ``,
         `       ${build_navigation("\t\t")}`,
         ``,
-        `           <!-- Title and Subtitle -->`,
-        `           <h1 id="${SS.learn_title}">What is Hemp, Really?</h1>`,
-        `           <p class="${SS.learn_text}">Hemp is a natural fiber that comes from the Cannabis sativa plant, but unlike marijuana, hemp contains extremely low levels of THC (the psychoactive compound associated with getting “high”). Hemp used for textiles is non-psychoactive, legally grown in many parts of the world, and has been used historically for products like rope, paper, clothing, and fabric.</p>`,
-        `           <p class="${SS.learn_text}">Today, hemp is gaining attention as a more sustainable textile alternative because it requires less water, fewer pesticides, and produces durable, breathable fibers that soften over time with use. Despite these benefits, hemp fabrics are still often misunderstood due to long-standing associations with marijuana and limited exposure within mainstream textile markets.</p>`,
+        `       ${TOP_INFO}`,
         ``,
-        `           <!-- Hemp vs Marijuana Comparison -->`,
-        `           <div id="${SS.learn_compare_panel}" class="${SS.form_static_row_center}">`,
-        ``,
-        `               <div class="${SS.learn_compare_column_panel_left} ${SS.form_static_column_start}">`,
-        `                   <h2 class="${SS.learn_compare_column_heading_left}">HEMP</h2>`,
-        `                   <div class="${SS.learn_compare_column_divider}"></div>`,
-        `                   <div class="${SS.learn_compare_column_row_left} ${SS.form_static_row_center}">`,
-        `                       <span class="${SS.learn_compare_column_row_icon}">check_circle</span>`,
-        `                       <p class="${SS.learn_compare_column_row_text}">Low THC (&lt;0.3%)</p>`,
-        `                   </div>`,
-        `                   <div class="${SS.learn_compare_column_row_left} ${SS.form_static_row_center}">`,
-        `                       <span class="${SS.learn_compare_column_row_icon}">check_circle</span>`,
-        `                       <p class="${SS.learn_compare_column_row_text}">Used for textiles or food</p>`,
-        `                   </div>`,
-        `                   <div class="${SS.learn_compare_column_row_left} ${SS.form_static_row_center}">`,
-        `                       <span class="${SS.learn_compare_column_row_icon}">check_circle</span>`,
-        `                       <p class="${SS.learn_compare_column_row_text}">Non-psychoactive</p>`,
-        `                   </div>`,
-        `               </div>`,
-        ``,
-        `               <div id="${SS.learn_compare_leaf_panel}" class="${SS.form_static_column_center}">`,
-        `                   <img id="${SS.learn_compare_leaf_image}" src="assets/images/learn_0.svg" alt="Hemp leaf">`,
-        `               </div>`,
-        ``,
-        `               <div class="${SS.learn_compare_column_panel_right} ${SS.form_static_column_end}">`,
-        `                   <h2 class="${SS.learn_compare_column_heading_right}">MARIJUANA</h2>`,
-        `                   <div class="${SS.learn_compare_column_divider}"></div>`,
-        `                   <div class="${SS.learn_compare_column_row_right} ${SS.form_static_row_center}">`,
-        `                       <p class="${SS.learn_compare_column_row_text}">High THC (5–30%+)</p>`,
-        `                       <span class="${SS.learn_compare_column_row_icon_right}">cancel</span>`,
-        `                   </div>`,
-        `                   <div class="${SS.learn_compare_column_row_right} ${SS.form_static_row_center}">`,
-        `                       <p class="${SS.learn_compare_column_row_text}">Used recreationally or medically</p>`,
-        `                       <span class="${SS.learn_compare_column_row_icon_right}">cancel</span>`,
-        `                   </div>`,
-        `                   <div class="${SS.learn_compare_column_row_right} ${SS.form_static_row_center}">`,
-        `                       <p class="${SS.learn_compare_column_row_text}">Psychoactive</p>`,
-        `                       <span class="${SS.learn_compare_column_row_icon_right}">cancel</span>`,
-        `                   </div>`,
-        `               </div>`,
-        ``,
+        `       <!-- Hemp vs Marijuana Comparison -->`,
+        `       <div id="${SS.learn_compare_panel}" class="${SS.form_static_row_center}">`,
+        `           <div class="${SS.learn_compare_column_panel_left} ${SS.form_static_column_start}">`,
+        `               <h2 class="${SS.learn_compare_column_heading_left}">HEMP</h2>`,
+        `               ${HEMP_THC}`,
+        `               ${HEMP_USE}`,
+        `               ${HEMP_PSYCHO}`,
         `           </div>`,
-        ``,
-        `           <!-- Why Hemp for Quilting -->`,
-        `           <div id="${SS.learn_why_panel}" class="${SS.form_static_column_center}">`,
-        ``,
-        `               <h2 id="${SS.learn_why_heading}">Why Hemp for Quilting?</h2>`,
-        `               <p id="${SS.learn_why_text}">Quilting is a deeply tactile craft where makers interact directly with materials through cutting, sewing, layering, and touch. This hands-on experience creates a unique opportunity to evaluate hemp textiles based on real performance rather than assumptions.</p>`,
-        ``,
-        `               <div class="${SS.form_static_column_center}">`,
-        ``,
-        `                   <div class="${SS.learn_why_card_panel} ${SS.form_static_column_center}">`,
-        `                       <img class="${SS.learn_why_card_image}" src="assets/images/learn_1.svg" alt="Text">`,
-        `                       <h3 class="${SS.learn_why_card_title}">Durable and Long-Lasting</h3>`,
-        `                       <p class="${SS.learn_why_card_text}">Hemp fibers are known for their strength and long-lasting quality.</p>`,
-        `                   </div>`,
-        ``,
-        `                   <div class="${SS.learn_why_card_panel} ${SS.form_static_column_center}">`,
-        `                       <img class="${SS.learn_why_card_image}" src="assets/images/learn_2.svg" alt="Text">`,
-        `                       <h3 class="${SS.learn_why_card_title}">Breathable and Lightweight</h3>`,
-        `                       <p class="${SS.learn_why_card_text}">Hemp fabric is breathable and gets softer with every wash and use; there is a limit to how soft it can get.</p>`,
-        `                   </div>`,
-        ``,
-        `                   <div class="${SS.learn_why_card_panel} ${SS.form_static_column_center}">`,
-        `                       <img class="${SS.learn_why_card_image}" src="assets/images/learn_3.svg" alt="Text">`,
-        `                       <h3 class="${SS.learn_why_card_title}">Naturally Textured and Tactile</h3>`,
-        `                       <p class="${SS.learn_why_card_text}">Its natural texture adds depth and character to quilts and textile work.</p>`,
-        `                   </div>`,
-        ``,
-        `                   <div class="${SS.learn_why_card_panel} ${SS.form_static_column_center}">`,
-        `                       <img class="${SS.learn_why_card_image}" src="assets/images/learn_4.svg" alt="Text">`,
-        `                       <h3 class="${SS.learn_why_card_title}">Biodegradable and Lower-Impact</h3>`,
-        `                       <p class="${SS.learn_why_card_text}">Hemp requires less water and fewer pesticides than cotton.</p>`,
-        `                   </div>`,
-        ``,
-        `               </div>`,
-        ``,
+        `           <div id="${SS.learn_compare_leaf_panel}" class="${SS.form_static_column_center}">`,
+        `               <img id="${SS.learn_compare_leaf_image}" src="assets/images/learn_0.svg" alt="Hemp leaf">`,
         `           </div>`,
-        ``,
-        `           <!-- Common Misconceptions -->`,
-        `           <div id="${SS.learn_misconception_panel}" class="${SS.form_static_column_center}">`,
-        ``,
-        `               <h2 id="${SS.learn_misconception_heading}">Common Misconceptions</h2>`,
-        ``,
-        `               <div class="${SS.learn_misconception_card_panel} ${SS.form_static_column_center}">`,
-        `                   <p class="${SS.learn_misconception_card_myth}">"Hemp is the same as marijuana."</p>`,
-        `                   <p class="${SS.learn_misconception_card_truth}">While hemp and marijuana come from the same plant species, they are grown and used very differently. Textile hemp contains very low THC levels and is used for industrial applications like fabric, rope, and paper.</p>`,
-        `               </div>`,
-        ``,
-        `               <div class="${SS.learn_misconception_card_panel} ${SS.form_static_column_center}">`,
-        `                   <p class="${SS.learn_misconception_card_myth}">"Hemp fabric is rough."</p>`,
-        `                   <p class="${SS.learn_misconception_card_truth}">Modern hemp textiles can range from structured and textured to soft and breathable depending on the weave and blend. Many hemp fabrics become softer over time with washing and regular use.</p>`,
-        `               </div>`,
-        ``,
-        `               <div class="${SS.learn_misconception_card_panel} ${SS.form_static_column_center}">`,
-        `                   <p class="${SS.learn_misconception_card_myth}">"Hemp isn't practical for quilting."</p>`,
-        `                   <p class="${SS.learn_misconception_card_truth}">Part of this project explores exactly that question. By gathering feedback from quilters and testing material experiences, the project aims to better understand hemp's usability, comfort, and creative potential within quiltmaking.</p>`,
-        `               </div>`,
-        ``,
+        `           <div class="${SS.learn_compare_column_panel_right} ${SS.form_static_column_end}">`,
+        `               <h2 class="${SS.learn_compare_column_heading_right}">MARIJUANA</h2>`,
+        `               ${MARIJUANA_THC}`,
+        `               ${MARIJUANA_USE}`,
+        `               ${MARIJUANA_PSYCHO}`,
         `           </div>`,
+        `       </div>`,
+        ``,
+        `       <!-- Why Hemp for Quilting -->`,
+        `       <div id="${SS.learn_why_panel}" class="${SS.form_static_column_center}">`,
+        `           <h2 id="${SS.learn_why_heading}">Why Hemp for Quilting?</h2>`,
+        `           <p id="${SS.learn_why_text}">Quilting is a deeply tactile craft where makers interact directly with materials through cutting, sewing, layering, and touch. This hands-on experience creates a unique opportunity to evaluate hemp textiles based on real performance rather than assumptions.</p>`,
+        `           <div class="${SS.form_static_column_center}">`,
+        `               ${WHY_CARD_DURABLE}`,
+        `               ${WHY_CARD_BREATHABLE}`,
+        `               ${WHY_CARD_TEXTURED}`,
+        `               ${WHY_CARD_BIODEGRADABLE}`,
+        `           </div>`,
+        `       </div>`,
+        ``,
+        `       <!-- Common Misconceptions -->`,
+        `       <div id="${SS.learn_misconception_panel}" class="${SS.form_static_column_center}">`,
+        `           <h2 id="${SS.learn_misconception_heading}">Common Misconceptions</h2>`,
+        `           ${MISCONCEPTION_CARD_COMPARISON}`,
+        `           ${MISCONCEPTION_CARD_ROUGH}`,
+        `           ${MISCONCEPTION_CARD_QUILTING}`,
+        `       </div>`,
         ``,
         `       ${build_footer("\t\t")}`,
         ``,
@@ -283,52 +236,49 @@ function build_body_for_sources() {
 }
 // Builds the body for the ABOUT page.
 function build_body_for_about() {
-    const pokorny = build_person_for_about_page("\t\t", "assets/images/person_pokorny.svg", "Dr. Colleen Gelhaus Pokorny", "Project Lead", "Dr. Pokorny is an Assistant Professor of Apparel Design at Oregon State University and a lifelong quilter. She is a member of the Textile & Apparel Innovation Research Consortia with the Global Hemp Innovation Center. Her creative scholarship uses quiltmaking to explore material‑driven sustainability and how hands‑on engagement with hemp textiles can shift design practices and perceptions. Dr. Pokorny's work has received international recognition, including the Sandra Hutton Award for Excellence in Fiber Arts at the 2025 ITAA Design Exhibition. Her work has been shown at the National Quilt Museum, QuiltCon, and the American Quilt Study Group's traveling exhibition, Quiltmakers and Designers: 1945–1979.", "mailto:colleen.pokorny@oregonstate.edu", "EMAIL", "https://business.oregonstate.edu/faculty-and-research/faculty-directory/colleen-gelhaus-pokorny", "BUSINESS BIOGRAPHY", "https://www.linkedin.com/in/colleenpokorny/", "LINKEDIN");
-    const aurora = build_person_for_about_page("\t\t", "assets/images/person_aurora.svg", "Aurora O'Neill", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident");
-    const james = build_person_for_about_page("\t\t", "assets/images/person_james.svg", "James Bryant", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident");
-    const kira = build_person_for_about_page("\t\t", "assets/images/person_kira.svg", "Kira Ash Stephenson", "Website Developer", "Once a student of Polk State College (FL), St. Petersburg College (FL), and Lane Community College (OR) in an endeavor to learn more about programming in order to fulfill his dreams of developing video games.  Now, Kira is a student at Oregon State University where they are learning more about software engineering; on the side they are developing larger projects inside a Business GitHub account called \"Mirth Development\".  He is the engineer/developer of this site - it's really weird to talk in third person for this - and the tools used to construct the pages before you were TypeScript, GitHub Pages, WebStorm, and a custom tool that Kira made for ease of styling.", "https://github.com/Tenlion?tab=repositories", "GITHUB", "https://github.com/orgs/Mirth-Development/repositories", "MIRTH DEVELOPMENT", "https://www.linkedin.com/in/kira-stephenson-9210b820b", "LINKEDIN");
-    const rudy = build_person_for_about_page("\t\t", "assets/images/person_rudy.svg", "Rudy David Torrijos IV", "Automotive Technology | Mechanical Engineering", "Driven mechanical engineering student with a strong background in automotive technology and hands-on problem solving. Experienced in teamwork, manufacturing, and vehicle systems through academic projects, shop work, and real-world automotive experience. Passionate about engineering, fabrication, and applying practical skills to innovative projects and industries.", "https://www.instagram.com/802volvo/", "INSTAGRAM");
-    const vance = build_person_for_about_page("\t\t", "assets/images/person_vance.svg", "Vance Hernandez", "Student", "Vance Hernandez is a Mechanical Engineering student at Oregon State University and a 10-year U.S. Navy veteran. His background includes experience in engineering, technical problem solving, and hands-on project work, with interests in sustainability and practical design applications.");
+    // Top Information
+    const TOP_INFO = build_top("\t\t", "About the Project", "Building a more sustainable future for quilting.");
+    // People Information
+    const POKORNY = build_person_for_about_page("\t\t", "assets/images/person_pokorny.svg", "Dr. Colleen Gelhaus Pokorny", "Project Lead", "Dr. Pokorny is an Assistant Professor of Apparel Design at Oregon State University and a lifelong quilter. She is a member of the Textile & Apparel Innovation Research Consortia with the Global Hemp Innovation Center. Her creative scholarship uses quiltmaking to explore material‑driven sustainability and how hands‑on engagement with hemp textiles can shift design practices and perceptions. Dr. Pokorny's work has received international recognition, including the Sandra Hutton Award for Excellence in Fiber Arts at the 2025 ITAA Design Exhibition. Her work has been shown at the National Quilt Museum, QuiltCon, and the American Quilt Study Group's traveling exhibition, Quiltmakers and Designers: 1945–1979.", "mailto:colleen.pokorny@oregonstate.edu", "EMAIL", "https://business.oregonstate.edu/faculty-and-research/faculty-directory/colleen-gelhaus-pokorny", "BUSINESS BIOGRAPHY", "https://www.linkedin.com/in/colleenpokorny/", "LINKEDIN");
+    const AURORA = build_person_for_about_page("\t\t", "assets/images/person_aurora.svg", "Aurora O'Neill", "Designer & Researcher", "Aurora O’Neill is a Design and Innovation Management student at Oregon State University with a background in design research, sustainability, marketing, and entrepreneurship. The bulk of her design research focuses on how thoughtful design and material choices can support more environmentally responsible futures. Alongside her research, Aurora has experience in graphic design, UX design, branding, and collaborative projects that connect creativity with social impact. She is passionate about using research, storytelling, and community engagement to create work that encourages conversation and participation around sustainable practices.", "https://www.linkedin.com/in/aurora-o-neill-466132232/", "LINKEDIN");
+    const JAMES = build_person_for_about_page("\t\t", "assets/images/person_james.svg", "James Bryant", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident");
+    const KIRA = build_person_for_about_page("\t\t", "assets/images/person_kira.svg", "Kira Ash Stephenson", "Website Developer", "Once a student of Polk State College (FL), St. Petersburg College (FL), and Lane Community College (OR) in an endeavor to learn more about programming in order to fulfill his dreams of developing video games.  Now, Kira is a student at Oregon State University where they are learning more about software engineering; on the side they are developing larger projects inside a Business GitHub account called \"Mirth Development\".  He is the engineer/developer of this site - it's really weird to talk in third person for this - and the tools used to construct the pages before you were TypeScript, GitHub Pages, WebStorm, and a custom tool that Kira made for ease of styling.", "https://github.com/Tenlion?tab=repositories", "GITHUB", "https://github.com/orgs/Mirth-Development/repositories", "MIRTH DEV.", "https://www.linkedin.com/in/kira-stephenson-9210b820b", "LINKEDIN");
+    const RUDY = build_person_for_about_page("\t\t", "assets/images/person_rudy.svg", "Rudy David Torrijos IV", "Automotive Technology | Mechanical Engineering", "Driven mechanical engineering student with a strong background in automotive technology and hands-on problem solving. Experienced in teamwork, manufacturing, and vehicle systems through academic projects, shop work, and real-world automotive experience. Passionate about engineering, fabrication, and applying practical skills to innovative projects and industries.", "https://www.instagram.com/802volvo/", "INSTAGRAM");
+    const VANCE = build_person_for_about_page("\t\t", "assets/images/person_vance.svg", "Vance Hernandez", "Student", "Vance Hernandez is a Mechanical Engineering student at Oregon State University and a 10-year U.S. Navy veteran. His background includes experience in engineering, technical problem solving, and hands-on project work, with interests in sustainability and practical design applications.");
     return [
         `   <body class="${SS.form_static_column_center}">`,
         ``,
         `       ${build_navigation("\t\t")}`,
         ``,
-        `       <div id="${SS.about_description_outer_panel}" class="${SS.form_static_column_center}">`,
+        `       ${TOP_INFO}`,
         ``,
-        `           <!-- Page Title and Subtitle -->`,
-        `           <h1 id="${SS.about_description_title}">About the Project</h1>`,
-        `           <p id="${SS.about_description_subtitle}">Building a more sustainable future for quilting.</p>`,
-        ``,
-        `           <!-- About Description -->`,
-        `           <div id="${SS.about_description_inner_panel}">`,
-        `               <h2 class="${SS.about_description_inner_title}">Project Overview</h2>`,
-        `               <p class="${SS.about_description_inner_text}">The U.S. quilting industry is a multi-billion-dollar market, generating $4.5B in annual revenue in 2025 and supported by 9–11 million active quilters, making it one of the most robust craft sectors in the country. At the same time, consumer trends show a growing shift toward textured woven and linen fabrics that add depth, natural beauty, and tactility to quilts. Despite this appetite for natural, textured materials, quilting textiles remain cotton-dominant. While cotton is a natural fiber, its high water and pesticide use, along with historical labor issues, present a persistent sustainability challenge for the industry.</p>`,
-        `               <p class="${SS.about_description_inner_text}">Hemp textiles can meet quiltmaking's demand for natural, tactile materials while reducing environmental impact (lower water use, no pesticides, durable, breathable, biodegradable). Yet adoption lags due to misconceptions about texture/softness and associations with marijuana, plus limited retail presence. Meanwhile, the U.S. hemp fiber market is expanding. It is projected to grow from $120.4M (2024) to $360.2M (2033), signaling market pull for sustainable cotton alternatives and a timely opportunity for application in quiltmaking. Quiltmaking is an ideal medium for changing perceptions because it is a deeply tactile, material-driven craft where makers handle, test, and compare materials through hands-on making.</p>`,
-        `               <p class="${SS.about_description_inner_text}">It is our belief that the information provided on this site, its potential to spread, and the data collection of what people think of hemp through our survey will open the way for discovering how to make a more sustainable future within quiltmaking.  We don't want to just show what we can find online or through the standard research papers that we'll be sifting through, rather we want to exemplify the voices of the community in our work.  Peoples' reaction to this website, alongside the responses we discover in the provided survey that's linked in the Home Page, acts as the first step toward showing that voice on the matter.  Only together, can we weave a more sustainable future.</p>`,
-        `           </div>`,
-        ``,
-        `           <!-- Team Intro Title + Flair -->`,
-        `           <p id="${SS.about_people_title}">Meet the Team</p>`,
-        `           <div id="${SS.about_divider_row}" class="${SS.form_static_row_center}">`,
-        `               <div class="${SS.about_divider_line}"></div>`,
-        `               <span id="${SS.about_divider_icon}">spa</span>`,
-        `               <div class="${SS.about_divider_line}"></div>`,
-        `           </div>`,
-        ``,
+        `       <!-- About Description -->`,
+        `       <div id="${SS.about_description_panel}">`,
+        `           <h2 class="${SS.about_description_heading}">Project Overview</h2>`,
+        `           <p class="${SS.about_description_text}">The U.S. quilting industry is a multi-billion-dollar market, generating $4.5B in annual revenue in 2025 and supported by 9–11 million active quilters, making it one of the most robust craft sectors in the country. At the same time, consumer trends show a growing shift toward textured woven and linen fabrics that add depth, natural beauty, and tactility to quilts. Despite this appetite for natural, textured materials, quilting textiles remain cotton-dominant. While cotton is a natural fiber, its high water and pesticide use, along with historical labor issues, present a persistent sustainability challenge for the industry.</p>`,
+        `           <p class="${SS.about_description_text}">Hemp textiles can meet quiltmaking's demand for natural, tactile materials while reducing environmental impact (lower water use, no pesticides, durable, breathable, biodegradable). Yet adoption lags due to misconceptions about texture/softness and associations with marijuana, plus limited retail presence. Meanwhile, the U.S. hemp fiber market is expanding. It is projected to grow from $120.4M (2024) to $360.2M (2033), signaling market pull for sustainable cotton alternatives and a timely opportunity for application in quiltmaking. Quiltmaking is an ideal medium for changing perceptions because it is a deeply tactile, material-driven craft where makers handle, test, and compare materials through hands-on making.</p>`,
+        `           <p class="${SS.about_description_text}">It is our belief that the information provided on this site, its potential to spread, and the data collection of what people think of hemp through our survey will open the way for discovering how to make a more sustainable future within quiltmaking.  We don't want to just show what we can find online or through the standard research papers that we'll be sifting through, rather we want to exemplify the voices of the community in our work.  Peoples' reaction to this website, alongside the responses we discover in the provided survey that's linked in the Home Page, acts as the first step toward showing that voice on the matter.  Only together, can we weave a more sustainable future.</p>`,
         `       </div>`,
         ``,
-        `       ${pokorny}`,
+        `       <!-- Team Intro Title + Flair -->`,
+        `       <p id="${SS.about_people_title}">Meet the Team</p>`,
+        `       <div id="${SS.about_divider_row}" class="${SS.form_static_row_center}">`,
+        `           <div class="${SS.about_divider_line}"></div>`,
+        `           <span id="${SS.about_divider_icon}">spa</span>`,
+        `           <div class="${SS.about_divider_line}"></div>`,
+        `       </div>`,
         ``,
-        `       ${aurora}`,
+        `       ${POKORNY}`,
         ``,
-        `       ${james}`,
+        `       ${AURORA}`,
         ``,
-        `       ${kira}`,
+        `       ${JAMES}`,
         ``,
-        `       ${rudy}`,
+        `       ${KIRA}`,
         ``,
-        `       ${vance}`,
+        `       ${RUDY}`,
+        ``,
+        `       ${VANCE}`,
         ``,
         `       ${build_footer("\t\t")}`,
         ``,
@@ -348,7 +298,7 @@ function build_navigation(indent) {
         `${indent}\t\t</div>`,
         `${indent}\t</div>`,
         `${indent}\t<div id="${SS.navigation_link_panel}">`,
-        `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.HOME}.html>${PAGES.HOME}</a>`,
+        `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.HOME}.html>HOME</a>`,
         `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.LEARN}.html>${PAGES.LEARN}</a>`,
         `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.SOURCES}.html>${PAGES.SOURCES}</a>`,
         `${indent}\t\t<a class="${SS.navigation_link}" href=${PAGES.ABOUT}.html>${PAGES.ABOUT}</a>`,
@@ -374,6 +324,22 @@ function build_footer(indent) {
         `${indent}\t\t\t</a>`,
         `${indent}\t\t</span>`,
         `${indent}\t</div>`,
+        `${indent}</div>`,
+    ].join("\n");
+}
+// Generates the contents for the top of the page.  This includes the page title and any following subtext.  Passed in texts are
+// just strings, ...texts will catch any passed strings after the 2nd argument and put them into an array that will have
+// its contents mapped onto paragraph tags within the function's implementation.
+//
+// Will return an array of template literals for tacking into a body builder.
+function build_top(indent, title, ...texts) {
+    // Mapping passed strings onto paragraph tags to tack into the generated top_panel.
+    const text_lines = texts.map(text => `${indent}\t<p class="${SS.top_text}">${text}</p>`).join("\n");
+    return [
+        `<!-- Page Title and Subtext -->`,
+        `${indent}<div class="${SS.top_panel} ${SS.form_static_column_center}">`,
+        `${indent}\t<h1 class="${SS.top_title}">${title}</h1>`,
+        text_lines,
         `${indent}</div>`,
     ].join("\n");
 }
@@ -431,6 +397,51 @@ function build_card_for_home_page(indent, image_path, image_alt, title, text) {
         `${indent}\t<img class="${SS.home_why_card_image}" src="${image_path}" alt="${image_alt}">`,
         `${indent}\t<h3 class="${SS.home_why_card_title}">${title}</h3>`,
         `${indent}\t<p class="${SS.home_why_card_text}">${text}</p>`,
+        `${indent}</div>`,
+    ].join("\n");
+}
+// Generates HTML content for a card to help populate the Learn page's "Why Hemp For Quilting" section.  Will return an
+// array of template literals for tacking into a body builder.
+function build_why_card_for_learn_page(indent, image_path, image_alt, title, text) {
+    return [
+        `<!-- ${title} Card -->`,
+        `${indent}<div class="${SS.learn_why_card_panel} ${SS.form_static_column_center}">`,
+        `${indent}\t<img class="${SS.learn_why_card_image}" src="${image_path}" alt="${image_alt}">`,
+        `${indent}\t<h3 class="${SS.learn_why_card_title}">${title}</h3>`,
+        `${indent}\t<p class="${SS.learn_why_card_text}">${text}</p>`,
+        `${indent}</div>`,
+    ].join("\n");
+}
+// Generates HTML content for a card to help populate the Learn page's "Common Misconceptions" section.  Will return an
+// array of template literals for tacking into a body builder.
+function build_misconception_card_for_learn_page(indent, misconception, truth) {
+    return [
+        `<!-- Card for "${misconception}"-->`,
+        `${indent}<div class="${SS.learn_misconception_card_panel} ${SS.form_static_column_center}">`,
+        `${indent}\t<p class="${SS.learn_misconception_card_myth}">${misconception}</p>`,
+        `${indent}\t<p class="${SS.learn_misconception_card_truth}">${truth}</p>`,
+        `${indent}</div>`,
+    ].join("\n");
+}
+// Creates a row for the hemp column of the "Hemp vs. Marijuana" section of the Learn Page.
+// Will return an array of template literals for tacking into a body builder.
+function build_left_row_for_comparison_chart_for_learn_page(indent, icon, text) {
+    return [
+        `<!-- Hemp Note: "${text}"-->`,
+        `${indent}<div class="${SS.learn_compare_column_row_left} ${SS.form_static_row_center}">`,
+        `${indent}\t<span class="${SS.learn_compare_column_row_icon}">${icon}</span>`,
+        `${indent}\t<p class="${SS.learn_compare_column_row_text}">${text}</p>`,
+        `${indent}</div>`,
+    ].join("\n");
+}
+// Creates a row for the marijuana column of the "Hemp vs. Marijuana" section of the Learn Page.
+// Will return an array of template literals for tacking into a body builder.
+function build_right_row_for_comparison_chart_for_learn_page(indent, icon, text) {
+    return [
+        `<!-- Marijuana Note: "${text}"-->`,
+        `${indent}<div class="${SS.learn_compare_column_row_right} ${SS.form_static_row_center}">`,
+        `${indent}\t<p class="${SS.learn_compare_column_row_text}">${text}</p>`,
+        `${indent}\t<span class="${SS.learn_compare_column_row_icon_right}">${icon}</span>`,
         `${indent}</div>`,
     ].join("\n");
 }
