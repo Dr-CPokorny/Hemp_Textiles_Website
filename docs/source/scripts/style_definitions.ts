@@ -1163,8 +1163,8 @@ export const STYLE_HEAVENLY_EARTH = {
                 paddingLeft: SIZES.horizontal_64,
                 paddingRight: SIZES.horizontal_64,
                 marginBottom: SIZES.horizontal_80,
-                marginLeft: SIZES.horizontal_50,
-                marginRight: SIZES.horizontal_50,
+                marginLeft: SIZES.horizontal_70,
+                marginRight: SIZES.horizontal_70,
             },
 
             cHEADING: {
