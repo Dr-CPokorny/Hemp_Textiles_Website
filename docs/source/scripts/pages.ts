@@ -130,7 +130,7 @@ function build_body_for_home(): string {
     // Notice Blurb Information
     const BLURB_RESEARCH = build_notice_blurb_for_home_page(
         "\t\t\t",
-        "eco",
+        "data_table",
         "Data Driven",
         "This project is grounded in real data and research."
     );
@@ -198,7 +198,7 @@ function build_body_for_home(): string {
         ``,
         `           <div id="${SS.home_why_divider_row}" class="${SS.form_static_row_center}">`,
         `               <div class="${SS.home_why_divider_line}"></div>`,
-        `               <span id="${SS.home_why_divider_icon}">spa</span>`,
+        `               <span id="${SS.home_why_divider_icon}" class="${SS.icon_general}">spa</span>`,
         `               <div class="${SS.home_why_divider_line}"></div>`,
         `           </div>`,
         ``,
@@ -223,9 +223,8 @@ function build_body_for_learn(): string {
     // Top Information
     const TOP_INFO = build_top(
         "\t\t",
-        "What is Hemp, Really?",
-        "Hemp is a natural fiber that comes from the Cannabis sativa plant, but unlike marijuana, hemp contains extremely low levels of THC (the psychoactive compound associated with getting “high”). Hemp used for textiles is non-psychoactive, legally grown in many parts of the world, and has been used historically for products like rope, paper, clothing, and fabric.",
-        "Today, hemp is gaining attention as a more sustainable textile alternative because it requires less water, fewer pesticides, and produces durable, breathable fibers that soften over time with use. Despite these benefits, hemp fabrics are still often misunderstood due to long-standing associations with marijuana and limited exposure within mainstream textile markets.",
+        "Getting To Know Hemp",
+        "Hemp has a long history as a natural fiber, but certain myths have kept it out of textile markets. Here's what the research actually says.",
     );
 
     // Hemp and Marijuana Comparison Information
@@ -237,7 +236,7 @@ function build_body_for_learn(): string {
     const HEMP_USE = build_left_row_for_comparison_chart_for_learn_page(
         "\t\t\t\t",
         "apparel",
-        "Used for textiles or food"
+        "Used for textiles + apparel"
     );
     const HEMP_PSYCHO = build_left_row_for_comparison_chart_for_learn_page(
         "\t\t\t\t",
@@ -252,7 +251,7 @@ function build_body_for_learn(): string {
     const MARIJUANA_USE = build_right_row_for_comparison_chart_for_learn_page(
         "\t\t\t\t",
         "medical_services",
-        "Used casually or medically"
+        "Used casually + medically"
     );
     const MARIJUANA_PSYCHO = build_right_row_for_comparison_chart_for_learn_page(
         "\t\t\t\t",
@@ -314,30 +313,18 @@ function build_body_for_learn(): string {
         ``,
         `       ${TOP_INFO}`,
         ``,
-        `       <!-- Hemp vs Marijuana Comparison -->`,
-        `       <div id="${SS.learn_compare_panel}" class="${SS.form_static_row_center}">`,
-        `           <div class="${SS.form_static_column_start}">`,
-        `               <h2 class="${SS.learn_compare_column_heading_left}">HEMP</h2>`,
-        `               ${HEMP_THC}`,
-        `               ${HEMP_USE}`,
-        `               ${HEMP_PSYCHO}`,
-        `           </div>`,
-        `           <div id="${SS.learn_compare_leaf_panel}" class="${SS.form_static_column_center}">`,
-        `               <img id="${SS.learn_compare_leaf_image}" src="assets/images/cannabis_leaf.svg" alt="Cannabis leaf">`,
-        `           </div>`,
-        `           <div class="${SS.form_static_column_end}">`,
-        `               <h2 class="${SS.learn_compare_column_heading_right}">MARIJUANA</h2>`,
-        `               ${MARIJUANA_THC}`,
-        `               ${MARIJUANA_USE}`,
-        `               ${MARIJUANA_PSYCHO}`,
-        `           </div>`,
+        `       <!-- What is Hemp, Really? -->`,
+        `       <div id="${SS.learn_what_is_hemp_panel}" class="${SS.form_static_column_center}">`,
+        `           <h2 id="${SS.learn_what_is_hemp_heading}">What is Hemp, Really?</h2>`,
+        `           <p class="${SS.learn_what_is_hemp_text}">Hemp is a natural fiber that comes from the Cannabis sativa plant, but unlike marijuana, hemp contains extremely low levels of THC (the psychoactive compound associated with getting “high”). Hemp used for textiles is non-psychoactive, legally grown in many parts of the world, and has been used historically for products like rope, paper, clothing, and fabric.</p>`,
+        `           <p class="${SS.learn_what_is_hemp_text}">Today, hemp is gaining attention as a more sustainable textile alternative because it requires less water, fewer pesticides, and produces durable, breathable fibers that soften over time with use. Despite these benefits, hemp fabrics are still often misunderstood due to long-standing associations with marijuana and limited exposure within mainstream textile markets.</p>`,
         `       </div>`,
         ``,
         `       <!-- Why Hemp for Quilting -->`,
         `       <div id="${SS.learn_why_panel}" class="${SS.form_static_column_center}">`,
         `           <h2 id="${SS.learn_why_heading}">Why Hemp for Quilting?</h2>`,
         `           <p id="${SS.learn_why_text}">Quilting is a deeply tactile craft where makers interact directly with materials through cutting, sewing, layering, and touch. This hands-on experience creates a unique opportunity to evaluate hemp textiles based on real performance rather than assumptions.</p>`,
-        `           <div class="${SS.form_static_row_center}">`,
+        `           <div id="${SS.learn_why_cards_panel}">`,
         `               ${WHY_CARD_DURABLE}`,
         `               ${WHY_CARD_BREATHABLE}`,
         `               ${WHY_CARD_TEXTURED}`,
@@ -351,6 +338,32 @@ function build_body_for_learn(): string {
         `           ${MISCONCEPTION_CARD_COMPARISON}`,
         `           ${MISCONCEPTION_CARD_ROUGH}`,
         `           ${MISCONCEPTION_CARD_QUILTING}`,
+        `       </div>`,
+        ``,
+        `       <!-- Hemp vs Marijuana Comparison -->`,
+        `       <div id="${SS.learn_compare_panel}" class="${SS.form_static_row_center}">`,
+        ``,
+        `           <!-- Hemp Column -->`,
+        `           <div class="${SS.form_static_column_start}">`,
+        `               <h2 class="${SS.learn_compare_column_heading_left}">HEMP</h2>`,
+        `               ${HEMP_THC}`,
+        `               ${HEMP_USE}`,
+        `               ${HEMP_PSYCHO}`,
+        `           </div>`,
+        ``,
+        `           <!-- Leaf Image -->`,
+        `           <div id="${SS.learn_compare_leaf_panel}" class="${SS.form_static_column_center}">`,
+        `               <img id="${SS.learn_compare_leaf_image}" src="assets/images/cannabis_leaf.svg" alt="Cannabis leaf">`,
+        `           </div>`,
+        ``,
+        `           <!-- Marijuana Column -->`,
+        `           <div class="${SS.form_static_column_end}">`,
+        `               <h2 class="${SS.learn_compare_column_heading_right}">MARIJUANA</h2>`,
+        `               ${MARIJUANA_THC}`,
+        `               ${MARIJUANA_USE}`,
+        `               ${MARIJUANA_PSYCHO}`,
+        `           </div>`,
+        ``,
         `       </div>`,
         ``,
         `       ${build_footer("\t\t")}`,
@@ -463,7 +476,7 @@ function build_body_for_about(): string {
         `       <p id="${SS.about_people_title}">Meet the Team</p>`,
         `       <div id="${SS.about_divider_row}" class="${SS.form_static_row_center}">`,
         `           <div class="${SS.about_divider_line}"></div>`,
-        `           <span id="${SS.about_divider_icon}">spa</span>`,
+        `           <span id="${SS.about_divider_icon}" class="${SS.icon_general}">spa</span>`,
         `           <div class="${SS.about_divider_line}"></div>`,
         `       </div>`,
         ``,
@@ -618,7 +631,7 @@ function build_notice_blurb_for_home_page(
     return [
         `<!-- ${title} Notice Blurb -->`,
         `${indent}<div class="${SS.home_notice_inner_panel} ${SS.form_static_column_center}">`,
-        `${indent}\t<span class="${SS.home_notice_inner_icon}">${icon}</span>`,
+        `${indent}\t<span class="${SS.icon_general} ${SS.home_notice_inner_icon}">${icon}</span>`,
         `${indent}\t<div class="${SS.form_static_column_center}">`,
         `${indent}\t\t<p class="${SS.home_notice_inner_title}">${title}</p>`,
         `${indent}\t\t<p class="${SS.home_notice_inner_text}">${text}</p>`,
@@ -691,7 +704,7 @@ function build_left_row_for_comparison_chart_for_learn_page(
     return [
         `<!-- Hemp Note: "${text}"-->`,
         `${indent}<div class="${SS.learn_compare_column_row_left} ${SS.form_static_row_center}">`,
-        `${indent}\t<span class="${SS.learn_compare_column_row_icon}">${icon}</span>`,
+        `${indent}\t<span class="${SS.icon_general} ${SS.learn_compare_column_row_icon}">${icon}</span>`,
         `${indent}\t<p class="${SS.learn_compare_column_row_text}">${text}</p>`,
         `${indent}</div>`,
     ].join("\n");
@@ -708,7 +721,7 @@ function build_right_row_for_comparison_chart_for_learn_page(
         `<!-- Marijuana Note: "${text}"-->`,
         `${indent}<div class="${SS.learn_compare_column_row_right} ${SS.form_static_row_center}">`,
         `${indent}\t<p class="${SS.learn_compare_column_row_text}">${text}</p>`,
-        `${indent}\t<span class="${SS.learn_compare_column_row_icon_right}">${icon}</span>`,
+        `${indent}\t<span class="${SS.icon_general} ${SS.learn_compare_column_row_icon_right}">${icon}</span>`,
         `${indent}</div>`,
     ].join("\n");
 }

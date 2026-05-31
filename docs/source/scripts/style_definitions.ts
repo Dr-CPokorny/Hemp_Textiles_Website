@@ -610,6 +610,10 @@ export const STYLE_HEAVENLY_EARTH = {
         textAlign: "center",
         overflowWrap: "break-word",
         textWrap: "pretty",
+        hyphens: "auto",
+        fontKerning: "normal",
+        wordSpacing: "-0.05em",
+        letterSpacing: "-0.01em",
         fontStyle: "normal",
         fontSize: SIZES.horizontal_70,
         lineHeight: "1",
@@ -774,6 +778,7 @@ export const STYLE_HEAVENLY_EARTH = {
             color: PALETTE[4],
             fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
             lineHeight: "1.5",
+            textAlign: "center",
             fontSize: SIZES.horizontal_60,
             marginBottom: SIZES.horizontal_55,
         },
@@ -855,6 +860,7 @@ export const STYLE_HEAVENLY_EARTH = {
                     color: PALETTE[4],
                     fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
                     fontSize: SIZES.horizontal_53,
+                    lineHeight: "1.25",
                 },
             },
         },
@@ -939,6 +945,159 @@ export const STYLE_HEAVENLY_EARTH = {
 
     oLEARN: {
 
+        oWHAT_IS_HEMP: {
+
+            iPANEL: {
+                width: "95%",
+                backgroundColor: PALETTE[2],
+                borderRadius: SIZES.horizontal_40,
+                paddingTop: SIZES.horizontal_70,
+                paddingBottom: SIZES.horizontal_40,
+                paddingLeft: SIZES.horizontal_64,
+                paddingRight: SIZES.horizontal_64,
+                marginBottom: SIZES.horizontal_50,
+            },
+
+            iHEADING: {
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_CINZEL_BOLD",
+                fontSize: SIZES.horizontal_70,
+                marginBottom: SIZES.horizontal_50,
+            },
+
+            cTEXT: {
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                fontSize: SIZES.horizontal_58,
+                textAlign: "justify",
+                lineHeight: "1.5",
+                marginBottom: SIZES.horizontal_50,
+            }
+        },
+
+        oWHY: {
+
+            iPANEL: {
+                width: "95%",
+                backgroundColor: PALETTE[2],
+                borderRadius: SIZES.horizontal_40,
+                paddingTop: SIZES.horizontal_70,
+                paddingLeft: SIZES.horizontal_64,
+                paddingRight: SIZES.horizontal_64,
+                marginBottom: SIZES.horizontal_50,
+            },
+
+            iHEADING: {
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_CINZEL_BOLD",
+                fontSize: SIZES.horizontal_70,
+                marginBottom: SIZES.horizontal_50,
+            },
+
+            iTEXT: {
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                fontSize: SIZES.horizontal_58,
+                textAlign: "justify",
+                lineHeight: "1.5",
+                marginBottom: SIZES.horizontal_60,
+            },
+
+            iCARDS_PANEL: {
+                display: "flex",
+                flexDirection: "row",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                width: "100%",
+            },
+
+            oCARD: {
+
+                cPANEL: {
+                    flex: "1",
+                    minWidth: SIZES.horizontal_91,
+                    backgroundColor: PALETTE[1],
+                    borderRadius: SIZES.horizontal_36,
+                    paddingTop: SIZES.horizontal_56,
+                    paddingBottom: SIZES.horizontal_56,
+                    paddingLeft: SIZES.horizontal_50,
+                    paddingRight: SIZES.horizontal_50,
+                    marginBottom: SIZES.horizontal_50,
+                    marginLeft: SIZES.horizontal_35,
+                    marginRight: SIZES.horizontal_35,
+                },
+
+                cIMAGE: {
+                    borderRadius: SIZES.horizontal_45,
+                    width: SIZES.horizontal_91,
+                    height: SIZES.horizontal_91,
+                    marginBottom: SIZES.horizontal_40,
+                },
+
+                cTITLE: {
+                    color: PALETTE[4],
+                    fontFamily: "FONT_TEXT_CINZEL_BOLD",
+                    fontSize: SIZES.horizontal_60,
+                    marginBottom: SIZES.horizontal_36,
+                },
+
+                cTEXT: {
+                    color: PALETTE[4],
+                    fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                    fontSize: SIZES.horizontal_53,
+                    textAlign: "center",
+                    lineHeight: "1.5",
+                },
+            },
+        },
+
+        oMISCONCEPTION: {
+
+            iPANEL: {
+                width: "95%",
+                backgroundColor: PALETTE[2],
+                borderRadius: SIZES.horizontal_40,
+                paddingTop: SIZES.horizontal_70,
+                paddingLeft: SIZES.horizontal_70,
+                paddingRight: SIZES.horizontal_70,
+                marginBottom: SIZES.horizontal_50,
+            },
+
+            iHEADING: {
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_CINZEL_BOLD",
+                fontSize: SIZES.horizontal_70,
+                marginBottom: SIZES.horizontal_56,
+            },
+
+            oCARD: {
+
+                cPANEL: {
+                    width: "100%",
+                    backgroundColor: PALETTE[1],
+                    borderRadius: SIZES.horizontal_36,
+                    padding: SIZES.horizontal_50,
+                    marginBottom: SIZES.horizontal_46,
+                },
+
+                cMYTH: {
+                    color: PALETTE[4],
+                    fontFamily: "FONT_TEXT_SPECTRAL_BOLD",
+                    fontStyle: "italic",
+                    fontSize: SIZES.horizontal_56,
+                    marginBottom: SIZES.horizontal_36,
+                },
+
+                cTRUTH: {
+                    color: PALETTE[4],
+                    fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                    fontSize: SIZES.horizontal_53,
+                    lineHeight: "1.5",
+                    textAlign: "justify",
+                },
+            },
+        },
+
         oCOMPARE: {
 
             iPANEL: {
@@ -971,7 +1130,7 @@ export const STYLE_HEAVENLY_EARTH = {
                 cHEADING_LEFT: {
                     color: PALETTE[4],
                     fontFamily: "FONT_TEXT_CINZEL_BOLD",
-                    fontSize: SIZES.horizontal_60,
+                    fontSize: SIZES.horizontal_63,
                     textAlign: "left",
                     marginBottom: SIZES.horizontal_46,
                 },
@@ -979,7 +1138,7 @@ export const STYLE_HEAVENLY_EARTH = {
                 cHEADING_RIGHT: {
                     color: PALETTE[4],
                     fontFamily: "FONT_TEXT_CINZEL_BOLD",
-                    fontSize: SIZES.horizontal_60,
+                    fontSize: SIZES.horizontal_63,
                     textAlign: "right",
                     marginBottom: SIZES.horizontal_46,
                 },
@@ -1016,114 +1175,6 @@ export const STYLE_HEAVENLY_EARTH = {
                 },
             },
         },
-
-        oWHY: {
-
-            iPANEL: {
-                width: "85%",
-                backgroundColor: PALETTE[2],
-                borderRadius: SIZES.horizontal_40,
-                paddingTop: SIZES.horizontal_70,
-                paddingBottom: SIZES.horizontal_70,
-                paddingLeft: SIZES.horizontal_64,
-                paddingRight: SIZES.horizontal_64,
-                marginBottom: SIZES.horizontal_50,
-            },
-
-            iHEADING: {
-                color: PALETTE[4],
-                fontFamily: "FONT_TEXT_CINZEL_BOLD",
-                fontSize: SIZES.horizontal_70,
-                marginBottom: SIZES.horizontal_50,
-            },
-
-            iTEXT: {
-                color: PALETTE[4],
-                fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
-                fontSize: SIZES.horizontal_58,
-                lineHeight: "1.5",
-                marginBottom: SIZES.horizontal_60,
-            },
-
-            oCARD: {
-
-                cPANEL: {
-                    width: "100%",
-                    backgroundColor: PALETTE[1],
-                    borderRadius: SIZES.horizontal_36,
-                    paddingTop: SIZES.horizontal_56,
-                    paddingBottom: SIZES.horizontal_56,
-                    paddingLeft: SIZES.horizontal_50,
-                    paddingRight: SIZES.horizontal_50,
-                    marginBottom: SIZES.horizontal_46,
-                },
-
-                cIMAGE: {
-                    borderRadius: SIZES.horizontal_45,
-                    width: SIZES.horizontal_91,
-                    height: SIZES.horizontal_91,
-                    marginBottom: SIZES.horizontal_40,
-                },
-
-                cTITLE: {
-                    color: PALETTE[4],
-                    fontFamily: "FONT_TEXT_CINZEL_BOLD",
-                    fontSize: SIZES.horizontal_60,
-                    marginBottom: SIZES.horizontal_36,
-                },
-
-                cTEXT: {
-                    color: PALETTE[4],
-                    fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
-                    fontSize: SIZES.horizontal_53,
-                    lineHeight: "1.5",
-                },
-            },
-        },
-
-        oMISCONCEPTION: {
-
-            iPANEL: {
-                width: "85%",
-                backgroundColor: PALETTE[2],
-                borderRadius: SIZES.horizontal_40,
-                padding: SIZES.horizontal_70,
-                marginBottom: SIZES.horizontal_50,
-            },
-
-            iHEADING: {
-                color: PALETTE[4],
-                fontFamily: "FONT_TEXT_CINZEL_BOLD",
-                fontSize: SIZES.horizontal_70,
-                marginBottom: SIZES.horizontal_56,
-            },
-
-            oCARD: {
-
-                cPANEL: {
-                    width: "100%",
-                    backgroundColor: PALETTE[1],
-                    borderRadius: SIZES.horizontal_36,
-                    padding: SIZES.horizontal_50,
-                    marginBottom: SIZES.horizontal_46,
-                },
-
-                cMYTH: {
-                    color: PALETTE[4],
-                    fontFamily: "FONT_TEXT_SPECTRAL_BOLD",
-                    fontStyle: "italic",
-                    fontSize: SIZES.horizontal_56,
-                    marginBottom: SIZES.horizontal_36,
-                },
-
-                cTRUTH: {
-                    color: PALETTE[4],
-                    fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
-                    fontSize: SIZES.horizontal_53,
-                    lineHeight: "1.5",
-                },
-            },
-        },
     },
 
     oSOURCES: {
@@ -1150,14 +1201,11 @@ export const STYLE_HEAVENLY_EARTH = {
 
             cHEADING: {
                 color: PALETTE[4],
-                fontFamily: "FONT_TEXT_CINZEL_REGULAR",
-                fontSize: SIZES.horizontal_66,
+                fontFamily: "FONT_TEXT_CINZEL_BOLD",
+                fontSize: SIZES.horizontal_65,
                 textAlign: "center",
-                borderBottomStyle: "solid",
-                borderBottomColor: PALETTE[7],
-                borderBottomWidth: SIZES.horizontal_25,
                 paddingBottom: SIZES.horizontal_35,
-                marginBottom: SIZES.horizontal_50,
+                marginBottom: SIZES.horizontal_30,
             },
 
             cTEXT: {
@@ -1165,8 +1213,8 @@ export const STYLE_HEAVENLY_EARTH = {
                 fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
                 fontSize: SIZES.horizontal_60,
                 lineHeight: "2",
-                textAlign: "center",
-                marginBottom: SIZES.horizontal_70,
+                textAlign: "justify",
+                marginBottom: SIZES.horizontal_50,
             },
         },
 
@@ -1187,13 +1235,13 @@ export const STYLE_HEAVENLY_EARTH = {
         cDIVIDER_LINE: {
             flex: "1",
             height: SIZES.horizontal_25,
-            backgroundColor: PALETTE[7],
+            backgroundColor: PALETTE[6],
         },
 
         iDIVIDER_ICON: {
             color: PALETTE[3],
             fontFamily: "FONT_ICON_MATERIAL",
-            fontSize: SIZES.horizontal_60,
+            fontSize: SIZES.horizontal_70,
             marginLeft: SIZES.horizontal_46,
             marginRight: SIZES.horizontal_46,
         },
@@ -1240,6 +1288,7 @@ export const STYLE_HEAVENLY_EARTH = {
                 color: PALETTE[4],
                 lineHeight: "1.5",
                 fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                textAlign: "justify",
                 fontSize: SIZES.horizontal_59,
             },
 
@@ -1269,9 +1318,7 @@ export const STYLE_HEAVENLY_EARTH = {
             direction: "ltr",
             textRendering: "optimizeLegibility",
             fontFeatureSettings: "liga",
-            color: "inherit",
             fontFamily: "FONT_ICON_MATERIAL",
-            fontSize: "inherit",
             lineHeight: "inherit",
         },
     },
