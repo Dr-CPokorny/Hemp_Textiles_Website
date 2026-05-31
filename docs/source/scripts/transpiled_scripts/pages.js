@@ -4,33 +4,34 @@ import * as SM from "./style_manager.js";
 import * as SD from "./style_definitions.js";
 let HEAVENLY_EARTH = new SM.Style(SD.STYLE_HEAVENLY_EARTH);
 const SS = HEAVENLY_EARTH.stripped_selectors;
-// Types of HTML pages that can be built.  All of these pages share the same head.  This is to ensure that only the head
+// List of HTML pages that is to be built.  All of these pages share the same head.  This is to ensure that only the head
 // builder needs to be manipulated when adding new stylesheets, links, or scripts.
+//
+// Each page must have its own body_builder function if errors are to be avoided.
 const PAGES = {
     HOME: "INDEX",
     LEARN: "LEARN",
     SOURCES: "SOURCES",
     ABOUT: "ABOUT",
 };
-// PAGE BUILDERS
-// When this file is executed these builds will generate all the types of pages.
+// BUILDING PAGES
+// When this file is executed these builds will generate all the fields inside PAGES as html files.
 // Doing this so that regenerating pages during development/testing is simple.
-build_page(PAGES.HOME, PAGES.HOME);
-build_page(PAGES.LEARN, PAGES.LEARN);
-build_page(PAGES.SOURCES, PAGES.SOURCES);
-build_page(PAGES.ABOUT, PAGES.ABOUT);
+for (const page of Object.values(PAGES)) {
+    build_page(page, page);
+}
 // Builds an HTML file that will be thrown into the docs directory.
-export function build_page(file_name, page_type) {
+function build_page(file_name, page_name) {
     const name_of_file = file_name.toUpperCase().replace(/\s+/g, "_") + ".html";
     const output_path = PATH.resolve("../../", name_of_file);
-    const html_content = build_html(file_name, page_type);
+    const html_content = build_html(file_name, page_name);
     FS.writeFileSync(output_path, html_content, "utf-8");
 }
 // Builds and returns HTML data containing a head and body defaulted with proper links and an h1 tag inside its
 // body that holds the passed title in its contents.
-function build_html(title, page_type) {
+function build_html(title, page_name) {
     const head = build_head(title);
-    const body = body_director(page_type);
+    const body = body_director(page_name);
     return [
         ``,
         `<!DOCTYPE html>`,
@@ -69,9 +70,9 @@ function build_head(title) {
     ].join("\n");
 }
 // Determines which type of body gets built.
-function body_director(page_type) {
+function body_director(page_name) {
     let the_body = "";
-    switch (page_type) {
+    switch (page_name) {
         case PAGES.HOME:
             the_body = build_body_for_home();
             break;
@@ -85,8 +86,8 @@ function body_director(page_type) {
             the_body = build_body_for_about();
             break;
         default:
-            console.log("Your input for page_type was NOT accepted.  Ensure your input is correct" +
-                "and see if you have created a case for the page_type you are trying to make.");
+            console.log("Your input for page_name was NOT accepted.  Ensure your input is correct" +
+                "and see if you have created a case for the page you are trying to make.");
             break;
     }
     return the_body;
@@ -154,17 +155,17 @@ function build_body_for_learn() {
     // Top Information
     const TOP_INFO = build_top("\t\t", "What is Hemp, Really?", "Hemp is a natural fiber that comes from the Cannabis sativa plant, but unlike marijuana, hemp contains extremely low levels of THC (the psychoactive compound associated with getting “high”). Hemp used for textiles is non-psychoactive, legally grown in many parts of the world, and has been used historically for products like rope, paper, clothing, and fabric.", "Today, hemp is gaining attention as a more sustainable textile alternative because it requires less water, fewer pesticides, and produces durable, breathable fibers that soften over time with use. Despite these benefits, hemp fabrics are still often misunderstood due to long-standing associations with marijuana and limited exposure within mainstream textile markets.");
     // Hemp and Marijuana Comparison Information
-    const HEMP_THC = build_left_row_for_comparison_chart_for_learn_page("\t\t\t\t", "check_circle", "Low THC (<0.3%)");
-    const HEMP_USE = build_left_row_for_comparison_chart_for_learn_page("\t\t\t\t", "check_circle", "Used for textiles or food");
-    const HEMP_PSYCHO = build_left_row_for_comparison_chart_for_learn_page("\t\t\t\t", "check_circle", "Non-psychoactive");
-    const MARIJUANA_THC = build_right_row_for_comparison_chart_for_learn_page("\t\t\t\t", "cancel", "High THC (5–30%+)");
-    const MARIJUANA_USE = build_right_row_for_comparison_chart_for_learn_page("\t\t\t\t", "cancel", "Used recreationally or medically");
-    const MARIJUANA_PSYCHO = build_right_row_for_comparison_chart_for_learn_page("\t\t\t\t", "cancel", "Psychoactive");
+    const HEMP_THC = build_left_row_for_comparison_chart_for_learn_page("\t\t\t\t", "arrow_cool_down", "Low THC (<0.3%)");
+    const HEMP_USE = build_left_row_for_comparison_chart_for_learn_page("\t\t\t\t", "apparel", "Used for textiles or food");
+    const HEMP_PSYCHO = build_left_row_for_comparison_chart_for_learn_page("\t\t\t\t", "face", "Non-psychoactive");
+    const MARIJUANA_THC = build_right_row_for_comparison_chart_for_learn_page("\t\t\t\t", "arrow_warm_up", "High THC (>5%)");
+    const MARIJUANA_USE = build_right_row_for_comparison_chart_for_learn_page("\t\t\t\t", "medical_services", "Used casually or medically");
+    const MARIJUANA_PSYCHO = build_right_row_for_comparison_chart_for_learn_page("\t\t\t\t", "cognition", "Psychoactive");
     // Why Card Information
-    const WHY_CARD_DURABLE = build_why_card_for_learn_page("\t\t\t\t", "assets/images/learn_1.svg", "Text", "Durable and Long-Lasting", "Hemp fibers are known for their strength and long-lasting quality.");
-    const WHY_CARD_BREATHABLE = build_why_card_for_learn_page("\t\t\t\t", "assets/images/learn_2.svg", "Text", "Breathable and Lightweight", "Hemp fabric is breathable and gets softer with every wash and use; there is a limit to how soft it can get.");
-    const WHY_CARD_TEXTURED = build_why_card_for_learn_page("\t\t\t\t", "assets/images/learn_3.svg", "Text", "Naturally Textured and Tactile", "Its natural texture adds depth and character to quilts and textile work.");
-    const WHY_CARD_BIODEGRADABLE = build_why_card_for_learn_page("\t\t\t\t", "assets/images/learn_4.svg", "Text", "Biodegradable and Lower-Impact", "Hemp requires less water and fewer pesticides than cotton.");
+    const WHY_CARD_DURABLE = build_why_card_for_learn_page("\t\t\t\t", "assets/images/learn_8.svg", "Text", "Durable and Long-Lasting", "Hemp fibers are known for their strength and long-lasting quality.");
+    const WHY_CARD_BREATHABLE = build_why_card_for_learn_page("\t\t\t\t", "assets/images/learn_6.svg", "Text", "Breathable and Lightweight", "Hemp fabric is breathable and gets softer with every wash and use; there is a limit to how soft it can get.");
+    const WHY_CARD_TEXTURED = build_why_card_for_learn_page("\t\t\t\t", "assets/images/learn_7.svg", "Text", "Naturally Textured and Tactile", "Its natural texture adds depth and character to quilts and textile work.");
+    const WHY_CARD_BIODEGRADABLE = build_why_card_for_learn_page("\t\t\t\t", "assets/images/learn_5.svg", "Text", "Biodegradable and Lower-Impact", "Hemp requires less water and fewer pesticides than cotton.");
     // Misconception Card Information
     const MISCONCEPTION_CARD_COMPARISON = build_misconception_card_for_learn_page("\t\t\t", '"Hemp is the same as marijuana."', "While hemp and marijuana come from the same plant species, they are grown and used very differently. Textile hemp contains very low THC levels and is used for industrial applications like fabric, rope, and paper.");
     const MISCONCEPTION_CARD_ROUGH = build_misconception_card_for_learn_page("\t\t\t", '"Hemp fabric is rough."', "Modern hemp textiles can range from structured and textured to soft and breathable depending on the weave and blend. Many hemp fabrics become softer over time with washing and regular use.");
@@ -178,16 +179,16 @@ function build_body_for_learn() {
         ``,
         `       <!-- Hemp vs Marijuana Comparison -->`,
         `       <div id="${SS.learn_compare_panel}" class="${SS.form_static_row_center}">`,
-        `           <div class="${SS.learn_compare_column_panel_left} ${SS.form_static_column_start}">`,
+        `           <div class="${SS.form_static_column_start}">`,
         `               <h2 class="${SS.learn_compare_column_heading_left}">HEMP</h2>`,
         `               ${HEMP_THC}`,
         `               ${HEMP_USE}`,
         `               ${HEMP_PSYCHO}`,
         `           </div>`,
         `           <div id="${SS.learn_compare_leaf_panel}" class="${SS.form_static_column_center}">`,
-        `               <img id="${SS.learn_compare_leaf_image}" src="assets/images/learn_0.svg" alt="Hemp leaf">`,
+        `               <img id="${SS.learn_compare_leaf_image}" src="assets/images/cannabis_leaf.svg" alt="Cannabis leaf">`,
         `           </div>`,
-        `           <div class="${SS.learn_compare_column_panel_right} ${SS.form_static_column_end}">`,
+        `           <div class="${SS.form_static_column_end}">`,
         `               <h2 class="${SS.learn_compare_column_heading_right}">MARIJUANA</h2>`,
         `               ${MARIJUANA_THC}`,
         `               ${MARIJUANA_USE}`,
@@ -199,7 +200,7 @@ function build_body_for_learn() {
         `       <div id="${SS.learn_why_panel}" class="${SS.form_static_column_center}">`,
         `           <h2 id="${SS.learn_why_heading}">Why Hemp for Quilting?</h2>`,
         `           <p id="${SS.learn_why_text}">Quilting is a deeply tactile craft where makers interact directly with materials through cutting, sewing, layering, and touch. This hands-on experience creates a unique opportunity to evaluate hemp textiles based on real performance rather than assumptions.</p>`,
-        `           <div class="${SS.form_static_column_center}">`,
+        `           <div class="${SS.form_static_row_center}">`,
         `               ${WHY_CARD_DURABLE}`,
         `               ${WHY_CARD_BREATHABLE}`,
         `               ${WHY_CARD_TEXTURED}`,
@@ -327,9 +328,9 @@ function build_footer(indent) {
         `${indent}</div>`,
     ].join("\n");
 }
-// Generates the contents for the top of the page.  This includes the page title and any following subtext.  Passed in texts are
+// Generates the contents for the top of a page.  This includes the page title and any following subtext.  Passed in texts are
 // just strings, ...texts will catch any passed strings after the 2nd argument and put them into an array that will have
-// its contents mapped onto paragraph tags within the function's implementation.
+// its contents mapped onto paragraph tags.
 //
 // Will return an array of template literals for tacking into a body builder.
 function build_top(indent, title, ...texts) {

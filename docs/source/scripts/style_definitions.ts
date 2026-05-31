@@ -947,42 +947,26 @@ export const STYLE_HEAVENLY_EARTH = {
                 marginLeft: SIZES.horizontal_50,
                 marginRight: SIZES.horizontal_50,
                 marginBottom: SIZES.horizontal_50,
+                paddingTop: SIZES.horizontal_50,
+                paddingBottom: SIZES.horizontal_30,
+                paddingLeft: SIZES.horizontal_60,
+                paddingRight: SIZES.horizontal_60,
                 overflow: "hidden",
             },
 
             iLEAF_PANEL: {
-                backgroundColor: PALETTE[2],
-                paddingTop: SIZES.horizontal_56,
-                paddingBottom: SIZES.horizontal_56,
-                paddingLeft: SIZES.horizontal_40,
-                paddingRight: SIZES.horizontal_40,
-                flexShrink: "0",
+                alignSelf: "stretch",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
             },
 
             iLEAF_IMAGE: {
-                width: SIZES.horizontal_90,
-                height: SIZES.horizontal_90,
+                width: "80%",
+                height: "auto",
             },
 
             oCOLUMN: {
-
-                cPANEL_LEFT: {
-                    flex: "1",
-                    minWidth: "0",
-                    paddingTop: SIZES.horizontal_56,
-                    paddingBottom: SIZES.horizontal_56,
-                    paddingLeft: SIZES.horizontal_60,
-                    paddingRight: SIZES.horizontal_60,
-                },
-
-                cPANEL_RIGHT: {
-                    flex: "1",
-                    minWidth: "0",
-                    paddingTop: SIZES.horizontal_56,
-                    paddingBottom: SIZES.horizontal_56,
-                    paddingLeft: SIZES.horizontal_60,
-                    paddingRight: SIZES.horizontal_60,
-                },
 
                 cHEADING_LEFT: {
                     color: PALETTE[4],
@@ -990,7 +974,6 @@ export const STYLE_HEAVENLY_EARTH = {
                     fontSize: SIZES.horizontal_60,
                     textAlign: "left",
                     marginBottom: SIZES.horizontal_46,
-                    whiteSpace: "nowrap",
                 },
 
                 cHEADING_RIGHT: {
@@ -999,7 +982,6 @@ export const STYLE_HEAVENLY_EARTH = {
                     fontSize: SIZES.horizontal_60,
                     textAlign: "right",
                     marginBottom: SIZES.horizontal_46,
-                    whiteSpace: "nowrap",
                 },
 
                 cROW_LEFT: {
@@ -1031,8 +1013,6 @@ export const STYLE_HEAVENLY_EARTH = {
                     fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
                     fontSize: SIZES.horizontal_53,
                     lineHeight: "1.5",
-                    overflowWrap: "break-word",
-                    minWidth: "0",
                 },
             },
         },
@@ -1079,8 +1059,9 @@ export const STYLE_HEAVENLY_EARTH = {
                 },
 
                 cIMAGE: {
-                    width: SIZES.horizontal_90,
-                    height: SIZES.horizontal_90,
+                    borderRadius: SIZES.horizontal_45,
+                    width: SIZES.horizontal_91,
+                    height: SIZES.horizontal_91,
                     marginBottom: SIZES.horizontal_40,
                 },
 
@@ -1292,14 +1273,6 @@ export const STYLE_HEAVENLY_EARTH = {
             fontFamily: "FONT_ICON_MATERIAL",
             fontSize: "inherit",
             lineHeight: "inherit",
-            marginTop: "",
-            marginBottom: "",
-            marginLeft: "",
-            marginRight: "",
-            paddingTop: "",
-            paddingBottom: "",
-            paddingLeft: "",
-            paddingRight: "",
         },
     },
 
