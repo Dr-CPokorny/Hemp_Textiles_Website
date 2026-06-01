@@ -14,6 +14,7 @@ const PALETTE = {
     3: "#426135",
     4: "#2C4422",
     5: "#E9E7DC",
+    5.5: "#DAD2C3",
     6: "#EFECE8",
     7: "#79B200",
 } as const;
@@ -612,7 +613,7 @@ export const STYLE_HEAVENLY_EARTH = {
         textWrap: "pretty",
         hyphens: "auto",
         fontKerning: "normal",
-        wordSpacing: "-0.05em",
+        wordSpacing: "-0.03em",
         letterSpacing: "-0.01em",
         fontStyle: "normal",
         fontSize: SIZES.horizontal_70,
@@ -789,10 +790,20 @@ export const STYLE_HEAVENLY_EARTH = {
         oBUTTON: {
 
             iPANEL: {
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "stretch",
+                width: "60%",
+                justifyContent: "center",
                 marginBottom: SIZES.horizontal_70,
             },
 
-            iSURVEY: {
+            iSURVEY_FOR_QUILTERS: {
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                textAlign: "center",
+                flex: "1",
                 color: PALETTE[1],
                 textDecoration: "none",
                 backgroundColor: PALETTE[4],
@@ -806,10 +817,16 @@ export const STYLE_HEAVENLY_EARTH = {
                 paddingBottom: SIZES.horizontal_46,
                 paddingLeft: SIZES.horizontal_60,
                 paddingRight: SIZES.horizontal_60,
-                marginRight: SIZES.horizontal_50,
+                marginLeft: SIZES.horizontal_30,
+                marginRight: SIZES.horizontal_30,
             },
 
             iLEARN: {
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                textAlign: "center",
+                flex: "1",
                 color: PALETTE[4],
                 textDecoration: "none",
                 backgroundColor: "transparent",
@@ -823,13 +840,42 @@ export const STYLE_HEAVENLY_EARTH = {
                 paddingBottom: SIZES.horizontal_46,
                 paddingLeft: SIZES.horizontal_60,
                 paddingRight: SIZES.horizontal_60,
+                marginLeft: SIZES.horizontal_30,
+                marginRight: SIZES.horizontal_30,
+            },
+
+            iSURVEY_FOR_QUILT_SHOP_OWNERS: {
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                textAlign: "center",
+                flex: "1",
+                color: PALETTE[1],
+                textDecoration: "none",
+                backgroundColor: PALETTE[4],
+                fontFamily: "FONT_TEXT_SPECTRAL_BOLD",
+                fontSize: SIZES.horizontal_52,
+                borderStyle: "solid",
+                borderColor: PALETTE[4],
+                borderWidth: SIZES.horizontal_25,
+                borderRadius: SIZES.horizontal_35,
+                paddingTop: SIZES.horizontal_46,
+                paddingBottom: SIZES.horizontal_46,
+                paddingLeft: SIZES.horizontal_60,
+                paddingRight: SIZES.horizontal_60,
+                marginLeft: SIZES.horizontal_30,
+                marginRight: SIZES.horizontal_30,
             },
         },
 
         oNOTICE: {
 
             iPANEL: {
+                backgroundImage: `linear-gradient(to top, ${PALETTE[5.5]} 10%, transparent 90%)`,
                 backgroundColor: PALETTE[5],
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
                 borderRadius: SIZES.horizontal_40,
                 marginLeft: SIZES.horizontal_60,
                 marginRight: SIZES.horizontal_60,
@@ -949,7 +995,11 @@ export const STYLE_HEAVENLY_EARTH = {
 
             iPANEL: {
                 width: "95%",
-                backgroundColor: PALETTE[2],
+                backgroundImage: `linear-gradient(to top, ${PALETTE[5.5]} 10%, transparent 90%)`,
+                backgroundColor: PALETTE[5],
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
                 borderRadius: SIZES.horizontal_40,
                 paddingTop: SIZES.horizontal_70,
                 paddingBottom: SIZES.horizontal_40,
@@ -971,7 +1021,7 @@ export const STYLE_HEAVENLY_EARTH = {
                 fontSize: SIZES.horizontal_58,
                 textAlign: "justify",
                 lineHeight: "1.5",
-                marginBottom: SIZES.horizontal_50,
+                marginBottom: SIZES.horizontal_70,
             }
         },
 
@@ -979,7 +1029,11 @@ export const STYLE_HEAVENLY_EARTH = {
 
             iPANEL: {
                 width: "95%",
-                backgroundColor: PALETTE[2],
+                backgroundImage: `linear-gradient(to top, ${PALETTE[5.5]} 10%, transparent 90%)`,
+                backgroundColor: PALETTE[5],
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
                 borderRadius: SIZES.horizontal_40,
                 paddingTop: SIZES.horizontal_70,
                 paddingLeft: SIZES.horizontal_64,
@@ -1003,35 +1057,31 @@ export const STYLE_HEAVENLY_EARTH = {
                 marginBottom: SIZES.horizontal_60,
             },
 
-            iCARDS_PANEL: {
-                display: "flex",
-                flexDirection: "row",
-                flexWrap: "wrap",
-                justifyContent: "center",
-                width: "100%",
-            },
-
             oCARD: {
 
                 cPANEL: {
                     flex: "1",
                     minWidth: SIZES.horizontal_91,
-                    backgroundColor: PALETTE[1],
+                    backgroundImage: `linear-gradient(to top, ${PALETTE[1]} 10%, transparent 90%)`,
+                    backgroundColor: PALETTE[6],
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
                     borderRadius: SIZES.horizontal_36,
                     paddingTop: SIZES.horizontal_56,
                     paddingBottom: SIZES.horizontal_56,
                     paddingLeft: SIZES.horizontal_50,
                     paddingRight: SIZES.horizontal_50,
-                    marginBottom: SIZES.horizontal_50,
+                    marginBottom: SIZES.horizontal_70,
                     marginLeft: SIZES.horizontal_35,
                     marginRight: SIZES.horizontal_35,
                 },
 
                 cIMAGE: {
                     borderRadius: SIZES.horizontal_45,
-                    width: SIZES.horizontal_91,
-                    height: SIZES.horizontal_91,
-                    marginBottom: SIZES.horizontal_40,
+                    width: SIZES.horizontal_90,
+                    height: "auto",
+                    margin: SIZES.horizontal_40,
                 },
 
                 cTITLE: {
@@ -1055,7 +1105,11 @@ export const STYLE_HEAVENLY_EARTH = {
 
             iPANEL: {
                 width: "95%",
-                backgroundColor: PALETTE[2],
+                backgroundImage: `linear-gradient(to top, ${PALETTE[5.5]} 10%, transparent 90%)`,
+                backgroundColor: PALETTE[5],
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
                 borderRadius: SIZES.horizontal_40,
                 paddingTop: SIZES.horizontal_70,
                 paddingLeft: SIZES.horizontal_70,
@@ -1067,17 +1121,24 @@ export const STYLE_HEAVENLY_EARTH = {
                 color: PALETTE[4],
                 fontFamily: "FONT_TEXT_CINZEL_BOLD",
                 fontSize: SIZES.horizontal_70,
-                marginBottom: SIZES.horizontal_56,
+                marginBottom: SIZES.horizontal_50,
             },
 
             oCARD: {
 
                 cPANEL: {
-                    width: "100%",
-                    backgroundColor: PALETTE[1],
+                    flex: "1",
+                    minWidth: SIZES.horizontal_91,
+                    backgroundImage: `linear-gradient(to top, ${PALETTE[1]} 10%, transparent 90%)`,
+                    backgroundColor: PALETTE[6],
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
                     borderRadius: SIZES.horizontal_36,
                     padding: SIZES.horizontal_50,
-                    marginBottom: SIZES.horizontal_46,
+                    marginBottom: SIZES.horizontal_70,
+                    marginLeft: SIZES.horizontal_30,
+                    marginRight: SIZES.horizontal_30,
                 },
 
                 cMYTH: {
@@ -1093,6 +1154,76 @@ export const STYLE_HEAVENLY_EARTH = {
                     fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
                     fontSize: SIZES.horizontal_53,
                     lineHeight: "1.5",
+                    textAlign: "center",
+                },
+            },
+        },
+
+        oMATERIAL: {
+
+            iPANEL: {
+                width: "95%",
+                backgroundImage: `linear-gradient(to top, ${PALETTE[5.5]} 10%, transparent 90%)`,
+                backgroundColor: PALETTE[5],
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                borderRadius: SIZES.horizontal_40,
+                paddingTop: SIZES.horizontal_70,
+                paddingLeft: SIZES.horizontal_70,
+                paddingRight: SIZES.horizontal_70,
+                marginBottom: SIZES.horizontal_50,
+            },
+
+            cHEADING: {
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_CINZEL_BOLD",
+                fontSize: SIZES.horizontal_70,
+                marginBottom: SIZES.horizontal_50,
+            },
+
+            cTEXT: {
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                fontSize: SIZES.horizontal_53,
+                lineHeight: "1.5",
+                textAlign: "justify",
+                marginBottom: SIZES.horizontal_50,
+            },
+
+            oTEST: {
+
+                cPANEL: {
+                    width: "100%",
+                    backgroundImage: `linear-gradient(to top, ${PALETTE[1]} 10%, transparent 90%)`,
+                    backgroundColor: PALETTE[6],
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    borderRadius: SIZES.horizontal_35,
+                    padding: SIZES.horizontal_50,
+                    marginBottom: SIZES.horizontal_70,
+                },
+
+                cHEADING: {
+                    color: PALETTE[4],
+                    fontFamily: "FONT_TEXT_SPECTRAL_BOLD",
+                    fontSize: SIZES.horizontal_55,
+                    marginBottom: SIZES.horizontal_30,
+                },
+
+                cIMAGE: {
+                    borderRadius: SIZES.horizontal_45,
+                    width: SIZES.horizontal_92,
+                    height: "auto",
+                    marginBottom: SIZES.horizontal_50,
+                },
+
+                cTEXT: {
+                    color: PALETTE[4],
+                    fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                    fontSize: SIZES.horizontal_53,
+                    lineHeight: "1.5",
                     textAlign: "justify",
                 },
             },
@@ -1101,7 +1232,11 @@ export const STYLE_HEAVENLY_EARTH = {
         oCOMPARE: {
 
             iPANEL: {
+                backgroundImage: `linear-gradient(to top, ${PALETTE[5.5]} 10%, transparent 90%)`,
                 backgroundColor: PALETTE[5],
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
                 borderRadius: SIZES.horizontal_40,
                 marginLeft: SIZES.horizontal_50,
                 marginRight: SIZES.horizontal_50,
@@ -1111,6 +1246,13 @@ export const STYLE_HEAVENLY_EARTH = {
                 paddingLeft: SIZES.horizontal_60,
                 paddingRight: SIZES.horizontal_60,
                 overflow: "hidden",
+            },
+
+            iHEADING: {
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_CINZEL_BOLD",
+                fontSize: SIZES.horizontal_70,
+                marginBottom: SIZES.horizontal_60,
             },
 
             iLEAF_PANEL: {
@@ -1128,17 +1270,17 @@ export const STYLE_HEAVENLY_EARTH = {
             oCOLUMN: {
 
                 cHEADING_LEFT: {
-                    color: PALETTE[4],
+                    color: PALETTE[3],
                     fontFamily: "FONT_TEXT_CINZEL_BOLD",
-                    fontSize: SIZES.horizontal_63,
+                    fontSize: SIZES.horizontal_60,
                     textAlign: "left",
                     marginBottom: SIZES.horizontal_46,
                 },
 
                 cHEADING_RIGHT: {
-                    color: PALETTE[4],
+                    color: PALETTE[3],
                     fontFamily: "FONT_TEXT_CINZEL_BOLD",
-                    fontSize: SIZES.horizontal_63,
+                    fontSize: SIZES.horizontal_60,
                     textAlign: "right",
                     marginBottom: SIZES.horizontal_46,
                 },
@@ -1189,7 +1331,11 @@ export const STYLE_HEAVENLY_EARTH = {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                backgroundImage: `linear-gradient(to top, ${PALETTE[5.5]} 10%, transparent 90%)`,
                 backgroundColor: PALETTE[5],
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
                 borderRadius: SIZES.horizontal_40,
                 paddingTop: SIZES.horizontal_64,
                 paddingLeft: SIZES.horizontal_64,
@@ -1249,7 +1395,11 @@ export const STYLE_HEAVENLY_EARTH = {
         oPERSON: {
 
             cPANEL: {
-                backgroundColor: PALETTE[1.5],
+                backgroundImage: `linear-gradient(to top, ${PALETTE[1.5]} 10%, transparent 90%)`,
+                backgroundColor: PALETTE[6],
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
                 borderStyle: "solid",
                 borderColor: PALETTE[6],
                 borderWidth: SIZES.horizontal_25,
@@ -1324,6 +1474,14 @@ export const STYLE_HEAVENLY_EARTH = {
     },
 
     oFORM: {
+
+        cFLEX_WRAP_ROW: {
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            width: "100%",
+        },
 
         cSTATIC_COLUMN_START: {
             display: "flex",

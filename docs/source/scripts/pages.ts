@@ -150,21 +150,21 @@ function build_body_for_home(): string {
     // Why Card Information
     const CARD_SUSTAINABLE = build_card_for_home_page(
         "\t\t\t\t",
-        "assets/images/home_4.svg",
+        "assets/images/home_card_sustainable.svg",
         "Finished patterned quilt made with hemp fabric.",
         "Sustainable",
         "Hemp is a low-impact crop that supports a healthier planet."
     );
     const CARD_DURABLE = build_card_for_home_page(
         "\t\t\t\t",
-        "assets/images/home_3.svg",
+        "assets/images/home_card_durable.svg",
         "Finished white quilt made with hemp fabric.",
         "Durable & Beautiful",
         "Strong fibers, soft textures, made to last in every stitch."
     );
     const CARD_MAKERS = build_card_for_home_page(
         "\t\t\t\t",
-        "assets/images/home_2.svg",
+        "assets/images/home_card_makers.svg",
         "Finished blue quilt made with hemp fabric.",
         "Made for Makers",
         "Quilters like you are leading the way to a greener future."
@@ -178,9 +178,10 @@ function build_body_for_home(): string {
         `       ${TOP_INFO}`,
         ``,
         `       <!-- Survey and Learn Buttons -->`,
-        `       <div id="${SS.home_button_panel}" class="${SS.form_static_row_center}">`,
-        `           <a id="${SS.home_button_survey}" href="">TAKE THE SURVEY</a>`,
+        `       <div id="${SS.home_button_panel}">`,
+        `           <a id="${SS.home_button_survey_for_quilters}" href="https://oregonstate.qualtrics.com/jfe/form/SV_ddwsySmGoCtCSou">SURVEY FOR QUILTERS</a>`,
         `           <a id="${SS.home_button_learn}" href="learn.html">LEARN ABOUT HEMP</a>`,
+        `           <a id="${SS.home_button_survey_for_quilt_shop_owners}" href="https://oregonstate.qualtrics.com/jfe/form/SV_8uLdMbpfTlUt4CG">SURVEY FOR QUILT SHOP WORKERS</a>`,
         `       </div>`,
         ``,
         `       <!-- Notice Blurbs -->`,
@@ -224,7 +225,7 @@ function build_body_for_learn(): string {
     const TOP_INFO = build_top(
         "\t\t",
         "Getting To Know Hemp",
-        "Hemp has a long history as a natural fiber, but certain myths have kept it out of textile markets. Here's what the research actually says.",
+        "Hemp has a long history as a natural fiber, but certain myths have kept it out of textile markets.  This page is dedicated to abolishing those myths.",
     );
 
     // Hemp and Marijuana Comparison Information
@@ -262,28 +263,28 @@ function build_body_for_learn(): string {
     // Why Card Information
     const WHY_CARD_DURABLE = build_why_card_for_learn_page(
         "\t\t\t\t",
-        "assets/images/learn_8.svg",
+        "assets/images/learn_why_card_durable.svg",
         "Text",
         "Durable and Long-Lasting",
         "Hemp fibers are known for their strength and long-lasting quality."
     );
     const WHY_CARD_BREATHABLE = build_why_card_for_learn_page(
         "\t\t\t\t",
-        "assets/images/learn_6.svg",
+        "assets/images/learn_why_card_breathable.svg",
         "Text",
         "Breathable and Lightweight",
         "Hemp fabric is breathable and gets softer with every wash and use; there is a limit to how soft it can get."
     );
     const WHY_CARD_TEXTURED = build_why_card_for_learn_page(
         "\t\t\t\t",
-        "assets/images/learn_7.svg",
+        "assets/images/learn_why_card_textured.svg",
         "Text",
         "Naturally Textured and Tactile",
         "Its natural texture adds depth and character to quilts and textile work."
     );
     const WHY_CARD_BIODEGRADABLE = build_why_card_for_learn_page(
         "\t\t\t\t",
-        "assets/images/learn_5.svg",
+        "assets/images/learn_why_card_biodegradable.svg",
         "Text",
         "Biodegradable and Lower-Impact",
         "Hemp requires less water and fewer pesticides than cotton."
@@ -291,19 +292,49 @@ function build_body_for_learn(): string {
 
     // Misconception Card Information
     const MISCONCEPTION_CARD_COMPARISON = build_misconception_card_for_learn_page(
-        "\t\t\t",
+        "\t\t\t\t",
         '"Hemp is the same as marijuana."',
         "While hemp and marijuana come from the same plant species, they are grown and used very differently. Textile hemp contains very low THC levels and is used for industrial applications like fabric, rope, and paper."
     );
     const MISCONCEPTION_CARD_ROUGH = build_misconception_card_for_learn_page(
-        "\t\t\t",
+        "\t\t\t\t",
         '"Hemp fabric is rough."',
         "Modern hemp textiles can range from structured and textured to soft and breathable depending on the weave and blend. Many hemp fabrics become softer over time with washing and regular use."
     );
     const MISCONCEPTION_CARD_QUILTING = build_misconception_card_for_learn_page(
-        "\t\t\t",
+        "\t\t\t\t",
         '"Hemp isn\'t practical for quilting."',
         "Part of this project explores exactly that question. By gathering feedback from quilters and testing material experiences, the project aims to better understand hemp's usability, comfort, and creative potential within quiltmaking."
+    );
+
+    // Material Tests Information
+    const TEST_TEAR = build_material_test_for_learn_page(
+        "\t\t\t",
+        "assets/images/learn_test_tear.svg",
+        "Text",
+        "Tear Test Results",
+        "Lorem ipsum dolor sit amet, labore tempor officia sed ad eiusmod adipiscing duis nisi minim qui consectetur veniam labore cillum exercitation labore cillum quis cillum elit sed labore nostrud reprehenderit cupidatat velit qui sint esse do voluptate enim et sed pariatur consequat est ipsum occaecat nisi enim eiusmod ullamco duis mollit in voluptate voluptate ut"
+    );
+    const TEST_ABRASION = build_material_test_for_learn_page(
+        "\t\t\t",
+        "assets/images/learn_test_abrasion.svg",
+        "Text",
+        "Abrasion Test Results",
+        "Lorem ipsum dolor sit amet, labore tempor officia sed ad eiusmod adipiscing duis nisi minim qui consectetur veniam labore cillum exercitation labore cillum quis cillum elit sed labore nostrud reprehenderit cupidatat velit qui sint esse do voluptate enim et sed pariatur consequat est ipsum occaecat nisi enim eiusmod ullamco duis mollit in voluptate voluptate ut"
+    );
+    const TEST_DRAPE = build_material_test_for_learn_page(
+        "\t\t\t",
+        "assets/images/learn_test_drape.svg",
+        "Text",
+        "Drape Test Results",
+        "Lorem ipsum dolor sit amet, labore tempor officia sed ad eiusmod adipiscing duis nisi minim qui consectetur veniam labore cillum exercitation labore cillum quis cillum elit sed labore nostrud reprehenderit cupidatat velit qui sint esse do voluptate enim et sed pariatur consequat est ipsum occaecat nisi enim eiusmod ullamco duis mollit in voluptate voluptate ut"
+    );
+    const TEST_SHRINKAGE = build_material_test_for_learn_page(
+        "\t\t\t",
+        "assets/images/learn_test_shrinkage.svg",
+        "Text",
+        "Shrinkage Test Results",
+        "Lorem ipsum dolor sit amet, labore tempor officia sed ad eiusmod adipiscing duis nisi minim qui consectetur veniam labore cillum exercitation labore cillum quis cillum elit sed labore nostrud reprehenderit cupidatat velit qui sint esse do voluptate enim et sed pariatur consequat est ipsum occaecat nisi enim eiusmod ullamco duis mollit in voluptate voluptate ut"
     );
 
     return [
@@ -312,6 +343,33 @@ function build_body_for_learn(): string {
         `       ${build_navigation("\t\t")}`,
         ``,
         `       ${TOP_INFO}`,
+        ``,
+        `       <!-- Hemp vs Marijuana Comparison -->`,
+        `       <div id="${SS.learn_compare_panel}" class="${SS.form_static_column_center}">`,
+        `           <!-- Comparison Heading -->`,
+        `           <h2 id="${SS.learn_compare_heading}">Forms of Cannabis</h2>`,
+        `           <!-- Columns for Comparison -->`,
+        `           <div class="${SS.form_static_row_start}"`,
+        `               <!-- Hemp Column -->`,
+        `               <div class="${SS.form_static_column_start}">`,
+        `                   <h3 class="${SS.learn_compare_column_heading_left}">HEMP</h2>`,
+        `                   ${HEMP_THC}`,
+        `                   ${HEMP_USE}`,
+        `                   ${HEMP_PSYCHO}`,
+        `               </div>`,
+        `               <!-- Leaf Image -->`,
+        `               <div id="${SS.learn_compare_leaf_panel}" class="${SS.form_static_column_center}">`,
+        `                   <img id="${SS.learn_compare_leaf_image}" src="assets/images/cannabis_leaf.svg" alt="Cannabis leaf">`,
+        `               </div>`,
+        `               <!-- Marijuana Column -->`,
+        `               <div class="${SS.form_static_column_end}">`,
+        `                   <h3 class="${SS.learn_compare_column_heading_right}">MARIJUANA</h2>`,
+        `                   ${MARIJUANA_THC}`,
+        `                   ${MARIJUANA_USE}`,
+        `                   ${MARIJUANA_PSYCHO}`,
+        `               </div>`,
+        `           </div>`,
+        `       </div>`,
         ``,
         `       <!-- What is Hemp, Really? -->`,
         `       <div id="${SS.learn_what_is_hemp_panel}" class="${SS.form_static_column_center}">`,
@@ -324,7 +382,7 @@ function build_body_for_learn(): string {
         `       <div id="${SS.learn_why_panel}" class="${SS.form_static_column_center}">`,
         `           <h2 id="${SS.learn_why_heading}">Why Hemp for Quilting?</h2>`,
         `           <p id="${SS.learn_why_text}">Quilting is a deeply tactile craft where makers interact directly with materials through cutting, sewing, layering, and touch. This hands-on experience creates a unique opportunity to evaluate hemp textiles based on real performance rather than assumptions.</p>`,
-        `           <div id="${SS.learn_why_cards_panel}">`,
+        `           <div class="${SS.form_flex_wrap_row}">`,
         `               ${WHY_CARD_DURABLE}`,
         `               ${WHY_CARD_BREATHABLE}`,
         `               ${WHY_CARD_TEXTURED}`,
@@ -335,35 +393,21 @@ function build_body_for_learn(): string {
         `       <!-- Common Misconceptions -->`,
         `       <div id="${SS.learn_misconception_panel}" class="${SS.form_static_column_center}">`,
         `           <h2 id="${SS.learn_misconception_heading}">Common Misconceptions</h2>`,
-        `           ${MISCONCEPTION_CARD_COMPARISON}`,
-        `           ${MISCONCEPTION_CARD_ROUGH}`,
-        `           ${MISCONCEPTION_CARD_QUILTING}`,
+        `           <div class="${SS.form_flex_wrap_row}">`,
+        `               ${MISCONCEPTION_CARD_COMPARISON}`,
+        `               ${MISCONCEPTION_CARD_ROUGH}`,
+        `               ${MISCONCEPTION_CARD_QUILTING}`,
+        `           </div>`,
         `       </div>`,
         ``,
-        `       <!-- Hemp vs Marijuana Comparison -->`,
-        `       <div id="${SS.learn_compare_panel}" class="${SS.form_static_row_center}">`,
-        ``,
-        `           <!-- Hemp Column -->`,
-        `           <div class="${SS.form_static_column_start}">`,
-        `               <h2 class="${SS.learn_compare_column_heading_left}">HEMP</h2>`,
-        `               ${HEMP_THC}`,
-        `               ${HEMP_USE}`,
-        `               ${HEMP_PSYCHO}`,
-        `           </div>`,
-        ``,
-        `           <!-- Leaf Image -->`,
-        `           <div id="${SS.learn_compare_leaf_panel}" class="${SS.form_static_column_center}">`,
-        `               <img id="${SS.learn_compare_leaf_image}" src="assets/images/cannabis_leaf.svg" alt="Cannabis leaf">`,
-        `           </div>`,
-        ``,
-        `           <!-- Marijuana Column -->`,
-        `           <div class="${SS.form_static_column_end}">`,
-        `               <h2 class="${SS.learn_compare_column_heading_right}">MARIJUANA</h2>`,
-        `               ${MARIJUANA_THC}`,
-        `               ${MARIJUANA_USE}`,
-        `               ${MARIJUANA_PSYCHO}`,
-        `           </div>`,
-        ``,
+        `       <!-- Material Tests -->`,
+        `       <div id="${SS.learn_material_panel}" class="${SS.form_static_column_center}">`,
+        `           <h2 class="${SS.learn_material_heading}">Material Testing with Hemp</h2>`,
+        `           <p class="${SS.learn_material_text}">Lorem ipsum dolor sit amet, labore tempor officia sed ad eiusmod adipiscing duis nisi minim qui consectetur veniam labore cillum exercitation labore cillum quis cillum elit sed labore nostrud reprehenderit cupidatat velit qui sint esse do voluptate enim et sed pariatur consequat est ipsum occaecat nisi enim eiusmod ullamco duis mollit in voluptate voluptate ut</p>`,
+        `           ${TEST_TEAR}`,
+        `           ${TEST_ABRASION}`,
+        `           ${TEST_DRAPE}`,
+        `           ${TEST_SHRINKAGE}`,
         `       </div>`,
         ``,
         `       ${build_footer("\t\t")}`,
@@ -504,7 +548,7 @@ function build_navigation(indent: string): string {
         `<!-- Navigation -->`,
         `${indent}<nav id="${SS.navigation_panel}">`,
         `${indent}\t<div id="${SS.navigation_title_panel}">`,
-        `${indent}\t\t<img id="${SS.navigation_logo}" src="assets/images/logo_for_navigation.png" alt="logo">`,
+        `${indent}\t\t<img id="${SS.navigation_logo}" src="assets/images/logo_for_navigation.svg" alt="logo">`,
         `${indent}\t\t<div>`,
         `${indent}\t\t\t<p id="${SS.navigation_title}">HEMP & QUILTING</p>`,
         `${indent}\t\t\t<p id="${SS.navigation_subtitle}">Community Project</p>`,
@@ -526,7 +570,7 @@ function build_footer(indent: string): string {
         `<!-- Footer -->`,
         `${indent}<div id="${SS.footer_panel}">`,
         `${indent}\t<div id="${SS.footer_title_panel}">`,
-        `${indent}\t\t<img id="${SS.footer_logo}" src="assets/images/logo_for_footer.png" alt="logo">`,
+        `${indent}\t\t<img id="${SS.footer_logo}" src="assets/images/logo_for_footer.svg" alt="logo">`,
         `${indent}\t\t<span id="${SS.footer_title}">Together, we can weave a more sustainable future.</span>`,
         `${indent}\t</div>`,
         `${indent}\t<div id="${SS.footer_social_panel}">`,
@@ -690,6 +734,23 @@ function build_misconception_card_for_learn_page(
         `${indent}<div class="${SS.learn_misconception_card_panel} ${SS.form_static_column_center}">`,
         `${indent}\t<p class="${SS.learn_misconception_card_myth}">${misconception}</p>`,
         `${indent}\t<p class="${SS.learn_misconception_card_truth}">${truth}</p>`,
+        `${indent}</div>`,
+    ].join("\n");
+}
+
+function build_material_test_for_learn_page(
+    indent: string,
+    image_path: string,
+    image_alt: string,
+    title: string,
+    text: string
+): string {
+    return [
+        `<!-- ${title} -->`,
+        `${indent}<div class="${SS.learn_material_test_panel} ${SS.form_static_column_center}">`,
+        `${indent}\t<img class="${SS.learn_material_test_image}" src="${image_path}" alt="${image_alt}">`,
+        `${indent}\t<h3 class="${SS.learn_material_test_heading}">${title}</h3>`,
+        `${indent}\t<p class="${SS.learn_material_test_text}">${text}</p>`,
         `${indent}</div>`,
     ].join("\n");
 }
