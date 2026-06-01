@@ -611,7 +611,6 @@ export const STYLE_HEAVENLY_EARTH = {
         textAlign: "center",
         overflowWrap: "break-word",
         textWrap: "pretty",
-        hyphens: "auto",
         fontKerning: "normal",
         wordSpacing: "-0.03em",
         letterSpacing: "-0.01em",
@@ -762,16 +761,16 @@ export const STYLE_HEAVENLY_EARTH = {
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            paddingTop: SIZES.horizontal_76,
-            paddingLeft: SIZES.horizontal_76,
-            paddingRight: SIZES.horizontal_76,
+            paddingTop: SIZES.horizontal_60,
+            paddingLeft: SIZES.horizontal_75,
+            paddingRight: SIZES.horizontal_75,
             width: "100%",
         },
 
         cTITLE: {
             color: PALETTE[4],
             fontFamily: "FONT_TEXT_CINZEL_BOLD",
-            fontSize: SIZES.horizontal_80,
+            fontSize: SIZES.horizontal_75,
             marginBottom: SIZES.horizontal_50,
         },
 
@@ -1021,7 +1020,7 @@ export const STYLE_HEAVENLY_EARTH = {
                 fontSize: SIZES.horizontal_58,
                 textAlign: "justify",
                 lineHeight: "1.5",
-                marginBottom: SIZES.horizontal_70,
+                marginBottom: SIZES.horizontal_50,
             }
         },
 
@@ -1438,8 +1437,8 @@ export const STYLE_HEAVENLY_EARTH = {
                 color: PALETTE[4],
                 lineHeight: "1.5",
                 fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
-                textAlign: "justify",
-                fontSize: SIZES.horizontal_59,
+                textAlign: "center",
+                fontSize: SIZES.horizontal_60,
             },
 
             cLINK: {
