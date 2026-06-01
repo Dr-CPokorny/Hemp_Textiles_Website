@@ -1177,8 +1177,8 @@ export const STYLE_HEAVENLY_EARTH = {
                 borderRadius: SIZES.horizontal_36,
                 padding: SIZES.horizontal_64,
                 marginBottom: SIZES.horizontal_70,
-                marginLeft: SIZES.horizontal_80,
-                marginRight: SIZES.horizontal_80,
+                marginLeft: SIZES.horizontal_70,
+                marginRight: SIZES.horizontal_70,
                 alignSelf: "stretch",
             },
             cIMAGE: {
@@ -1205,7 +1205,10 @@ export const STYLE_HEAVENLY_EARTH = {
                 color: PALETTE[4],
                 lineHeight: "1.5",
                 fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
-                textAlign: "center",
+                hyphens: "auto",
+                wordSpacing: "-0.05em",
+                letterSpacing: "-0.01em",
+                textAlign: "justify",
                 fontSize: SIZES.horizontal_60,
             },
             cLINK: {
