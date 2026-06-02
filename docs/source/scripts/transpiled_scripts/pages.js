@@ -257,12 +257,28 @@ function build_body_for_learn() {
 }
 // Builds the body for the SOURCES page.
 function build_body_for_sources() {
+    // Top Information
+    const TOP_INFO = build_top("\t\t", "\"Is Any Of This True?\"", "We're glad you asked.  Please feel free to peruse these sources to verify.  If you find that our words are inaccurate, then please use the mail icon in the footer to correct us.");
+    // Read and parse sources from CSV
+    const csv_path = PATH.resolve("../../databases/sources.csv");
+    const csv_lines = FS.readFileSync(csv_path, "utf-8").split("\n").slice(1);
+    const SOURCES = csv_lines
+        .filter(line => line.trim() !== "")
+        .map(line => {
+        const [id, title, category, source_type, reliability, summary, notes, citation, link] = line.split(",");
+        return build_research_for_source_page("\t\t", id.trim(), title.trim(), category.trim(), source_type.trim(), reliability.trim(), summary.trim(), citation.trim(), notes.trim() || undefined, link.trim() || undefined);
+    })
+        .join("\n");
     return [
         `   <body class="${SS.form_static_column_center}">`,
         ``,
         `       ${build_navigation("\t\t")}`,
         ``,
+        `       ${TOP_INFO}`,
         ``,
+        `       <div class="${SS.form_flex_wrap_row}">`,
+        `       ${SOURCES}`,
+        `       </div>`,
         ``,
         `       ${build_footer("\t\t")}`,
         ``,
@@ -276,10 +292,10 @@ function build_body_for_about() {
     // People Information
     const POKORNY = build_person_for_about_page("\t\t", "assets/images/person_pokorny.svg", "Dr. Colleen Gelhaus Pokorny", "Project Lead", "Dr. Pokorny is an Assistant Professor of Apparel Design at Oregon State University and a lifelong quilter. She is a member of the Textile & Apparel Innovation Research Consortia with the Global Hemp Innovation Center. Her creative scholarship uses quiltmaking to explore material‑driven sustainability and how hands‑on engagement with hemp textiles can shift design practices and perceptions. Dr. Pokorny's work has received international recognition, including the Sandra Hutton Award for Excellence in Fiber Arts at the 2025 ITAA Design Exhibition. Her work has been shown at the National Quilt Museum, QuiltCon, and the American Quilt Study Group's traveling exhibition, Quiltmakers and Designers: 1945–1979.", "mailto:colleen.pokorny@oregonstate.edu", "EMAIL", "https://business.oregonstate.edu/faculty-and-research/faculty-directory/colleen-gelhaus-pokorny", "BUSINESS BIOGRAPHY", "https://www.linkedin.com/in/colleenpokorny/", "LINKEDIN");
     const AURORA = build_person_for_about_page("\t\t", "assets/images/person_aurora.svg", "Aurora O'Neill", "Designer & Researcher", "Aurora O’Neill is a Design and Innovation Management student at Oregon State University with a background in design research, sustainability, marketing, and entrepreneurship. The bulk of her design research focuses on how thoughtful design and material choices can support more environmentally responsible futures. Alongside her research, Aurora has experience in graphic design, UX design, branding, and collaborative projects that connect creativity with social impact. She is passionate about using research, storytelling, and community engagement to create work that encourages conversation and participation around sustainable practices.", "https://www.linkedin.com/in/aurora-o-neill-466132232/", "LINKEDIN");
-    const JAMES = build_person_for_about_page("\t\t", "assets/images/person_james.svg", "James Bryant", "Insert Title Here", "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident");
+    const JAMES = build_person_for_about_page("\t\t", "assets/images/person_james.svg", "James Bryant", "Test and Research Mechanical Engineer", "James Bryant is a Mechanical Engineering student at Oregon State University with a passion for hands-on problem solving, automotive work, and practical design. Through years of working on cars, motorcycles, and mechanical projects, he has developed a strong understanding of how materials, systems, and designs perform in real-world conditions. Bringing a practical engineering mindset, testing experience, and attention to durability and function, helping the team evaluate material performance from a hands-on perspective.", "https://www.linkedin.com/in/james-bryant-968133324", "LINKEDIN");
     const KIRA = build_person_for_about_page("\t\t", "assets/images/person_kira.svg", "Kira Ash Stephenson", "Website Developer", "Once a student of Polk State College (FL), St. Petersburg College (FL), and Lane Community College (OR) in an endeavor to learn more about programming in order to fulfill his dreams of developing video games.  Now, Kira is a student at Oregon State University where they are learning more about software engineering; on the side they are developing larger projects inside a Business GitHub account called \"Mirth Development\".  He is the engineer/developer of this site - it's really weird to talk in third person for this - and the tools used to construct the pages before you were TypeScript, GitHub Pages, WebStorm, and a custom tool that Kira made for ease of styling.", "https://github.com/Tenlion?tab=repositories", "GITHUB", "https://github.com/orgs/Mirth-Development/repositories", "MIRTH DEV.", "https://www.linkedin.com/in/kira-stephenson-9210b820b", "LINKEDIN");
     const RUDY = build_person_for_about_page("\t\t", "assets/images/person_rudy.svg", "Rudy David Torrijos IV", "Automotive Technology | Mechanical Engineering", "Driven mechanical engineering student with a strong background in automotive technology and hands-on problem solving. Experienced in teamwork, manufacturing, and vehicle systems through academic projects, shop work, and real-world automotive experience. Passionate about engineering, fabrication, and applying practical skills to innovative projects and industries.", "https://www.instagram.com/802volvo/", "INSTAGRAM");
-    const VANCE = build_person_for_about_page("\t\t", "assets/images/person_vance.svg", "Vance Hernandez", "Student", "Vance Hernandez is a Mechanical Engineering student at Oregon State University and a 10-year U.S. Navy veteran. His background includes experience in engineering, technical problem solving, and hands-on project work, with interests in sustainability and practical design applications.");
+    const VANCE = build_person_for_about_page("\t\t", "assets/images/person_vance.svg", "Vance Hernandez", "Researcher and Database Manager", "Vance Hernandez is a Mechanical Engineering student at Oregon State University and a 10-year U.S. Navy veteran. His background includes experience in engineering, technical problem solving, and hands-on project work, with interests in sustainability and practical design applications.");
     return [
         `   <body class="${SS.form_static_column_center}">`,
         ``,
@@ -488,5 +504,67 @@ function build_right_row_for_comparison_chart_for_learn_page(indent, icon, text)
         `${indent}\t<p class="${SS.learn_compare_column_row_text}">${text}</p>`,
         `${indent}\t<span class="${SS.icon_general} ${SS.learn_compare_column_row_icon_right}">${icon}</span>`,
         `${indent}</div>`,
+    ].join("\n");
+}
+function build_research_for_source_page(indent, id, title, research_category, source_type, reliability, summary, citation, notes, link) {
+    let link_panel = "";
+    let notes_panel = "";
+    if (link !== undefined) {
+        link_panel = [
+            `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
+            `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">Link To Source</h3>`,
+            `${indent}\t\t\t<a class="${SS.sources_research_inner_text}" href="${link}">CLICK ME</a>`,
+            `${indent}\t\t</div>`,
+        ].join("\n");
+    }
+    else {
+        link_panel = [
+            `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
+            `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">Link To Source</h3>`,
+            `${indent}\t\t\t<p class="${SS.sources_research_inner_text}"><i>Source has no link.  This is likely due to the source type not allowing for a link, or it's an error on our part.</i></p>`,
+            `${indent}\t\t</div>`,
+        ].join("\n");
+    }
+    if (notes !== undefined) {
+        notes_panel = [
+            `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
+            `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">Notes</h3>`,
+            `${indent}\t\t\t<p class="${SS.sources_research_inner_text}">${notes}</p>`,
+            `${indent}\t\t</div>`,
+        ].join("\n");
+    }
+    return [
+        `<!-- ${id} \"${title.toUpperCase()}\" -->`,
+        `${indent}<div class="${SS.sources_research_container} ${SS.form_static_column_center}">`,
+        `${indent}\t<div class="${SS.sources_research_id_panel}">`,
+        `${indent}\t\t<p class="${SS.sources_research_id_text}">${id}</p>`,
+        `${indent}\t</div>`,
+        `${indent}\t<div class="${SS.sources_research_outer_panel}">`,
+        `${indent}\t\t<h2 class="${SS.sources_research_title}">${title}</h2>`,
+        `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
+        `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">Summary</h3>`,
+        `${indent}\t\t\t<p class="${SS.sources_research_inner_text}">${summary}</p>`,
+        `${indent}\t\t</div>`,
+        `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
+        `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">Research Category</h3>`,
+        `${indent}\t\t\t<p class="${SS.sources_research_inner_text}">${research_category}</p>`,
+        `${indent}\t\t</div>`,
+        `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
+        `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">Source Type</h3>`,
+        `${indent}\t\t\t<p class="${SS.sources_research_inner_text}">${source_type}</p>`,
+        `${indent}\t\t</div>`,
+        `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
+        `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">Form of Reliability</h3>`,
+        `${indent}\t\t\t<p class="${SS.sources_research_inner_text}">${reliability}</p>`,
+        `${indent}\t\t</div>`,
+        link_panel,
+        `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
+        `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">APA Citation</h3>`,
+        `${indent}\t\t\t<p class="${SS.sources_research_inner_text}">${citation}</p>`,
+        `${indent}\t\t</div>`,
+        notes_panel,
+        `${indent}\t</div>`,
+        `${indent}</div>`,
+        ``,
     ].join("\n");
 }

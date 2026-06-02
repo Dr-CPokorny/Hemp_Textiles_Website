@@ -484,6 +484,13 @@ export const STYLE_HEAVENLY_EARTH = {
     },
     tBODY: {
         textAlign: "center",
+        fontStyle: "normal",
+        fontSize: SIZES.horizontal_70,
+        lineHeight: "1",
+        color: "#fff7cc",
+        backgroundColor: PALETTE[1.5],
+        fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM, sans-serif",
+        minHeight: "100vh",
         // Me trying to fight the horrors of justified text-alignment spacing.
         overflowWrap: "break-word",
         lineBreak: "strict",
@@ -493,13 +500,6 @@ export const STYLE_HEAVENLY_EARTH = {
         fontKerning: "normal",
         wordSpacing: "-0.03em",
         letterSpacing: "-0.01em",
-        fontStyle: "normal",
-        fontSize: SIZES.horizontal_70,
-        lineHeight: "1",
-        color: "#fff7cc",
-        backgroundColor: PALETTE[1.5],
-        fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM, sans-serif",
-        minHeight: "100vh",
     },
     oNAVIGATION: {
         iPANEL: {
@@ -1107,7 +1107,68 @@ export const STYLE_HEAVENLY_EARTH = {
             },
         },
     },
-    oSOURCES: {},
+    oSOURCES: {
+        oRESEARCH: {
+            cCONTAINER: {
+                width: "80%",
+                flex: "1",
+                minWidth: SIZES.horizontal_91,
+                marginBottom: SIZES.horizontal_50,
+                marginLeft: SIZES.horizontal_60,
+                marginRight: SIZES.horizontal_60,
+            },
+            cOUTER_PANEL: {
+                backgroundImage: `linear-gradient(to top, ${PALETTE[5.5]} 10%, transparent 90%)`,
+                backgroundColor: PALETTE[5],
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                borderRadius: SIZES.horizontal_40,
+                paddingTop: SIZES.horizontal_50,
+                paddingLeft: SIZES.horizontal_50,
+                paddingRight: SIZES.horizontal_50,
+            },
+            cINNER_PANEL: {
+                backgroundImage: `linear-gradient(to top, ${PALETTE[1]} 10%, transparent 90%)`,
+                backgroundColor: PALETTE[6],
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                borderRadius: SIZES.horizontal_35,
+                padding: SIZES.horizontal_50,
+                marginBottom: SIZES.horizontal_50,
+            },
+            cID_PANEL: {
+                backgroundColor: PALETTE[4],
+                padding: SIZES.horizontal_40,
+                borderTopLeftRadius: SIZES.horizontal_35,
+                borderTopRightRadius: SIZES.horizontal_35,
+            },
+            cTITLE: {
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_CINZEL_BOLD",
+                fontSize: SIZES.horizontal_55,
+                marginBottom: SIZES.horizontal_50,
+            },
+            cHEADING: {
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_SPECTRAL_BOLD",
+                fontSize: SIZES.horizontal_50,
+                marginBottom: SIZES.horizontal_30,
+            },
+            cID_TEXT: {
+                color: PALETTE[1],
+                fontSize: SIZES.horizontal_50,
+            },
+            cINNER_TEXT: {
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                fontSize: SIZES.horizontal_50,
+                lineHeight: "1.5",
+                textAlign: "center",
+            },
+        },
+    },
     oABOUT: {
         oDESCRIPTION: {
             iPANEL: {

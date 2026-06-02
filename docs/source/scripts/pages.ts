@@ -418,12 +418,47 @@ function build_body_for_learn(): string {
 
 // Builds the body for the SOURCES page.
 function build_body_for_sources(): string {
+
+    // Top Information
+    const TOP_INFO = build_top(
+        "\t\t",
+        "\"Is Any Of This True?\"",
+        "We're glad you asked.  Please feel free to peruse these sources to verify.  If you find that our words are inaccurate, then please use the mail icon in the footer to correct us.",
+    );
+
+    // Read and parse sources from CSV
+    const csv_path = PATH.resolve("../../databases/sources.csv");
+    const csv_lines = FS.readFileSync(csv_path, "utf-8").split("\n").slice(1);
+
+    const SOURCES = csv_lines
+        .filter(line => line.trim() !== "")
+        .map(line => {
+            const [id, title, category, source_type, reliability, summary, notes, citation, link] = line.split(",");
+            return build_research_for_source_page(
+                "\t\t",
+                id.trim(),
+                title.trim(),
+                category.trim(),
+                source_type.trim(),
+                reliability.trim(),
+                summary.trim(),
+                citation.trim(),
+                notes.trim() || undefined,
+                link.trim() || undefined,
+            );
+        })
+        .join("\n");
+
     return [
         `   <body class="${SS.form_static_column_center}">`,
         ``,
         `       ${build_navigation("\t\t")}`,
         ``,
+        `       ${TOP_INFO}`,
         ``,
+        `       <div class="${SS.form_flex_wrap_row}">`,
+        `       ${SOURCES}`,
+        `       </div>`,
         ``,
         `       ${build_footer("\t\t")}`,
         ``,
@@ -468,8 +503,10 @@ function build_body_for_about(): string {
         "\t\t",
         "assets/images/person_james.svg",
         "James Bryant",
-        "Insert Title Here",
-        "Lorem ipsum dolor sit amet, lorem in ea elit ut minim ipsum sed lorem in id nulla proident sed dolore pariatur dolore consectetur tempor sunt ad nulla lorem consectetur velit ipsum et labore ad tempor sed consectetur deserunt consequat anim ea nulla enim lorem velit fugiat laboris deserunt ipsum excepteur sed ut fugiat reprehenderit proident",
+        "Test and Research Mechanical Engineer",
+        "James Bryant is a Mechanical Engineering student at Oregon State University with a passion for hands-on problem solving, automotive work, and practical design. Through years of working on cars, motorcycles, and mechanical projects, he has developed a strong understanding of how materials, systems, and designs perform in real-world conditions. Bringing a practical engineering mindset, testing experience, and attention to durability and function, helping the team evaluate material performance from a hands-on perspective.",
+        "https://www.linkedin.com/in/james-bryant-968133324",
+        "LINKEDIN",
     );
     const KIRA = build_person_for_about_page(
         "\t\t",
@@ -497,7 +534,7 @@ function build_body_for_about(): string {
         "\t\t",
         "assets/images/person_vance.svg",
         "Vance Hernandez",
-        "Student",
+        "Researcher and Database Manager",
         "Vance Hernandez is a Mechanical Engineering student at Oregon State University and a 10-year U.S. Navy veteran. His background includes experience in engineering, technical problem solving, and hands-on project work, with interests in sustainability and practical design applications.",
     );
 
@@ -784,5 +821,91 @@ function build_right_row_for_comparison_chart_for_learn_page(
         `${indent}\t<p class="${SS.learn_compare_column_row_text}">${text}</p>`,
         `${indent}\t<span class="${SS.icon_general} ${SS.learn_compare_column_row_icon_right}">${icon}</span>`,
         `${indent}</div>`,
+    ].join("\n");
+}
+
+function build_research_for_source_page(
+    indent: string,
+    id: string,
+    title: string,
+    research_category: string,
+    source_type: string,
+    reliability: string,
+    summary: string,
+    citation: string,
+    notes?: string,
+    link?: string,
+): string {
+
+    let link_panel = "";
+    let notes_panel = "";
+
+    if (link !== undefined) {
+        link_panel = [
+            `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
+            `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">Link To Source</h3>`,
+            `${indent}\t\t\t<a class="${SS.sources_research_inner_text}" href="${link}">CLICK ME</a>`,
+            `${indent}\t\t</div>`,
+        ].join("\n");
+    }
+    else {
+        link_panel = [
+            `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
+            `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">Link To Source</h3>`,
+            `${indent}\t\t\t<p class="${SS.sources_research_inner_text}"><i>Source has no link.  This is likely due to the source type not allowing for a link, or it's an error on our part.</i></p>`,
+            `${indent}\t\t</div>`,
+        ].join("\n");
+    }
+
+    if (notes !== undefined) {
+        notes_panel = [
+            `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
+            `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">Notes</h3>`,
+            `${indent}\t\t\t<p class="${SS.sources_research_inner_text}">${notes}</p>`,
+            `${indent}\t\t</div>`,
+        ].join("\n");
+    }
+
+    return [
+        `<!-- ${id} \"${title.toUpperCase()}\" -->`,
+        `${indent}<div class="${SS.sources_research_container} ${SS.form_static_column_center}">`,
+        `${indent}\t<div class="${SS.sources_research_id_panel}">`,
+        `${indent}\t\t<p class="${SS.sources_research_id_text}">${id}</p>`,
+        `${indent}\t</div>`,
+        `${indent}\t<div class="${SS.sources_research_outer_panel}">`,
+        `${indent}\t\t<h2 class="${SS.sources_research_title}">${title}</h2>`,
+
+        `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
+        `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">Summary</h3>`,
+        `${indent}\t\t\t<p class="${SS.sources_research_inner_text}">${summary}</p>`,
+        `${indent}\t\t</div>`,
+
+        `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
+        `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">Research Category</h3>`,
+        `${indent}\t\t\t<p class="${SS.sources_research_inner_text}">${research_category}</p>`,
+        `${indent}\t\t</div>`,
+
+        `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
+        `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">Source Type</h3>`,
+        `${indent}\t\t\t<p class="${SS.sources_research_inner_text}">${source_type}</p>`,
+        `${indent}\t\t</div>`,
+
+        `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
+        `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">Form of Reliability</h3>`,
+        `${indent}\t\t\t<p class="${SS.sources_research_inner_text}">${reliability}</p>`,
+        `${indent}\t\t</div>`,
+
+        link_panel,
+
+        `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
+        `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">APA Citation</h3>`,
+        `${indent}\t\t\t<p class="${SS.sources_research_inner_text}">${citation}</p>`,
+        `${indent}\t\t</div>`,
+
+        notes_panel,
+
+        `${indent}\t</div>`,
+        `${indent}</div>`,
+        ``,
     ].join("\n");
 }
