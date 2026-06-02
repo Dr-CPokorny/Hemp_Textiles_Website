@@ -1066,6 +1066,7 @@ export const STYLE_HEAVENLY_EARTH = {
                 cPANEL: {
                     flex: "1",
                     minWidth: SIZES.horizontal_91,
+                    justifyContent: "center",
                     backgroundImage: `linear-gradient(to top, ${PALETTE[1]} 10%, transparent 90%)`,
                     backgroundColor: PALETTE[6],
                     backgroundSize: "cover",
@@ -1133,6 +1134,7 @@ export const STYLE_HEAVENLY_EARTH = {
                 cPANEL: {
                     flex: "1",
                     minWidth: SIZES.horizontal_91,
+                    justifyContent: "center",
                     backgroundImage: `linear-gradient(to top, ${PALETTE[1]} 10%, transparent 90%)`,
                     backgroundColor: PALETTE[6],
                     backgroundSize: "cover",
@@ -1174,8 +1176,8 @@ export const STYLE_HEAVENLY_EARTH = {
                 backgroundRepeat: "no-repeat",
                 borderRadius: SIZES.horizontal_40,
                 paddingTop: SIZES.horizontal_70,
-                paddingLeft: SIZES.horizontal_70,
-                paddingRight: SIZES.horizontal_70,
+                paddingLeft: SIZES.horizontal_50,
+                paddingRight: SIZES.horizontal_50,
                 marginBottom: SIZES.horizontal_50,
             },
 
@@ -1199,7 +1201,8 @@ export const STYLE_HEAVENLY_EARTH = {
 
                 cPANEL: {
                     flex: "1",
-                    minWidth: SIZES.horizontal_92,
+                    minWidth: SIZES.horizontal_93,
+                    justifyContent: "center",
                     backgroundImage: `linear-gradient(to top, ${PALETTE[1]} 10%, transparent 90%)`,
                     backgroundColor: PALETTE[6],
                     backgroundSize: "cover",
@@ -1207,9 +1210,9 @@ export const STYLE_HEAVENLY_EARTH = {
                     backgroundRepeat: "no-repeat",
                     borderRadius: SIZES.horizontal_35,
                     padding: SIZES.horizontal_50,
-                    marginLeft: SIZES.horizontal_50,
-                    marginRight: SIZES.horizontal_50,
-                    marginBottom: SIZES.horizontal_70,
+                    marginLeft: SIZES.horizontal_30,
+                    marginRight: SIZES.horizontal_30,
+                    marginBottom: SIZES.horizontal_55,
                 },
 
                 cHEADING: {
@@ -1221,7 +1224,7 @@ export const STYLE_HEAVENLY_EARTH = {
 
                 cIMAGE: {
                     borderRadius: SIZES.horizontal_45,
-                    width: SIZES.horizontal_91,
+                    width: `clamp(${SIZES.horizontal_90}, 100%, ${SIZES.horizontal_96})`,
                     height: "auto",
                     margin: SIZES.horizontal_50,
                 },
