@@ -999,7 +999,8 @@ export const STYLE_HEAVENLY_EARTH = {
             },
             oTEST: {
                 cPANEL: {
-                    width: "100%",
+                    flex: "1",
+                    minWidth: SIZES.horizontal_92,
                     backgroundImage: `linear-gradient(to top, ${PALETTE[1]} 10%, transparent 90%)`,
                     backgroundColor: PALETTE[6],
                     backgroundSize: "cover",
@@ -1007,6 +1008,8 @@ export const STYLE_HEAVENLY_EARTH = {
                     backgroundRepeat: "no-repeat",
                     borderRadius: SIZES.horizontal_35,
                     padding: SIZES.horizontal_50,
+                    marginLeft: SIZES.horizontal_50,
+                    marginRight: SIZES.horizontal_50,
                     marginBottom: SIZES.horizontal_70,
                 },
                 cHEADING: {
@@ -1017,9 +1020,9 @@ export const STYLE_HEAVENLY_EARTH = {
                 },
                 cIMAGE: {
                     borderRadius: SIZES.horizontal_45,
-                    width: SIZES.horizontal_92,
+                    width: SIZES.horizontal_91,
                     height: "auto",
-                    marginBottom: SIZES.horizontal_50,
+                    margin: SIZES.horizontal_50,
                 },
                 cTEXT: {
                     color: PALETTE[4],
@@ -1027,6 +1030,9 @@ export const STYLE_HEAVENLY_EARTH = {
                     fontSize: SIZES.horizontal_53,
                     lineHeight: "1.5",
                     textAlign: "justify",
+                    marginLeft: SIZES.horizontal_30,
+                    marginRight: SIZES.horizontal_30,
+                    marginBottom: SIZES.horizontal_30,
                 },
             },
         },
@@ -1109,13 +1115,16 @@ export const STYLE_HEAVENLY_EARTH = {
     },
     oSOURCES: {
         oRESEARCH: {
+            iSUPER_CONTAINER: {
+                padding: SIZES.horizontal_50,
+            },
             cCONTAINER: {
                 width: "80%",
                 flex: "1",
                 minWidth: SIZES.horizontal_91,
-                marginBottom: SIZES.horizontal_50,
-                marginLeft: SIZES.horizontal_60,
-                marginRight: SIZES.horizontal_60,
+                marginBottom: SIZES.horizontal_70,
+                marginLeft: SIZES.horizontal_50,
+                marginRight: SIZES.horizontal_50,
             },
             cOUTER_PANEL: {
                 backgroundImage: `linear-gradient(to top, ${PALETTE[5.5]} 10%, transparent 90%)`,
@@ -1149,6 +1158,7 @@ export const STYLE_HEAVENLY_EARTH = {
                 fontFamily: "FONT_TEXT_CINZEL_BOLD",
                 fontSize: SIZES.horizontal_55,
                 marginBottom: SIZES.horizontal_50,
+                lineHeight: "1.25",
             },
             cHEADING: {
                 color: PALETTE[4],
@@ -1166,6 +1176,13 @@ export const STYLE_HEAVENLY_EARTH = {
                 fontSize: SIZES.horizontal_50,
                 lineHeight: "1.5",
                 textAlign: "center",
+            },
+            cLINK_TEXT: {
+                color: PALETTE[4],
+                fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
+                fontSize: SIZES.horizontal_50,
+                textAlign: "center",
+                display: "block",
             },
         },
     },

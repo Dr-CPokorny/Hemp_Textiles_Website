@@ -230,32 +230,32 @@ function build_body_for_learn(): string {
 
     // Hemp and Marijuana Comparison Information
     const HEMP_THC = build_left_row_for_comparison_chart_for_learn_page(
-        "\t\t\t\t",
+        "\t\t\t\t\t",
         "arrow_cool_down",
         "Low THC (<0.3%)"
     );
     const HEMP_USE = build_left_row_for_comparison_chart_for_learn_page(
-        "\t\t\t\t",
+        "\t\t\t\t\t",
         "apparel",
         "Used for textiles + apparel"
     );
     const HEMP_PSYCHO = build_left_row_for_comparison_chart_for_learn_page(
-        "\t\t\t\t",
+        "\t\t\t\t\t",
         "face",
         "Non-psychoactive"
     );
     const MARIJUANA_THC = build_right_row_for_comparison_chart_for_learn_page(
-        "\t\t\t\t",
+        "\t\t\t\t\t",
         "arrow_warm_up",
         "High THC (>5%)"
     );
     const MARIJUANA_USE = build_right_row_for_comparison_chart_for_learn_page(
-        "\t\t\t\t",
+        "\t\t\t\t\t",
         "medical_services",
         "Used casually + medically"
     );
     const MARIJUANA_PSYCHO = build_right_row_for_comparison_chart_for_learn_page(
-        "\t\t\t\t",
+        "\t\t\t\t\t",
         "cognition",
         "Psychoactive"
     );
@@ -309,28 +309,28 @@ function build_body_for_learn(): string {
 
     // Material Tests Information
     const TEST_TEAR = build_material_test_for_learn_page(
-        "\t\t\t",
+        "\t\t\t\t",
         "assets/images/learn_test_tear.svg",
         "Text",
         "Tear Test Results",
         "Lorem ipsum dolor sit amet, labore tempor officia sed ad eiusmod adipiscing duis nisi minim qui consectetur veniam labore cillum exercitation labore cillum quis cillum elit sed labore nostrud reprehenderit cupidatat velit qui sint esse do voluptate enim et sed pariatur consequat est ipsum occaecat nisi enim eiusmod ullamco duis mollit in voluptate voluptate ut"
     );
     const TEST_ABRASION = build_material_test_for_learn_page(
-        "\t\t\t",
+        "\t\t\t\t",
         "assets/images/learn_test_abrasion.svg",
         "Text",
         "Abrasion Test Results",
         "Lorem ipsum dolor sit amet, labore tempor officia sed ad eiusmod adipiscing duis nisi minim qui consectetur veniam labore cillum exercitation labore cillum quis cillum elit sed labore nostrud reprehenderit cupidatat velit qui sint esse do voluptate enim et sed pariatur consequat est ipsum occaecat nisi enim eiusmod ullamco duis mollit in voluptate voluptate ut"
     );
     const TEST_DRAPE = build_material_test_for_learn_page(
-        "\t\t\t",
+        "\t\t\t\t",
         "assets/images/learn_test_drape.svg",
         "Text",
         "Drape Test Results",
         "Lorem ipsum dolor sit amet, labore tempor officia sed ad eiusmod adipiscing duis nisi minim qui consectetur veniam labore cillum exercitation labore cillum quis cillum elit sed labore nostrud reprehenderit cupidatat velit qui sint esse do voluptate enim et sed pariatur consequat est ipsum occaecat nisi enim eiusmod ullamco duis mollit in voluptate voluptate ut"
     );
     const TEST_SHRINKAGE = build_material_test_for_learn_page(
-        "\t\t\t",
+        "\t\t\t\t",
         "assets/images/learn_test_shrinkage.svg",
         "Text",
         "Shrinkage Test Results",
@@ -349,10 +349,10 @@ function build_body_for_learn(): string {
         `           <!-- Comparison Heading -->`,
         `           <h2 id="${SS.learn_compare_heading}">Forms of Cannabis</h2>`,
         `           <!-- Columns for Comparison -->`,
-        `           <div class="${SS.form_static_row_start}"`,
+        `           <div class="${SS.form_static_row_start}">`,
         `               <!-- Hemp Column -->`,
         `               <div class="${SS.form_static_column_start}">`,
-        `                   <h3 class="${SS.learn_compare_column_heading_left}">HEMP</h2>`,
+        `                   <h3 class="${SS.learn_compare_column_heading_left}">HEMP</h3>`,
         `                   ${HEMP_THC}`,
         `                   ${HEMP_USE}`,
         `                   ${HEMP_PSYCHO}`,
@@ -374,8 +374,8 @@ function build_body_for_learn(): string {
         `       <!-- What is Hemp, Really? -->`,
         `       <div id="${SS.learn_what_is_hemp_panel}" class="${SS.form_static_column_center}">`,
         `           <h2 id="${SS.learn_what_is_hemp_heading}">What is Hemp, Really?</h2>`,
-        `           <p class="${SS.learn_what_is_hemp_text}">Hemp is a natural fiber that comes from the Cannabis sativa plant, but unlike marijuana, hemp contains extremely low levels of THC (the psychoactive compound associated with getting “high”). Hemp used for textiles is non-psychoactive, legally grown in many parts of the world, and has been used historically for products like rope, paper, clothing, and fabric.</p>`,
-        `           <p class="${SS.learn_what_is_hemp_text}">Today, hemp is gaining attention as a more sustainable textile alternative because it requires less water, fewer pesticides, and produces durable, breathable fibers that soften over time with use. Despite these benefits, hemp fabrics are still often misunderstood due to long-standing associations with marijuana and limited exposure within mainstream textile markets.</p>`,
+        `           <p class="${SS.learn_what_is_hemp_text}">Hemp is a natural fiber that comes from the Cannabis sativa plant, but unlike marijuana, which has high levels of THC (5-30%+) hemp contains extremely low levels of THC (<0.3%); THC is the psychoactive compound associated with getting “high”. Hemp used for textiles is non-psychoactive, legally grown in many parts of the world, and has been used historically for products like rope, paper, clothing, and fabric.</p>`,
+        `           <p class="${SS.learn_what_is_hemp_text}">Today, hemp is gaining attention as a more sustainable textile alternative because it requires less water and fewer pesticides compared to cotton, and produces durable, breathable fibers that soften over time with use. Despite these benefits, hemp fabrics are still often misunderstood due to long-standing associations with marijuana and limited exposure within mainstream textile markets.</p>`,
         `       </div>`,
         ``,
         `       <!-- Why Hemp for Quilting -->`,
@@ -404,10 +404,12 @@ function build_body_for_learn(): string {
         `       <div id="${SS.learn_material_panel}" class="${SS.form_static_column_center}">`,
         `           <h2 class="${SS.learn_material_heading}">Material Testing with Hemp</h2>`,
         `           <p class="${SS.learn_material_text}">Lorem ipsum dolor sit amet, labore tempor officia sed ad eiusmod adipiscing duis nisi minim qui consectetur veniam labore cillum exercitation labore cillum quis cillum elit sed labore nostrud reprehenderit cupidatat velit qui sint esse do voluptate enim et sed pariatur consequat est ipsum occaecat nisi enim eiusmod ullamco duis mollit in voluptate voluptate ut</p>`,
-        `           ${TEST_TEAR}`,
-        `           ${TEST_ABRASION}`,
-        `           ${TEST_DRAPE}`,
-        `           ${TEST_SHRINKAGE}`,
+        `           <div class="${SS.form_flex_wrap_row}">`,
+        `               ${TEST_TEAR}`,
+        `               ${TEST_ABRASION}`,
+        `               ${TEST_DRAPE}`,
+        `               ${TEST_SHRINKAGE}`,
+        `           </div>`,
         `       </div>`,
         ``,
         `       ${build_footer("\t\t")}`,
@@ -426,16 +428,15 @@ function build_body_for_sources(): string {
         "We're glad you asked.  Please feel free to peruse these sources to verify.  If you find that our words are inaccurate, then please use the mail icon in the footer to correct us.",
     );
 
-    // Read and parse sources from CSV
+    // Reading and parsing sources from the sources.csv file.
     const csv_path = PATH.resolve("../../databases/sources.csv");
     const csv_lines = FS.readFileSync(csv_path, "utf-8").split("\n").slice(1);
-
     const SOURCES = csv_lines
         .filter(line => line.trim() !== "")
         .map(line => {
             const [id, title, category, source_type, reliability, summary, notes, citation, link] = line.split(",");
             return build_research_for_source_page(
-                "\t\t",
+                "\t\t\t",
                 id.trim(),
                 title.trim(),
                 category.trim(),
@@ -456,8 +457,10 @@ function build_body_for_sources(): string {
         ``,
         `       ${TOP_INFO}`,
         ``,
-        `       <div class="${SS.form_flex_wrap_row}">`,
-        `       ${SOURCES}`,
+        `       <!-- Research Sources -->`,
+        `       <div id="${SS.sources_research_super_container}" class="${SS.form_flex_wrap_row}">`,
+        ``,
+        `   ${SOURCES}`,
         `       </div>`,
         ``,
         `       ${build_footer("\t\t")}`,
@@ -844,7 +847,7 @@ function build_research_for_source_page(
         link_panel = [
             `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
             `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">Link To Source</h3>`,
-            `${indent}\t\t\t<a class="${SS.sources_research_inner_text}" href="${link}">CLICK ME</a>`,
+            `${indent}\t\t\t<a class="${SS.sources_research_link_text}" href="${link}">CLICK ME</a>`,
             `${indent}\t\t</div>`,
         ].join("\n");
     }
@@ -867,7 +870,7 @@ function build_research_for_source_page(
     }
 
     return [
-        `<!-- ${id} \"${title.toUpperCase()}\" -->`,
+        `${indent}<!-- ${id} \"${title.toUpperCase()}\" -->`,
         `${indent}<div class="${SS.sources_research_container} ${SS.form_static_column_center}">`,
         `${indent}\t<div class="${SS.sources_research_id_panel}">`,
         `${indent}\t\t<p class="${SS.sources_research_id_text}">${id}</p>`,
