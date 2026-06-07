@@ -16,7 +16,7 @@ const PALETTE = {
     5: "#E9E7DC",
     5.5: "#DAD2C3",
     6: "#EFECE8",
-    7: "#79B200",
+    7: "#618E00",
 } as const;
 
 // Used to create new mins and maxes for sizing properties when the viewport size changes.
@@ -881,8 +881,8 @@ export const STYLE_HEAVENLY_EARTH = {
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
                 borderRadius: SIZES.horizontal_40,
-                marginLeft: SIZES.horizontal_60,
-                marginRight: SIZES.horizontal_60,
+                marginLeft: SIZES.horizontal_70,
+                marginRight: SIZES.horizontal_70,
             },
 
             oINNER: {
@@ -1332,6 +1332,12 @@ export const STYLE_HEAVENLY_EARTH = {
     },
 
     oSOURCES: {
+
+        cINLINE_TAG: {
+            fontSize: "inherit",
+            color: PALETTE[7],
+            textDecoration: "none",
+        },
 
         oRESEARCH: {
 

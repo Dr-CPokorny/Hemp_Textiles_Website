@@ -61,7 +61,7 @@ function build_head(title) {
         ``,
         `       <meta charset="UTF-8">`,
         `       <meta name="viewport" content="width=device-width, initial-scale=1.0">`,
-        `       <title>${title}</title>`,
+        `       <title>MIWH: ${title.toUpperCase()}</title>`,
         ``,
         `${stylesheet_links}`,
         ``,
@@ -243,7 +243,7 @@ function build_body_for_learn() {
         `       <!-- Material Tests -->`,
         `       <div id="${SS.learn_material_panel}" class="${SS.form_static_column_center}">`,
         `           <h2 class="${SS.learn_material_heading}">Material Testing with Hemp</h2>`,
-        `           <p class="${SS.learn_material_text}">One of the goals of this project was to better understand how hemp fabrics perform compared to materials commonly used in quilting. To explore this, we conducted a series of material tests evaluating tear strength, abrasion resistance, drape, and shrinkage across four fabrics types: 100% hemp fabric, quilting cotton (Kona), a cotton-linen blend, and a textured woven cotton.</p>`,
+        `           <p class="${SS.learn_material_text}">One of the goals of this project was to better understand how hemp fabrics perform compared to materials commonly used in quilting. To explore this, we conducted a series of material tests evaluating tear strength, abrasion resistance, drape, and shrinkage across different fabric types.</p>`,
         `           <p class="${SS.learn_material_text}">Rather than relying on assumptions about hemp’s feel or durability, these tests provide measurable data about how the material performs under real-world conditions.</p>`,
         `           <p class="${SS.learn_material_text}">By comparing hemp directly with fabrics familiar to textile artists (like cotton), we hope to better understand its strengths, limitations, and potential applications within the textile world. </p>`,
         `           <div class="${SS.form_flex_wrap_row}">`,
@@ -265,7 +265,7 @@ function build_body_for_sources() {
     const TOP_INFO = build_top("\t\t", "\"Is Any Of This True?\"", "We're glad you asked.  Please feel free to peruse these sources to verify.  If you find that our words are inaccurate, then please use the mail icon in the footer to correct us.");
     // Acquiring sources from the local sources.csv file.
     const SOURCES = parse_csv(PATH.resolve("../../databases/sources.csv"))
-        .map(([id, title, category, source_type, reliability, summary, notes, citation, link]) => build_research_for_source_page("\t\t\t", id, title, category, source_type, reliability, summary, citation, notes || undefined, link || undefined))
+        .map(([id, title, category, source_type, reliability, summary, citation, link]) => build_research_for_source_page("\t\t\t", id, title, category, source_type, reliability, summary, citation, link || undefined))
         .join("\n");
     return [
         `   <body class="${SS.form_static_column_center}">`,
@@ -288,7 +288,7 @@ function build_body_for_sources() {
 // Builds the body for the ABOUT page.
 function build_body_for_about() {
     // Top Information
-    const TOP_INFO = build_top("\t\t", "About the Project", "Building a more sustainable future for quilting.");
+    const TOP_INFO = build_top("\t\t", "About the Project", "Building a more sustainable future for the textile arts.");
     // People Information
     const POKORNY = build_person_for_about_page("\t\t", "assets/images/about_person_pokorny.svg", "Dr. Colleen Gelhaus Pokorny", "Project Lead", "Dr. Pokorny is an Assistant Professor of Apparel Design at Oregon State University and a lifelong quilter. She is a member of the Textile & Apparel Innovation Research Consortia with the Global Hemp Innovation Center. Her creative scholarship uses quiltmaking to explore material‑driven sustainability and how hands‑on engagement with hemp textiles can shift design practices and perceptions. Dr. Pokorny's work has received international recognition, including the Sandra Hutton Award for Excellence in Fiber Arts at the 2025 ITAA Design Exhibition. Her work has been shown at the National Quilt Museum, QuiltCon, and the American Quilt Study Group's traveling exhibition, Quiltmakers and Designers: 1945–1979.", "mailto:colleen.pokorny@oregonstate.edu", "EMAIL", "https://business.oregonstate.edu/faculty-and-research/faculty-directory/colleen-gelhaus-pokorny", "BUSINESS BIOGRAPHY", "https://www.linkedin.com/in/colleenpokorny/", "LINKEDIN");
     const AURORA = build_person_for_about_page("\t\t", "assets/images/about_person_aurora.svg", "Aurora O'Neill", "Designer & Researcher", "Aurora O’Neill is a Design and Innovation Management student at Oregon State University with a background in design research, sustainability, marketing, and entrepreneurship. The bulk of her design research focuses on how thoughtful design and material choices can support more environmentally responsible futures. Alongside her research, Aurora has experience in graphic design, UX design, branding, and collaborative projects that connect creativity with social impact. She is passionate about using research, storytelling, and community engagement to create work that encourages conversation and participation around sustainable practices.", "https://www.linkedin.com/in/aurora-o-neill-466132232/", "LINKEDIN");
@@ -306,7 +306,7 @@ function build_body_for_about() {
         `       <!-- About Description -->`,
         `       <div id="${SS.about_description_panel}">`,
         `           <h2 class="${SS.about_description_heading}">Project Overview</h2>`,
-        `           <p class="${SS.about_description_text}">The U.S. quilting industry is a multi-billion-dollar market, generating $4.5B in annual revenue in 2025 and supported by 9–11 million active quilters, making it one of the most robust craft sectors in the country. At the same time, consumer trends show a growing shift toward textured woven and linen fabrics that add depth, natural beauty, and tactility to quilts. Despite this appetite for natural, textured materials, quilting textiles remain cotton-dominant. While cotton is a natural fiber, its high water and pesticide use, along with historical labor issues, present a persistent sustainability challenge for the industry.</p>`,
+        `           <p class="${SS.about_description_text}">The U.S. quilting industry is a multi-billion-dollar market, generating $4.5B in annual revenue in 2025 and supported by 9–11 million active quilters, making it one of the most robust craft sectors in the country. At the same time, consumer trends show a growing shift toward textured woven and linen fabrics that add depth, natural beauty, and tactility to quilts ${build_inline_source("R-024", "R-025")}. Despite this appetite for natural, textured materials, quilting textiles remain cotton-dominant. While cotton is a natural fiber, its high water and pesticide use, along with historical labor issues, present a persistent sustainability challenge for the industry.</p>`,
         `           <p class="${SS.about_description_text}">Hemp textiles can meet quiltmaking's demand for natural, tactile materials while reducing environmental impact (lower water use, no pesticides, durable, breathable, biodegradable). Yet adoption lags due to misconceptions about texture/softness and associations with marijuana, plus limited retail presence. Meanwhile, the U.S. hemp fiber market is expanding. It is projected to grow from $120.4M (2024) to $360.2M (2033), signaling market pull for sustainable cotton alternatives and a timely opportunity for application in quiltmaking. Quiltmaking is an ideal medium for changing perceptions because it is a deeply tactile, material-driven craft where makers handle, test, and compare materials through hands-on making.</p>`,
         `           <p class="${SS.about_description_text}">It is our belief that the information provided on this site, its potential to spread, and the data collection of what people think of hemp through our survey will open the way for discovering how to make a more sustainable future within the textile arts.  We don't want to just show what we can find online or through the standard research papers that we'll be sifting through, rather we want to exemplify the voices of the community in our work.  Peoples' reaction to this website, alongside the responses we discover in the provided survey that's linked in the Home Page, acts as the first step toward showing that voice on the matter.  Only together, can we weave a more sustainable future.</p>`,
         `       </div>`,
@@ -506,14 +506,19 @@ function build_right_row_for_comparison_chart_for_learn_page(indent, icon, text)
         `${indent}</div>`,
     ].join("\n");
 }
-// Generates a source block where notes and a link to the source are optional elements.  This source generator
+// Generates a source block where a link to the source is an optional element.  This source generator
 // is dedicated for secondary research only.  Primary research--prototyping, survey data, testing, or interviewing--should
 // be tossed into a different builder (you'll have to make one or several, I didn't have time to make those builders).
 //
+// Also, the sources outer panels are ID'd based on the id parameter.  This way, the sources can be hash jumped to through
+// inline tags and highlighted by event listeners.
+//
 // Will return an array of template literals for tacking into a body builder.
-function build_research_for_source_page(indent, id, title, research_category, source_type, reliability, summary, citation, notes, link) {
+function build_research_for_source_page(indent, id, title, research_category, source_type, reliability, summary, citation, link) {
+    // Creating a link panel.
+    // If there is a link, a URL will be added to the panel.
+    // If there is no link, a note mentioning that there was no link for the source shall be stated.
     let link_panel = "";
-    let notes_panel = "";
     if (link !== undefined) {
         link_panel = [
             `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
@@ -526,25 +531,17 @@ function build_research_for_source_page(indent, id, title, research_category, so
         link_panel = [
             `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
             `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">Link To Source</h3>`,
-            `${indent}\t\t\t<p class="${SS.sources_research_inner_text}"><i>Source has no link.  This is likely due to the source type not allowing for a link, or it's an error on our part.</i></p>`,
-            `${indent}\t\t</div>`,
-        ].join("\n");
-    }
-    if (notes !== undefined) {
-        notes_panel = [
-            `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
-            `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">Notes</h3>`,
-            `${indent}\t\t\t<p class="${SS.sources_research_inner_text}">${notes}</p>`,
+            `${indent}\t\t\t<p class="${SS.sources_research_inner_text}"><i>Source has no link.</i></p>`,
             `${indent}\t\t</div>`,
         ].join("\n");
     }
     return [
         `${indent}<!-- ${id} \"${title.toUpperCase()}\" -->`,
-        `${indent}<div id="${id}" class="${SS.sources_research_container} ${SS.form_static_column_center}">`,
+        `${indent}<div class="${SS.sources_research_container} ${SS.form_static_column_center}">`,
         `${indent}\t<div class="${SS.sources_research_id_panel}">`,
         `${indent}\t\t<p class="${SS.sources_research_id_text}">${id}</p>`,
         `${indent}\t</div>`,
-        `${indent}\t<div class="${SS.sources_research_outer_panel}">`,
+        `${indent}\t<div id="${id}" class="${SS.sources_research_outer_panel}">`,
         `${indent}\t\t<h2 class="${SS.sources_research_title}">${title}</h2>`,
         `${indent}\t\t<div class="${SS.sources_research_inner_panel}">`,
         `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">Summary</h3>`,
@@ -567,11 +564,21 @@ function build_research_for_source_page(indent, id, title, research_category, so
         `${indent}\t\t\t<h3 class="${SS.sources_research_heading}">APA Citation</h3>`,
         `${indent}\t\t\t<p class="${SS.sources_research_inner_text}">${citation}</p>`,
         `${indent}\t\t</div>`,
-        notes_panel,
         `${indent}\t</div>`,
         `${indent}</div>`,
         ``,
     ].join("\n");
+}
+// Generates <a> tags for references to the source page.  Takes in database ids as parameters to create
+// a chain of inline sources.  An example call would be: build_inline_source("R-001", R-013").  This would
+// create two <a> tags that can each be used to jump to the relative source info within the sources page.
+//
+// Will return an array of template literals for tacking into a body builder.
+function build_inline_source(...ids) {
+    // Creating a list of jumpable links by taking the string array and mapping its
+    // contents to individual <a> tags.
+    const links = ids.map(id => `<a class="${SS.sources_inline_tag}" href="${PAGES.SOURCES}.html#${id}">${id}</a>`).join(", ");
+    return `[${links}]`;
 }
 // Takes a .csv file that has all of its data surrounded by quotes and parses the information into an array of strings.
 //
