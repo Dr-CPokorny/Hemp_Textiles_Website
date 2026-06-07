@@ -882,7 +882,7 @@ export const STYLE_HEAVENLY_EARTH = {
             oCARD: {
                 cPANEL: {
                     flex: "1",
-                    minWidth: SIZES.horizontal_91,
+                    minWidth: `clamp(${SIZES.horizontal_90}, 100%, ${SIZES.horizontal_93})`,
                     justifyContent: "center",
                     backgroundImage: `linear-gradient(to top, ${PALETTE[1]} 10%, transparent 90%)`,
                     backgroundColor: PALETTE[6],
@@ -900,7 +900,7 @@ export const STYLE_HEAVENLY_EARTH = {
                 },
                 cIMAGE: {
                     borderRadius: SIZES.horizontal_45,
-                    width: SIZES.horizontal_90,
+                    width: `clamp(${SIZES.horizontal_90}, 100%, ${SIZES.horizontal_93})`,
                     height: "auto",
                     margin: SIZES.horizontal_40,
                 },
@@ -959,6 +959,7 @@ export const STYLE_HEAVENLY_EARTH = {
                     color: PALETTE[4],
                     fontFamily: "FONT_TEXT_SPECTRAL_BOLD",
                     fontStyle: "italic",
+                    hyphens: "none",
                     fontSize: SIZES.horizontal_56,
                     marginBottom: SIZES.horizontal_36,
                 },
