@@ -123,7 +123,7 @@ function build_body_for_home(): string {
     // Top Information
     const TOP_INFO = build_top(
         "\t\t",
-        "Help Shape the Future of Hemp in Quilting",
+        "Help Shape the Future of Hemp in the Textile Arts",
         "Share your experience or curiosity about hemp fabrics.<br>Your input informs sustainable textile innovation.",
     );
 
@@ -167,7 +167,7 @@ function build_body_for_home(): string {
         "assets/images/home_card_makers.svg",
         "Finished blue quilt made with hemp fabric.",
         "Made for Makers",
-        "Quilters like you are leading the way to a greener future."
+        "Crafters like you are leading the way to a greener future."
     );
 
     return [
@@ -194,8 +194,8 @@ function build_body_for_home(): string {
         `       <!-- Why Your Voice Matters -->`,
         `       <div id="${SS.home_why_panel}" class="${SS.form_static_column_center}">`,
         ``,
-        `           <h2 id="${SS.home_why_heading}">Why your voice matters</h2>`,
-        `           <p id="${SS.home_why_text}">Hemp is a durable, sustainable textile with so much potential.<br>But we need your input to guide the future of hemp in quilting.</p>`,
+        `           <h2 id="${SS.home_why_heading}">Why Your Voice Matters</h2>`,
+        `           <p id="${SS.home_why_text}">Hemp is a durable, sustainable textile with so much potential.<br>But we need your input to guide the future of hemp within the textile arts.</p>`,
         ``,
         `           <div id="${SS.home_why_divider_row}" class="${SS.form_static_row_center}">`,
         `               <div class="${SS.home_why_divider_line}"></div>`,
@@ -280,7 +280,7 @@ function build_body_for_learn(): string {
         "assets/images/learn_why_card_textured.svg",
         "Text",
         "Naturally Textured and Tactile",
-        "Its natural texture adds depth and character to quilts and textile work."
+        "Its natural texture adds depth and character to textile work."
     );
     const WHY_CARD_BIODEGRADABLE = build_why_card_for_learn_page(
         "\t\t\t\t",
@@ -301,10 +301,10 @@ function build_body_for_learn(): string {
         '"Hemp fabric is rough."',
         "Modern hemp textiles can range from structured and textured to soft and breathable depending on the weave and blend. Many hemp fabrics become softer over time with washing and regular use."
     );
-    const MISCONCEPTION_CARD_QUILTING = build_misconception_card_for_learn_page(
+    const MISCONCEPTION_CARD_TEXTILE_ARTS = build_misconception_card_for_learn_page(
         "\t\t\t\t",
-        '"Hemp isn\'t practical for quilting."',
-        "Part of this project explores exactly that question. By gathering feedback from quilters and testing material experiences, the project aims to better understand hemp's usability, comfort, and creative potential within quiltmaking."
+        '"Hemp isn\'t practical for the textile arts."',
+        "Part of this project explores exactly that question. By gathering feedback from quilters and testing material experiences, the project aims to better understand hemp's usability, comfort, and creative potential for handmade craftsmanship."
     );
 
     // Material Tests Information
@@ -313,21 +313,21 @@ function build_body_for_learn(): string {
         "assets/images/learn_test_tear.svg",
         "Text",
         "Tear Test Results",
-        "Lorem ipsum dolor sit amet, labore tempor officia sed ad eiusmod adipiscing duis nisi minim qui consectetur veniam labore cillum exercitation labore cillum quis cillum elit sed labore nostrud reprehenderit cupidatat velit qui sint esse do voluptate enim et sed pariatur consequat est ipsum occaecat nisi enim eiusmod ullamco duis mollit in voluptate voluptate ut"
+        "The tear test showed that the textured woven cotton had the highest tear strength in the warp direction, while hemp and cotton/linen also performed well with consistent results. Hemp fabric showed balanced tear resistance between warp and weft directions, making it a strong and reliable option compared to basic quilt cotton. The textured woven cotton had a large difference between warp and weft strength, showing that fabric direction can greatly affect performance."
     );
     const TEST_ABRASION = build_material_test_for_learn_page(
         "\t\t\t\t",
         "assets/images/learn_test_abrasion.svg",
         "Text",
         "Abrasion Test Results",
-        "Lorem ipsum dolor sit amet, labore tempor officia sed ad eiusmod adipiscing duis nisi minim qui consectetur veniam labore cillum exercitation labore cillum quis cillum elit sed labore nostrud reprehenderit cupidatat velit qui sint esse do voluptate enim et sed pariatur consequat est ipsum occaecat nisi enim eiusmod ullamco duis mollit in voluptate voluptate ut"
+        "The abrasion test showed that hemp fabric had the highest resistance to wear, lasting an average of about 45 revolutions before failure. Cotton/linen and textured woven cotton performed in the middle range, while basic quilt cotton showed the lowest abrasion resistance. Overall, the hemp fabric handled repeated wear the best, which supports its potential as a durable material for quiltmaking and other textile uses."
     );
     const TEST_DRAPE = build_material_test_for_learn_page(
         "\t\t\t\t",
         "assets/images/learn_test_drape.svg",
         "Text",
         "Drape Test Results",
-        "Lorem ipsum dolor sit amet, labore tempor officia sed ad eiusmod adipiscing duis nisi minim qui consectetur veniam labore cillum exercitation labore cillum quis cillum elit sed labore nostrud reprehenderit cupidatat velit qui sint esse do voluptate enim et sed pariatur consequat est ipsum occaecat nisi enim eiusmod ullamco duis mollit in voluptate voluptate ut"
+        "The drape test was used to evaluate how naturally each fabric hangs and conforms under its own weight. A higher drape coefficient indicates a stiffer fabric, while a lower coefficient indicates greater flexibility and flow. Results showed that the hemp/cotton blend performed similarly to traditional cotton, suggesting that hemp-based textiles can provide comparable handling characteristics for textile-crafting applications. Linen/cotton and woven cotton fabrics exhibited lower drape coefficients, indicating greater flexibility. These findings suggest that hemp blends may offer a sustainable alternative to cotton while maintaining familiar fabric behavior valued by textile artists."
     );
     const TEST_SHRINKAGE = build_material_test_for_learn_page(
         "\t\t\t\t",
@@ -378,10 +378,10 @@ function build_body_for_learn(): string {
         `           <p class="${SS.learn_what_is_hemp_text}">Today, hemp is gaining attention as a more sustainable textile alternative because it requires less water and fewer pesticides compared to cotton, and produces durable, breathable fibers that soften over time with use. Despite these benefits, hemp fabrics are still often misunderstood due to long-standing associations with marijuana and limited exposure within mainstream textile markets.</p>`,
         `       </div>`,
         ``,
-        `       <!-- Why Hemp for Quilting -->`,
+        `       <!-- Why Hemp for Crafting? -->`,
         `       <div id="${SS.learn_why_panel}" class="${SS.form_static_column_center}">`,
-        `           <h2 id="${SS.learn_why_heading}">Why Hemp for Quilting?</h2>`,
-        `           <p id="${SS.learn_why_text}">Quilting is a deeply tactile craft where makers interact directly with materials through cutting, sewing, layering, and touch. This hands-on experience creates a unique opportunity to evaluate hemp textiles based on real performance rather than assumptions.</p>`,
+        `           <h2 id="${SS.learn_why_heading}">Why Hemp for Textile Crafting?</h2>`,
+        `           <p id="${SS.learn_why_text}">All textile arts, such as quiltmaking, require deep and intricate work where makers interact directly with materials through cutting, sewing, layering, and touch. This hands-on experience creates a unique opportunity to evaluate hemp textiles based on real performance rather than assumptions.</p>`,
         `           <div class="${SS.form_flex_wrap_row}">`,
         `               ${WHY_CARD_DURABLE}`,
         `               ${WHY_CARD_BREATHABLE}`,
@@ -396,14 +396,16 @@ function build_body_for_learn(): string {
         `           <div class="${SS.form_flex_wrap_row}">`,
         `               ${MISCONCEPTION_CARD_COMPARISON}`,
         `               ${MISCONCEPTION_CARD_ROUGH}`,
-        `               ${MISCONCEPTION_CARD_QUILTING}`,
+        `               ${MISCONCEPTION_CARD_TEXTILE_ARTS}`,
         `           </div>`,
         `       </div>`,
         ``,
         `       <!-- Material Tests -->`,
         `       <div id="${SS.learn_material_panel}" class="${SS.form_static_column_center}">`,
         `           <h2 class="${SS.learn_material_heading}">Material Testing with Hemp</h2>`,
-        `           <p class="${SS.learn_material_text}">Lorem ipsum dolor sit amet, labore tempor officia sed ad eiusmod adipiscing duis nisi minim qui consectetur veniam labore cillum exercitation labore cillum quis cillum elit sed labore nostrud reprehenderit cupidatat velit qui sint esse do voluptate enim et sed pariatur consequat est ipsum occaecat nisi enim eiusmod ullamco duis mollit in voluptate voluptate ut</p>`,
+        `           <p class="${SS.learn_material_text}">One of the goals of this project was to better understand how hemp fabrics perform compared to materials commonly used in quilting. To explore this, we conducted a series of material tests evaluating tear strength, abrasion resistance, drape, and shrinkage across four fabrics types: 100% hemp fabric, quilting cotton (Kona), a cotton-linen blend, and a textured woven cotton.</p>`,
+        `           <p class="${SS.learn_material_text}">Rather than relying on assumptions about hemp’s feel or durability, these tests provide measurable data about how the material performs under real-world conditions.</p>`,
+        `           <p class="${SS.learn_material_text}">By comparing hemp directly with fabrics familiar to textile artists (like cotton), we hope to better understand its strengths, limitations, and potential applications within the textile world. </p>`,
         `           <div class="${SS.form_flex_wrap_row}">`,
         `               ${TEST_TEAR}`,
         `               ${TEST_ABRASION}`,
@@ -549,7 +551,7 @@ function build_body_for_about(): string {
         `           <h2 class="${SS.about_description_heading}">Project Overview</h2>`,
         `           <p class="${SS.about_description_text}">The U.S. quilting industry is a multi-billion-dollar market, generating $4.5B in annual revenue in 2025 and supported by 9–11 million active quilters, making it one of the most robust craft sectors in the country. At the same time, consumer trends show a growing shift toward textured woven and linen fabrics that add depth, natural beauty, and tactility to quilts. Despite this appetite for natural, textured materials, quilting textiles remain cotton-dominant. While cotton is a natural fiber, its high water and pesticide use, along with historical labor issues, present a persistent sustainability challenge for the industry.</p>`,
         `           <p class="${SS.about_description_text}">Hemp textiles can meet quiltmaking's demand for natural, tactile materials while reducing environmental impact (lower water use, no pesticides, durable, breathable, biodegradable). Yet adoption lags due to misconceptions about texture/softness and associations with marijuana, plus limited retail presence. Meanwhile, the U.S. hemp fiber market is expanding. It is projected to grow from $120.4M (2024) to $360.2M (2033), signaling market pull for sustainable cotton alternatives and a timely opportunity for application in quiltmaking. Quiltmaking is an ideal medium for changing perceptions because it is a deeply tactile, material-driven craft where makers handle, test, and compare materials through hands-on making.</p>`,
-        `           <p class="${SS.about_description_text}">It is our belief that the information provided on this site, its potential to spread, and the data collection of what people think of hemp through our survey will open the way for discovering how to make a more sustainable future within quiltmaking.  We don't want to just show what we can find online or through the standard research papers that we'll be sifting through, rather we want to exemplify the voices of the community in our work.  Peoples' reaction to this website, alongside the responses we discover in the provided survey that's linked in the Home Page, acts as the first step toward showing that voice on the matter.  Only together, can we weave a more sustainable future.</p>`,
+        `           <p class="${SS.about_description_text}">It is our belief that the information provided on this site, its potential to spread, and the data collection of what people think of hemp through our survey will open the way for discovering how to make a more sustainable future within the textile arts.  We don't want to just show what we can find online or through the standard research papers that we'll be sifting through, rather we want to exemplify the voices of the community in our work.  Peoples' reaction to this website, alongside the responses we discover in the provided survey that's linked in the Home Page, acts as the first step toward showing that voice on the matter.  Only together, can we weave a more sustainable future.</p>`,
         `       </div>`,
         ``,
         `       <!-- Team Intro Title + Flair -->`,
@@ -586,7 +588,7 @@ function build_navigation(indent: string): string {
         `${indent}\t<div id="${SS.navigation_title_panel}">`,
         `${indent}\t\t<img id="${SS.navigation_logo}" src="assets/images/logo_for_navigation.svg" alt="logo">`,
         `${indent}\t\t<div>`,
-        `${indent}\t\t\t<p id="${SS.navigation_title}">HEMP & QUILTING</p>`,
+        `${indent}\t\t\t<p id="${SS.navigation_title}">Make It With Hemp</p>`,
         `${indent}\t\t\t<p id="${SS.navigation_subtitle}">Community Project</p>`,
         `${indent}\t\t</div>`,
         `${indent}\t</div>`,
@@ -823,7 +825,11 @@ function build_right_row_for_comparison_chart_for_learn_page(
     ].join("\n");
 }
 
-// Generates a source
+// Generates a source block where notes and a link to the source are optional elements.  This source generator
+// is dedicated for secondary research only.  Primary research--prototyping, survey data, testing, or interviewing--should
+// be tossed into a different builder (you'll have to make one or several, I didn't have time to make those builders).
+//
+// Will return an array of template literals for tacking into a body builder.
 function build_research_for_source_page(
     indent: string,
     id: string,
@@ -868,7 +874,7 @@ function build_research_for_source_page(
 
     return [
         `${indent}<!-- ${id} \"${title.toUpperCase()}\" -->`,
-        `${indent}<div class="${SS.sources_research_container} ${SS.form_static_column_center}">`,
+        `${indent}<div id="${id}" class="${SS.sources_research_container} ${SS.form_static_column_center}">`,
         `${indent}\t<div class="${SS.sources_research_id_panel}">`,
         `${indent}\t\t<p class="${SS.sources_research_id_text}">${id}</p>`,
         `${indent}\t</div>`,
