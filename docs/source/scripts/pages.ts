@@ -247,7 +247,7 @@ function build_body_for_learn(): string {
     const MARIJUANA_THC = build_right_row_for_comparison_chart_for_learn_page(
         "\t\t\t\t\t",
         "arrow_warm_up",
-        "High THC (>5%)"
+        "High THC (>0.3%)"
     );
     const MARIJUANA_USE = build_right_row_for_comparison_chart_for_learn_page(
         "\t\t\t\t\t",
@@ -266,40 +266,40 @@ function build_body_for_learn(): string {
         "assets/images/learn_why_card_durable.svg",
         "Text",
         "Durable and Long-Lasting",
-        "Hemp fibers are known for their strength and long-lasting quality."
+        `Hemp fibers are known for their strength and long-lasting quality ${build_inline_source("R-005", "R-008")}.`
     );
     const WHY_CARD_BREATHABLE = build_why_card_for_learn_page(
         "\t\t\t\t",
         "assets/images/learn_why_card_breathable.svg",
         "Text",
         "Breathable and Lightweight",
-        "Hemp fabric is breathable and gets softer with every wash and use; there is a limit to how soft it can get."
+        `Hemp fabric is breathable and gets softer with every wash and use ${build_inline_source("R-009", "R-025")}; there is a limit to how soft it can get.`
     );
     const WHY_CARD_TEXTURED = build_why_card_for_learn_page(
         "\t\t\t\t",
         "assets/images/learn_why_card_textured.svg",
         "Text",
         "Naturally Textured and Tactile",
-        "Its natural texture adds depth and character to textile work."
+        `Its natural texture adds depth and character to textile work ${build_inline_source("R-008", "R-009")}.`
     );
     const WHY_CARD_BIODEGRADABLE = build_why_card_for_learn_page(
         "\t\t\t\t",
         "assets/images/learn_why_card_biodegradable.svg",
         "Text",
         "Biodegradable and Lower-Impact",
-        "Hemp requires less water and fewer pesticides than cotton."
+        `Hemp requires less water and fewer pesticides than cotton ${build_inline_source("R-001", "R-002", "R-006", "R-010")}.`
     );
 
     // Misconception Card Information
     const MISCONCEPTION_CARD_COMPARISON = build_misconception_card_for_learn_page(
         "\t\t\t\t",
         '"Hemp is the same as marijuana."',
-        "While hemp and marijuana come from the same plant species, they are grown and used very differently. Textile hemp contains very low THC levels and is used for industrial applications like fabric, rope, and paper."
+        `While hemp and marijuana come from the same plant species ${build_inline_source("R-027")}, they are grown and used very differently. Textile hemp contains very low THC levels ${build_inline_source("R-027")} and is used for industrial applications like fabric, rope, and paper ${build_inline_source("R-007", "R-012")}.`
     );
     const MISCONCEPTION_CARD_ROUGH = build_misconception_card_for_learn_page(
         "\t\t\t\t",
         '"Hemp fabric is rough."',
-        "Modern hemp textiles can range from structured and textured to soft and breathable depending on the weave and blend. Many hemp fabrics become softer over time with washing and regular use."
+        `Modern hemp textiles can range from structured and textured to soft and breathable depending on the weave and blend ${build_inline_source("R-025")}. Many hemp fabrics become softer over time with washing and regular use ${build_inline_source("R-009")}.`
     );
     const MISCONCEPTION_CARD_TEXTILE_ARTS = build_misconception_card_for_learn_page(
         "\t\t\t\t",
@@ -334,7 +334,7 @@ function build_body_for_learn(): string {
         "assets/images/learn_test_shrinkage.svg",
         "Text",
         "Shrinkage Test Results",
-        "Lorem ipsum dolor sit amet, labore tempor officia sed ad eiusmod adipiscing duis nisi minim qui consectetur veniam labore cillum exercitation labore cillum quis cillum elit sed labore nostrud reprehenderit cupidatat velit qui sint esse do voluptate enim et sed pariatur consequat est ipsum occaecat nisi enim eiusmod ullamco duis mollit in voluptate voluptate ut"
+        "For the shrinkage test, each fabric sample was measured before and after washing to compare how much the material changed in size. The results showed that 100% Cotton Kona had the lowest shrinkage, with an average of about 0.203 inches, making it the most dimensionally stable fabric in this test. The hemp/cotton blend and Essex linen blend had very similar shrinkage results, averaging about 0.48 inches and 0.47 inches, which shows that the hemp blend performed close to another common natural fiber blend. The Diamond Textiles textured cotton had the highest shrinkage at about 0.625 inches. Overall, this test helped show that hemp fabric is still a usable option for quilting, but like many natural fabrics, it should likely be pre-washed before use to reduce shrinking after a quilt is made."
     );
 
     return [
@@ -374,8 +374,8 @@ function build_body_for_learn(): string {
         `       <!-- What is Hemp, Really? -->`,
         `       <div id="${SS.learn_what_is_hemp_panel}" class="${SS.form_static_column_center}">`,
         `           <h2 id="${SS.learn_what_is_hemp_heading}">What is Hemp, Really?</h2>`,
-        `           <p class="${SS.learn_what_is_hemp_text}">Hemp is a natural fiber that comes from the Cannabis sativa plant, but unlike marijuana, which has high levels of THC (5-30%+) hemp contains extremely low levels of THC (<0.3%); THC is the psychoactive compound associated with getting “high”. Hemp used for textiles is non-psychoactive, legally grown in many parts of the world, and has been used historically for products like rope, paper, clothing, and fabric.</p>`,
-        `           <p class="${SS.learn_what_is_hemp_text}">Today, hemp is gaining attention as a more sustainable textile alternative because it requires less water and fewer pesticides compared to cotton, and produces durable, breathable fibers that soften over time with use. Despite these benefits, hemp fabrics are still often misunderstood due to long-standing associations with marijuana and limited exposure within mainstream textile markets.</p>`,
+        `           <p class="${SS.learn_what_is_hemp_text}">Hemp is a natural fiber that comes from the Cannabis sativa plant, but unlike marijuana, which has high levels of THC (>0.3%) hemp contains extremely low levels of THC (<0.3%) ${build_inline_source("R-027")}; THC is the psychoactive compound associated with getting “high”. Hemp used for textiles is non-psychoactive, legally grown in many parts of the world, and has been used historically for products like rope, paper, clothing, and fabric ${build_inline_source("R-007", "R-012", "R-027")}.</p>`,
+        `           <p class="${SS.learn_what_is_hemp_text}">Today, hemp is gaining attention as a more sustainable textile alternative because it requires less water and fewer pesticides compared to cotton, and produces durable, breathable fibers that soften over time with use ${build_inline_source("R-006", "R-009", "R-012", "R-014")}. Despite these benefits, hemp fabrics are still often misunderstood due to long-standing associations with marijuana and limited exposure within mainstream textile markets.</p>`,
         `       </div>`,
         ``,
         `       <!-- Why Hemp for Crafting? -->`,
@@ -548,8 +548,8 @@ function build_body_for_about(): string {
         `       <!-- About Description -->`,
         `       <div id="${SS.about_description_panel}">`,
         `           <h2 class="${SS.about_description_heading}">Project Overview</h2>`,
-        `           <p class="${SS.about_description_text}">The U.S. quilting industry is a multi-billion-dollar market, generating $4.5B in annual revenue in 2025 and supported by 9–11 million active quilters, making it one of the most robust craft sectors in the country. At the same time, consumer trends show a growing shift toward textured woven and linen fabrics that add depth, natural beauty, and tactility to quilts ${build_inline_source("R-024", "R-025")}. Despite this appetite for natural, textured materials, quilting textiles remain cotton-dominant. While cotton is a natural fiber, its high water and pesticide use, along with historical labor issues, present a persistent sustainability challenge for the industry.</p>`,
-        `           <p class="${SS.about_description_text}">Hemp textiles can meet quiltmaking's demand for natural, tactile materials while reducing environmental impact (lower water use, no pesticides, durable, breathable, biodegradable). Yet adoption lags due to misconceptions about texture/softness and associations with marijuana, plus limited retail presence. Meanwhile, the U.S. hemp fiber market is expanding. It is projected to grow from $120.4M (2024) to $360.2M (2033), signaling market pull for sustainable cotton alternatives and a timely opportunity for application in quiltmaking. Quiltmaking is an ideal medium for changing perceptions because it is a deeply tactile, material-driven craft where makers handle, test, and compare materials through hands-on making.</p>`,
+        `           <p class="${SS.about_description_text}">The U.S. quilting industry is a multi-billion-dollar market, generating $4.5B in annual revenue in 2025 and supported by 9–11 million active quilters, making it one of the most robust craft sectors in the country ${build_inline_source("R-023")}. At the same time, consumer trends show a growing shift toward textured woven and linen fabrics that add depth, natural beauty, and tactility to quilts ${build_inline_source("R-024", "R-025")}. Despite this appetite for natural, textured materials, quilting textiles remain cotton-dominant. While cotton is a natural fiber, its high water and pesticide use, along with historical labor issues, present a persistent sustainability challenge for the industry ${build_inline_source("R-004", "R-013", "R-015")}.</p>`,
+        `           <p class="${SS.about_description_text}">Hemp textiles can meet quiltmaking's demand for natural, tactile materials while reducing environmental impact (lower water use, no pesticides, durable, breathable, biodegradable). Yet adoption lags due to misconceptions about texture/softness and associations with marijuana, plus limited retail presence. Meanwhile, the U.S. hemp fiber market is expanding. It is projected to grow from $120.4M (2024) to $360.2M (2033), signaling market pull for sustainable cotton alternatives and a timely opportunity for application in quiltmaking ${build_inline_source("R-026")}. Quiltmaking is an ideal medium for changing perceptions because it is a deeply tactile, material-driven craft where makers handle, test, and compare materials through hands-on making.</p>`,
         `           <p class="${SS.about_description_text}">It is our belief that the information provided on this site, its potential to spread, and the data collection of what people think of hemp through our survey will open the way for discovering how to make a more sustainable future within the textile arts.  We don't want to just show what we can find online or through the standard research papers that we'll be sifting through, rather we want to exemplify the voices of the community in our work.  Peoples' reaction to this website, alongside the responses we discover in the provided survey that's linked in the Home Page, acts as the first step toward showing that voice on the matter.  Only together, can we weave a more sustainable future.</p>`,
         `       </div>`,
         ``,

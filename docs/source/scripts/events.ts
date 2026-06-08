@@ -17,6 +17,8 @@ window.addEventListener("hashchange", highlight_target);
 // highlight anything that gets clicked for a hash jump (id jumping).  So if you start seeing rectangles
 // around elements you're trying to id-jump to and you don't like that, then know that this is the culprit.
 //
+// Will not work if the target has no parent container.
+//
 // This function is paired with 2 window event listeners inside events.ts.
 function highlight_target(): void {
 
@@ -25,7 +27,7 @@ function highlight_target(): void {
     if (previously_highlighted) {
         previously_highlighted.style.boxShadow = "";
         previously_highlighted.style.transition = "";
-        previously_highlighted.classList.remove("source-highlighted");
+        previously_highlighted.classList.remove("highlighted");
     }
 
     // Find the currently targeted element and highlight it.
@@ -37,6 +39,11 @@ function highlight_target(): void {
             target.style.boxShadow = `0 0 0 4px black`;
             target.style.borderRadius = "5px";
             target.style.transition = "box-shadow 1s ease";
+
+            // Scrolls the target into view.  The math is to prevent the navigation bar from blocking the target's view.
+            const nav = document.querySelector("nav") as HTMLElement;
+            const target_position = target.parentElement.offsetTop - nav.offsetHeight;
+            window.scrollTo({ top: target_position, behavior: "smooth" });
         }
     }
 }
