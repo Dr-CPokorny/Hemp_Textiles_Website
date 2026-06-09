@@ -534,7 +534,7 @@ function build_body_for_about(): string {
         "\t\t",
         "assets/images/about_person_vance.svg",
         "Vance Hernandez",
-        "Badass MOFO",
+        "Researcher and Mechanical Engineer",
         "Vance Hernandez is a Mechanical Engineering student at Oregon State University and a 10-year U.S. Navy veteran. His background includes experience in engineering, technical problem solving, and hands-on project work, with interests in sustainability and practical design applications.",
     );
 
