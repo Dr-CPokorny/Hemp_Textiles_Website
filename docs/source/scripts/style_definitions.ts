@@ -1233,7 +1233,7 @@ export const STYLE_HEAVENLY_EARTH = {
                     fontFamily: "FONT_TEXT_SPECTRAL_MEDIUM",
                     fontSize: SIZES.horizontal_53,
                     lineHeight: "1.5",
-                    textAlign: "justify",
+                    textAlign: "left",
                     marginLeft: SIZES.horizontal_30,
                     marginRight: SIZES.horizontal_30,
                     marginBottom: SIZES.horizontal_30,
